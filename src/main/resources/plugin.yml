@@ -1,4 +1,13 @@
-name: Cool Enchants
+name: CoolEnchants
 version: '${project.version}'
 main: enchants.cool.coolenchants.CoolEnchants
 api-version: '1.20'
+commands:
+    CoolEnchants:
+        description: Opens the Cool Enchants UI
+        usage: /coolenchants
+
+    GiveCoolEnchant:
+        description: Gives the user a book
+        permission: op
+        usage: /givecoolenchant
