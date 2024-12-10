@@ -28,9 +28,7 @@ public class Butcher implements Listener {
         ItemStack Weapon = Player.getItemInHand();
 
         ArrayList<String> Lore = EnchantHelper.GetEnchants(Weapon.lore());
-
         if (!Lore.contains("Butcher")) { return; }
-
         Integer EnchantLevel = EnchantHelper.GetEnchantLevels(Weapon.lore()).get("Butcher");
 
         for (ItemStack Drop : Event.getDrops()) {

@@ -1,6 +1,7 @@
 package enchants.cool.coolenchants;
 
 import enchants.cool.coolenchants.Enchants.Chestplate.Revenge;
+import enchants.cool.coolenchants.Enchants.Replant;
 import enchants.cool.coolenchants.Enchants.Sword.Butcher;
 import enchants.cool.coolenchants.Helper.AttackerOnDeath;
 import enchants.cool.coolenchants.UI.InventoryClickListener;
@@ -23,6 +24,7 @@ public final class CoolEnchants extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new AttackerOnDeath(), this);
         getServer().getPluginManager().registerEvents(new Butcher(), this);
         getServer().getPluginManager().registerEvents(new Revenge(), this);
+        getServer().getPluginManager().registerEvents(new Replant(), this);
 
         ArmourUpdater.Start();
 

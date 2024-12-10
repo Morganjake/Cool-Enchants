@@ -32,10 +32,13 @@ public class EnchantList implements CommandExecutor {
         ButcherIII.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§9Sword", "§9Butcher III", "§9Max level 3", }));
 
         ItemStack Revenge = new ItemStack(Material.ENCHANTED_BOOK);
-        Revenge.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§5Chestplate", "§5Revenge I", "§5Max level 1", }));
+        Revenge.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§5Chestplate", "§5Revenge", "§5Max level 1", }));
 
         ItemStack TankI = new ItemStack(Material.ENCHANTED_BOOK);
         TankI.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§9Chestplate", "§9Tank I", "§9Max level 3", }));
+
+        ItemStack Replant = new ItemStack(Material.ENCHANTED_BOOK);
+        Replant.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§9Hoe", "§9Replant", "§9Max level 1", }));
 
         ItemStack TankII = new ItemStack(Material.ENCHANTED_BOOK);
         TankII.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§5Chestplate", "§5Tank II", "§5Max level 3", }));
@@ -49,6 +52,7 @@ public class EnchantList implements CommandExecutor {
 
         Rare.add(ButcherIII);
         Rare.add(TankI);
+        Rare.add(Replant);
 
         Epic.add(TankII);
         Epic.add(Revenge);
