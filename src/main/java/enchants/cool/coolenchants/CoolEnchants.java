@@ -1,7 +1,7 @@
 package enchants.cool.coolenchants;
 
 import enchants.cool.coolenchants.Enchants.Chestplate.Revenge;
-import enchants.cool.coolenchants.Enchants.Replant;
+import enchants.cool.coolenchants.Enchants.Hoe.Replant;
 import enchants.cool.coolenchants.Enchants.Sword.Butcher;
 import enchants.cool.coolenchants.Helper.AttackerOnDeath;
 import enchants.cool.coolenchants.UI.InventoryClickListener;

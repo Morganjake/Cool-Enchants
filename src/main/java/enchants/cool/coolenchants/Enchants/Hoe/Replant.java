@@ -1,11 +1,10 @@
-package enchants.cool.coolenchants.Enchants;
+package enchants.cool.coolenchants.Enchants.Hoe;
 
 import enchants.cool.coolenchants.CoolEnchants;
 import enchants.cool.coolenchants.Helper.EnchantHelper;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
-import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
