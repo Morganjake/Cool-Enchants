@@ -1,0 +1,4 @@
+name: Cool Enchants
+version: '${project.version}'
+main: enchants.cool.coolenchants.CoolEnchants
+api-version: '1.20'
