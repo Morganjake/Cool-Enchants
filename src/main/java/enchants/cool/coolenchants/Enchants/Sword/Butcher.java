@@ -16,14 +16,11 @@ import java.util.Map;
 
 public class Butcher implements Listener {
 
-    public static final Map<LivingEntity, Player> LastDamager = new HashMap<>();
-
     @EventHandler
     public void onEntityDeath(EntityDeathEvent Event) {
 
-
+        if (!(Event.getEntity() instanceof Player)) { return; }
         Player Player = (Player) AttackerOnDeath.Attacker.get(Event.getEntity());
-        if (Player == null) { return; }
 
         ItemStack Weapon = Player.getItemInHand();
 

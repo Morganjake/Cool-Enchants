@@ -42,6 +42,7 @@ public class Revenge implements Listener {
 
             TNTPrimed TNT = Player.getWorld().spawn(Player.getLocation(), TNTPrimed.class);
             TNT.setCustomName("Revenge Tnt");
+            TNT.setCustomNameVisible(false);
             TNT.setFuseTicks((int) (60 * Speed * Math.max(Speed, 1)));
             TNT.setIsIncendiary(false);
             TNT.setVelocity(new Vector(X, Math.random() * 0.7 + 0.3, Z).multiply(Speed));
