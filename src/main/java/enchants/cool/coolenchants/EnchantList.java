@@ -29,22 +29,28 @@ public class EnchantList implements CommandExecutor {
         ButcherII.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§aSword", "§aButcher II", "§aMax level 3", }));
 
         ItemStack ButcherIII = new ItemStack(Material.ENCHANTED_BOOK);
-        ButcherIII.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§9Sword", "§9Butcher III", "§9Max level 3", }));
+        ButcherIII.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§9Sword", "§9Butcher III", "§9Max level 3" }));
 
         ItemStack Revenge = new ItemStack(Material.ENCHANTED_BOOK);
-        Revenge.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§5Chestplate", "§5Revenge", "§5Max level 1", }));
+        Revenge.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§5Chestplate", "§5Revenge", "§5Max level 1" }));
 
         ItemStack TankI = new ItemStack(Material.ENCHANTED_BOOK);
-        TankI.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§9Chestplate", "§9Tank I", "§9Max level 3", }));
+        TankI.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§9Chestplate", "§9Tank I", "§9Max level 3" }));
 
         ItemStack Replant = new ItemStack(Material.ENCHANTED_BOOK);
-        Replant.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§9Hoe", "§9Replant", "§9Max level 1", }));
+        Replant.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§9Hoe", "§9Replant", "§9Max level 1" }));
 
         ItemStack TankII = new ItemStack(Material.ENCHANTED_BOOK);
-        TankII.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§5Chestplate", "§5Tank II", "§5Max level 3", }));
+        TankII.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§5Chestplate", "§5Tank II", "§5Max level 3" }));
 
         ItemStack TankIII = new ItemStack(Material.ENCHANTED_BOOK);
-        TankIII.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§6Chestplate", "§6Tank III", "§6Max level 3", }));
+        TankIII.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§6Chestplate", "§6Tank III", "§6Max level 3" }));
+
+        ItemStack StormI = new ItemStack(Material.ENCHANTED_BOOK);
+        StormI.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§5Trident", "§5Storm I", "§5Max level 2" }));
+
+        ItemStack StormII = new ItemStack(Material.ENCHANTED_BOOK);
+        StormII.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§6Trident", "§6Storm II", "§6Max level 2" }));
 
         Common.add(ButcherI);
 
@@ -56,8 +62,10 @@ public class EnchantList implements CommandExecutor {
 
         Epic.add(TankII);
         Epic.add(Revenge);
+        Epic.add(StormI);
 
         Legendary.add(TankIII);
+        Legendary.add(StormII);
 
         return Map.of(
                 "Common", Common,
@@ -87,7 +95,7 @@ public class EnchantList implements CommandExecutor {
             return false;
         }
 
-        if (!Objects.equals(Args[0], "876454512")) {
+        if (!Objects.equals(Args[0], "8")) {
             return false;
         }
 
