@@ -87,7 +87,7 @@ public class EnchantList implements CommandExecutor {
             return false;
         }
 
-        if (!Objects.equals(Args[0], "23")) {
+        if (!Objects.equals(Args[0], "745542521")) {
             return false;
         }
 

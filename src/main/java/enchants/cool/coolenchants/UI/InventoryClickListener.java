@@ -48,18 +48,26 @@ public class InventoryClickListener implements Listener {
             if (Event.getClickedInventory() == Player.getInventory()) { return; }
 
             if (ClickedSlot == 10) {
+                if (Player.getLevel() < 25) { Player.playSound(Player, Sound.BLOCK_ANVIL_LAND, 1, 1); return; }
+                Player.setLevel(Player.getLevel() - 25);
                 Roulette.Spin(Player, new int[]{55, 85, 95, 99, 100});
             }
 
             else if (ClickedSlot == 12) {
+                if (Player.getLevel() < 30) { Player.playSound(Player, Sound.BLOCK_ANVIL_LAND, 1, 1); return; }
+                Player.setLevel(Player.getLevel() - 30);
                 Roulette.Spin(Player, new int[]{25, 55, 85, 97, 100});
             }
 
             else if (ClickedSlot == 14) {
+                if (Player.getLevel() < 35) { Player.playSound(Player, Sound.BLOCK_ANVIL_LAND, 1, 1); return; }
+                Player.setLevel(Player.getLevel() - 35);
                 Roulette.Spin(Player, new int[]{10, 35, 70, 90, 100});
             }
 
             else if (ClickedSlot == 16) {
+                if (Player.getLevel() < 40) { Player.playSound(Player, Sound.BLOCK_ANVIL_LAND, 1, 1); return; }
+                Player.setLevel(Player.getLevel() - 40);
                 Roulette.Spin(Player, new int[]{0, 15, 45, 80, 100});
             }
 
