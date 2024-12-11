@@ -37,10 +37,10 @@ public class Replant implements Listener {
 
         if (NewCropType == null) { return; }
 
-        Material NewSeedType = switch (CropType) {
+        Material NewSeedType = switch (NewCropType) {
             case WHEAT -> Material.WHEAT_SEEDS;
-            case CARROTS -> Material.CARROTS;
-            case POTATOES -> Material.POTATOES;
+            case CARROTS -> Material.CARROT;
+            case POTATOES -> Material.POTATO;
             case BEETROOTS -> Material.BEETROOT_SEEDS;
             case NETHER_WART -> Material.NETHER_WART;
             default -> null;
@@ -53,7 +53,6 @@ public class Replant implements Listener {
             if (Item.getAmount() > 1) { Item.setAmount(Item.getAmount() - 1); break; }
             else { Player.getInventory().remove(Item); }
         }
-
 
         Bukkit.getScheduler().runTaskLater(CoolEnchants.GetPlugin(), () -> {
             Block.setType(NewCropType);
