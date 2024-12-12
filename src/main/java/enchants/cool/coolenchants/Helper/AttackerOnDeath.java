@@ -14,7 +14,7 @@ public class AttackerOnDeath implements Listener {
     public static Map<Entity, Entity> Attacker = new HashMap<>();
 
     @EventHandler
-    public void onEntityDamage(EntityDamageByEntityEvent Event) {
+    public void OnEntityDamage(EntityDamageByEntityEvent Event) {
 
         if (!(Event.getEntity() instanceof LivingEntity)) {
             return;

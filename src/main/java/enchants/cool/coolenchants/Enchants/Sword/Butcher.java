@@ -17,7 +17,7 @@ import java.util.Map;
 public class Butcher implements Listener {
 
     @EventHandler
-    public void onEntityDeath(EntityDeathEvent Event) {
+    public void OnEntityDeath(EntityDeathEvent Event) {
 
         if (!(Event.getEntity() instanceof Player)) { return; }
         Player Player = (Player) AttackerOnDeath.Attacker.get(Event.getEntity());
