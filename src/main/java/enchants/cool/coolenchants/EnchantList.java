@@ -49,6 +49,15 @@ public class EnchantList implements CommandExecutor {
         ItemStack Revenge = new ItemStack(Material.ENCHANTED_BOOK);
         Revenge.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§5Chestplate", "§5Revenge", "§5Max level 1" }));
 
+        ItemStack SonicI = new ItemStack(Material.ENCHANTED_BOOK);
+        SonicI.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§aBoots", "§aSonic I", "§aMax level 3" }));
+
+        ItemStack SonicII = new ItemStack(Material.ENCHANTED_BOOK);
+        SonicII.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§9Boots", "§9Sonic II", "§9Max level 3" }));
+
+        ItemStack SonicIII = new ItemStack(Material.ENCHANTED_BOOK);
+        SonicIII.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§5Boots", "§5Sonic III", "§5Max level 3" }));
+
         ItemStack TankI = new ItemStack(Material.ENCHANTED_BOOK);
         TankI.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§9Chestplate", "§9Tank I", "§9Max level 3" }));
 
@@ -74,16 +83,18 @@ public class EnchantList implements CommandExecutor {
         Uncommon.add(ButcherII);
         Uncommon.add(SmiteIII);
         Uncommon.add(SmiteIV);
+        Uncommon.add(SonicI);
 
         Rare.add(ButcherIII);
         Rare.add(TankI);
         Rare.add(Replant);
         Rare.add(SmiteV);
-
+        Rare.add(SonicII);
 
         Epic.add(TankII);
         Epic.add(Revenge);
         Epic.add(StormI);
+        Epic.add(SonicIII);
 
         Legendary.add(TankIII);
         Legendary.add(StormII);

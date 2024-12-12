@@ -22,7 +22,7 @@ public class MainUI implements CommandExecutor {
             return false;
         }
 
-        Player Player = (org.bukkit.entity.Player) CommandSender;
+        Player Player = (Player) CommandSender;
         MainMenu(Player);
 
         return true;

@@ -1,5 +1,6 @@
 package enchants.cool.coolenchants;
 
+import enchants.cool.coolenchants.Enchants.Boots.Sonic;
 import enchants.cool.coolenchants.Enchants.Chestplate.Tank;
 import enchants.cool.coolenchants.Helper.EnchantHelper;
 import net.kyori.adventure.text.Component;
@@ -23,10 +24,10 @@ public class ArmourUpdater {
         Map<String, Integer> Levels = EnchantHelper.GetEnchantLevels(Lore);
 
         if (Enchants.contains("Tank")) {
-            Tank.UpdateTank(Player, Levels.get("Tank"));
+            Tank.Update(Player, Levels.get("Tank"));
         }
         if (PreviousEnchants.contains("Tank")) {
-            Tank.UpdateTank(Player, PreviousLevels.get("Tank") * -1);
+            Tank.Update(Player, PreviousLevels.get("Tank") * -1);
         }
     }
 
@@ -35,7 +36,18 @@ public class ArmourUpdater {
     }
 
     private static void UpdateBoots(Player Player, List<Component> PreviousLore, List<Component> Lore) {
+        ArrayList<String> PreviousEnchants = EnchantHelper.GetEnchants(PreviousLore);
+        Map<String, Integer> PreviousLevels = EnchantHelper.GetEnchantLevels(PreviousLore);
 
+        ArrayList<String> Enchants = EnchantHelper.GetEnchants(Lore);
+        Map<String, Integer> Levels = EnchantHelper.GetEnchantLevels(Lore);
+
+        if (Enchants.contains("Sonic")) {
+            Sonic.Update(Player, Levels.get("Sonic"));
+        }
+        if (PreviousEnchants.contains("Sonic")) {
+            Sonic.Update(Player, PreviousLevels.get("Sonic") * -1);
+        }
     }
 
     public static void Start() {
