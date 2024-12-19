@@ -2,7 +2,6 @@ package enchants.cool.coolenchants.UI;
 
 import enchants.cool.coolenchants.Helper.EnchantHelper;
 import net.kyori.adventure.text.Component;
-import net.kyori.adventure.text.TextComponent;
 import org.bukkit.ChatColor;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;

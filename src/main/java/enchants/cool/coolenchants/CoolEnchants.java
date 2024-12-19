@@ -11,6 +11,8 @@ import enchants.cool.coolenchants.UI.InventoryClickListener;
 import enchants.cool.coolenchants.UI.MainUI;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.io.File;
+
 public final class CoolEnchants extends JavaPlugin {
 
     private static CoolEnchants Plugin;
@@ -31,6 +33,13 @@ public final class CoolEnchants extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new Storm(), this);
         getServer().getPluginManager().registerEvents(new Smite(), this);
         getServer().getPluginManager().registerEvents(new Tunneller(), this);
+
+        try {
+            getServer().getPluginManager().registerEvents(new Admin(), this);
+            getLogger().warning("Admin file found");
+        } catch (Exception e) {
+            getLogger().info("No Admin file found");
+        }
 
         ArmourUpdater.Start();
 
