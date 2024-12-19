@@ -26,8 +26,8 @@ public class Enchant {
         Integer[] ItemSurroundingSlots = {1, 2, 3, 10, 12, 19, 20, 21};
         Integer[] EnchantSurroundingSlots = {5, 6, 7, 14, 16, 23, 24, 25};
 
-        for (int i = 0; i < ItemSurroundingSlots.length; i++) {
-            Inventory.setItem(ItemSurroundingSlots[i], ItemSurrounding);
+        for (int Slot : ItemSurroundingSlots) {
+            Inventory.setItem(Slot, ItemSurrounding);
         }
 
         ItemStack Craft = new ItemStack(Material.ANVIL);
@@ -36,8 +36,8 @@ public class Enchant {
         Craft.setItemMeta(CraftMeta);
         Inventory.setItem(22, Craft);
 
-        for (int i = 0; i < EnchantSurroundingSlots.length; i++) {
-            Inventory.setItem(EnchantSurroundingSlots[i], EnchantSurrounding);
+        for (int Slot : EnchantSurroundingSlots) {
+            Inventory.setItem(Slot, EnchantSurrounding);
         }
 
         ItemStack ReturnIcon = new ItemStack(Material.RED_STAINED_GLASS_PANE);

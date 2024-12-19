@@ -233,15 +233,47 @@ public class InventoryClickListener implements Listener {
 
             }
 
-            if (ClickedSlot == 26) {
+            else if (ClickedSlot == 26) {
                 MainUI.MainMenu(Player);
             }
         }
         else if (Event.getView().getTitle().equals("§3§lInfo")) {
             Event.setCancelled(true);
 
+            if (ClickedSlot == 9) {
+                Info.ShowRarity(Player, 0);
+            }
+
+            if (ClickedSlot == 11) {
+                Info.ShowRarity(Player, 1);
+            }
+
+            if (ClickedSlot == 13) {
+                Info.ShowRarity(Player, 2);
+            }
+
+            if (ClickedSlot == 15) {
+                Info.ShowRarity(Player, 3);
+            }
+
+            if (ClickedSlot == 17) {
+                Info.ShowRarity(Player, 4);
+            }
+
             if (ClickedSlot == 26) {
                 MainUI.MainMenu(Player);
+            }
+        }
+        else if (Event.getView().getTitle().equals("§3§lCommon Enchants") ||
+                Event.getView().getTitle().equals("§a§lUncommon Enchants") ||
+                Event.getView().getTitle().equals("§9§lRare Enchants") ||
+                Event.getView().getTitle().equals("§5§lEpic Enchants") ||
+                Event.getView().getTitle().equals("§6§lLegendary Enchants")) {
+
+            Event.setCancelled(true);
+
+            if (ClickedSlot == 26) {
+                Info.InfoUI(Player);
             }
         }
     }

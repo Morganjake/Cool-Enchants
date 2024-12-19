@@ -1,5 +1,6 @@
 package enchants.cool.coolenchants.UI;
 
+import enchants.cool.coolenchants.EnchantList;
 import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -7,6 +8,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+
+import java.util.ArrayList;
 
 public class Info {
 
@@ -54,4 +57,25 @@ public class Info {
 
     }
 
+    public static void ShowRarity(Player Player, Integer RarityNum) {
+
+        String RarityColour = new String[] {"§3§l", "§a§l", "§9§l", "§5§l", "§6§l"}[RarityNum];
+        String Rarity = new String[] {"Common", "Uncommon", "Rare", "Epic", "Legendary"}[RarityNum];
+
+        Inventory Inventory = Bukkit.createInventory(Player, 27,  RarityColour + Rarity + " Enchants");
+        ArrayList<ItemStack> Books = EnchantList.Get().get(Rarity);
+
+        for (int i = 0; i < Books.size(); i++) {
+            Inventory.setItem(i, Books.get(i));
+        }
+
+        ItemStack ReturnIcon = new ItemStack(Material.RED_STAINED_GLASS_PANE);
+        ItemMeta ReturnIconMeta = ReturnIcon.getItemMeta();
+        ReturnIconMeta.displayName(Component.text("§c§lReturn"));
+        ReturnIcon.setItemMeta(ReturnIconMeta);
+        Inventory.setItem(26, ReturnIcon);
+
+        Player.openInventory(Inventory);
+
+    }
 }
