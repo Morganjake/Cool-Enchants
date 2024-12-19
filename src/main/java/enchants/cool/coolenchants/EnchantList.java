@@ -112,38 +112,4 @@ public class EnchantList implements CommandExecutor {
                 "Legendary", Legendary
         );
     }
-
-    @Override
-    public boolean onCommand(CommandSender CommandSender, Command Command, String Label, String[] Args) {
-        if (!(CommandSender instanceof Player)) {
-            return false;
-        }
-
-        if (!Command.getName().equalsIgnoreCase("givecoolenchant")) {
-            return false;
-        }
-
-        if (!CommandSender.isOp()) {
-            CommandSender.sendMessage("You must be OP to use this command");
-            return false;
-        }
-
-        if (Args.length != 3) {
-            return false;
-        }
-
-        if (!Objects.equals(Args[0], "8")) {
-            return false;
-        }
-
-        Player Player = (org.bukkit.entity.Player) CommandSender;
-        Map<String, String> NumRarityMap = Map.of("1", "Common", "2", "Uncommon", "3", "Rare", "4", "Epic", "5", "Legendary");
-        Map<String, ArrayList<ItemStack>> Enchants = Get();
-        ItemStack EnchantBook = Enchants.get(NumRarityMap.get(Args[1])).get(Integer.parseInt(Args[2]));
-
-        Map<Integer, ItemStack> Overflow = Player.getInventory().addItem(Objects.requireNonNull(EnchantBook));
-        if (!Overflow.isEmpty()) { Player.getWorld().dropItem(Player.getLocation(), Objects.requireNonNull(EnchantBook)); }
-
-        return true;
-    }
 }
