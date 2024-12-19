@@ -47,25 +47,25 @@ public class InventoryClickListener implements Listener {
             if (ClickedSlot == 10) {
                 if (Player.getLevel() < 25) { Player.playSound(Player, Sound.BLOCK_ANVIL_LAND, 1, 1); return; }
                 Player.setLevel(Player.getLevel() - 4);
-                Roulette.Spin(Player, new int[]{55, 85, 95, 99, 100});
+                Roulette.Spin(Player, new int[]{55, 85, 95, 99, 100}); // Best for Common and Uncommon
             }
 
             else if (ClickedSlot == 12) {
                 if (Player.getLevel() < 30) { Player.playSound(Player, Sound.BLOCK_ANVIL_LAND, 1, 1); return; }
                 Player.setLevel(Player.getLevel() - 6);
-                Roulette.Spin(Player, new int[]{25, 55, 85, 97, 100});
+                Roulette.Spin(Player, new int[]{25, 55, 85, 97, 100}); // Best for Rare
             }
 
             else if (ClickedSlot == 14) {
                 if (Player.getLevel() < 35) { Player.playSound(Player, Sound.BLOCK_ANVIL_LAND, 1, 1); return; }
                 Player.setLevel(Player.getLevel() - 8);
-                Roulette.Spin(Player, new int[]{10, 35, 70, 90, 100});
+                Roulette.Spin(Player, new int[]{10, 35, 65, 90, 100}); // Best for Epic
             }
 
             else if (ClickedSlot == 16) {
                 if (Player.getLevel() < 40) { Player.playSound(Player, Sound.BLOCK_ANVIL_LAND, 1, 1); return; }
                 Player.setLevel(Player.getLevel() - 10);
-                Roulette.Spin(Player, new int[]{0, 15, 45, 80, 100});
+                Roulette.Spin(Player, new int[]{0, 5, 25, 70, 100}); // Best for Legendary
             }
 
             else if (ClickedSlot == 26) {
