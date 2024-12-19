@@ -49,7 +49,6 @@ public class Storm implements Listener {
                 Location Position = Event.getEntity().getLocation().add(new Vector((Math.random() - 0.5), 15, (Math.random() - 0.5)));
                 Trident Trident = Event.getEntity().getWorld().spawn(Position, Trident.class);
                 Trident.setCustomName("Storm Trident");
-                Trident.setShooter(Player);
                 Trident.setVelocity(new Vector((Math.random() - 0.5), -2, (Math.random() - 0.5)));
 
                 Iterations[0]++;
