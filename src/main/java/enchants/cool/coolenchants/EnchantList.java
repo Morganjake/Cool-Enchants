@@ -1,18 +1,13 @@
 package enchants.cool.coolenchants;
 
 import org.bukkit.Material;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
-import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
-public class EnchantList implements CommandExecutor {
+public class EnchantList {
 
     public static Map<String, ArrayList<ItemStack>> Get() {
 

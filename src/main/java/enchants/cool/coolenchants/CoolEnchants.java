@@ -23,7 +23,6 @@ public final class CoolEnchants extends JavaPlugin {
         Plugin = this;
 
         this.getCommand("coolenchants").setExecutor(new MainUI());
-        this.getCommand("givecoolenchant").setExecutor(new EnchantList());
 
         getServer().getPluginManager().registerEvents(new InventoryClickListener(), this);
         getServer().getPluginManager().registerEvents(new AttackerOnDeath(), this);
