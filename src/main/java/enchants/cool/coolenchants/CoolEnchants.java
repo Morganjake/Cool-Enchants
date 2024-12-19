@@ -1,6 +1,7 @@
 package enchants.cool.coolenchants;
 
 import enchants.cool.coolenchants.Enchants.Chestplate.Revenge;
+import enchants.cool.coolenchants.Enchants.Elytra.MachineGuns;
 import enchants.cool.coolenchants.Enchants.Helmet.HugeCerebrum;
 import enchants.cool.coolenchants.Enchants.Hoe.Replant;
 import enchants.cool.coolenchants.Enchants.Pickaxe.Tunneller;
@@ -37,6 +38,7 @@ public final class CoolEnchants extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new Tunneller(), this);
         getServer().getPluginManager().registerEvents(new Lifesteal(), this);
         getServer().getPluginManager().registerEvents(new HugeCerebrum(), this);
+        getServer().getPluginManager().registerEvents(new MachineGuns(), this);
 
         try {
             getServer().getPluginManager().registerEvents(new Admin(), this);

@@ -95,6 +95,9 @@ public class EnchantList {
         ItemStack Tunneller = new ItemStack(Material.ENCHANTED_BOOK);
         Tunneller.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§6Pickaxe", "§6Tunneller", "§6Max level 1" }));
 
+        ItemStack MachineGuns = new ItemStack(Material.ENCHANTED_BOOK);
+        MachineGuns.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§6Elytra", "§6Machine Guns", "§6Max level 1" }));
+
         Common.add(ButcherI);
         Common.add(SmiteI);
         Common.add(SmiteII);
@@ -125,6 +128,7 @@ public class EnchantList {
         Legendary.add(StormII);
         Legendary.add(Tunneller);
         Legendary.add(LifeStealV);
+        Legendary.add(MachineGuns);
 
         return Map.of(
                 "Common", Common,

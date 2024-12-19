@@ -16,9 +16,7 @@ public class AttackerOnDeath implements Listener {
     @EventHandler
     public void OnEntityDamage(EntityDamageByEntityEvent Event) {
 
-        if (!(Event.getEntity() instanceof LivingEntity)) {
-            return;
-        }
+        if (!(Event.getEntity() instanceof LivingEntity)) { return; }
 
         if (((LivingEntity) Event.getEntity()).getHealth() - Event.getDamage() <= 0.0) {
             Attacker.put(Event.getEntity(), Event.getDamager());

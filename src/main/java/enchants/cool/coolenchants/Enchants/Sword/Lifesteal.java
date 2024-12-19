@@ -14,8 +14,8 @@ public class Lifesteal implements Listener {
     @EventHandler
     public void OnEntityDamage(EntityDamageByEntityEvent Event) {
 
-        Player Player = (Player) Event.getDamager();
         if (!(Event.getDamager() instanceof Player)) { return; }
+        Player Player = (Player) Event.getDamager();
 
         ItemStack Weapon = Player.getItemInHand();
 
