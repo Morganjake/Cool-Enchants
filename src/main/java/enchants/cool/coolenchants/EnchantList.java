@@ -76,6 +76,10 @@ public class EnchantList implements CommandExecutor {
         ItemStack StormII = new ItemStack(Material.ENCHANTED_BOOK);
         StormII.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§6Trident", "§6Storm II", "§6Max level 2" }));
 
+
+        ItemStack Tunneller = new ItemStack(Material.ENCHANTED_BOOK);
+        Tunneller.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§6Pickaxe", "§6Tunneller", "§6Max level 1" }));
+
         Common.add(ButcherI);
         Common.add(SmiteI);
         Common.add(SmiteII);
@@ -98,6 +102,7 @@ public class EnchantList implements CommandExecutor {
 
         Legendary.add(TankIII);
         Legendary.add(StormII);
+        Legendary.add(Tunneller);
 
         return Map.of(
                 "Common", Common,

@@ -2,6 +2,7 @@ package enchants.cool.coolenchants;
 
 import enchants.cool.coolenchants.Enchants.Chestplate.Revenge;
 import enchants.cool.coolenchants.Enchants.Hoe.Replant;
+import enchants.cool.coolenchants.Enchants.Pickaxe.Tunneller;
 import enchants.cool.coolenchants.Enchants.Sword.Butcher;
 import enchants.cool.coolenchants.Enchants.Sword.Smite;
 import enchants.cool.coolenchants.Enchants.Trident.Storm;
@@ -29,6 +30,7 @@ public final class CoolEnchants extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new Replant(), this);
         getServer().getPluginManager().registerEvents(new Storm(), this);
         getServer().getPluginManager().registerEvents(new Smite(), this);
+        getServer().getPluginManager().registerEvents(new Tunneller(), this);
 
         ArmourUpdater.Start();
 
