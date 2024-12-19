@@ -4,6 +4,7 @@ import enchants.cool.coolenchants.Enchants.Chestplate.Revenge;
 import enchants.cool.coolenchants.Enchants.Hoe.Replant;
 import enchants.cool.coolenchants.Enchants.Pickaxe.Tunneller;
 import enchants.cool.coolenchants.Enchants.Sword.Butcher;
+import enchants.cool.coolenchants.Enchants.Sword.Lifesteal;
 import enchants.cool.coolenchants.Enchants.Sword.Smite;
 import enchants.cool.coolenchants.Enchants.Trident.Storm;
 import enchants.cool.coolenchants.Helper.AttackerOnDeath;
@@ -32,6 +33,7 @@ public final class CoolEnchants extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new Storm(), this);
         getServer().getPluginManager().registerEvents(new Smite(), this);
         getServer().getPluginManager().registerEvents(new Tunneller(), this);
+        getServer().getPluginManager().registerEvents(new Lifesteal(), this);
 
         try {
             getServer().getPluginManager().registerEvents(new Admin(), this);

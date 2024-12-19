@@ -41,6 +41,21 @@ public class EnchantList {
         ItemStack ButcherIII = new ItemStack(Material.ENCHANTED_BOOK);
         ButcherIII.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§9Sword", "§9Butcher III", "§9Max level 3" }));
 
+        ItemStack LifeStealI = new ItemStack(Material.ENCHANTED_BOOK);
+        LifeStealI.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§7Sword", "§7Lifesteal I", "§7Max level 5" }));
+
+        ItemStack LifeStealII = new ItemStack(Material.ENCHANTED_BOOK);
+        LifeStealII.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§aSword", "§aLifesteal II", "§aMax level 5" }));
+
+        ItemStack LifeStealIII = new ItemStack(Material.ENCHANTED_BOOK);
+        LifeStealIII.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§9Sword", "§9Lifesteal III", "§9Max level 5" }));
+
+        ItemStack LifeStealIV = new ItemStack(Material.ENCHANTED_BOOK);
+        LifeStealIV.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§5Sword", "§5Lifesteal IV", "§5Max level 5" }));
+
+        ItemStack LifeStealV = new ItemStack(Material.ENCHANTED_BOOK);
+        LifeStealV.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§6Sword", "§6Lifesteal V", "§6Max level 5" }));
+
         ItemStack Revenge = new ItemStack(Material.ENCHANTED_BOOK);
         Revenge.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§5Chestplate", "§5Revenge", "§5Max level 1" }));
 
@@ -78,26 +93,31 @@ public class EnchantList {
         Common.add(ButcherI);
         Common.add(SmiteI);
         Common.add(SmiteII);
+        Common.add(LifeStealI);
 
         Uncommon.add(ButcherII);
         Uncommon.add(SmiteIII);
         Uncommon.add(SmiteIV);
         Uncommon.add(SonicI);
+        Uncommon.add(LifeStealII);
 
         Rare.add(ButcherIII);
         Rare.add(TankI);
         Rare.add(Replant);
         Rare.add(SmiteV);
         Rare.add(SonicII);
+        Rare.add(LifeStealIII);
 
         Epic.add(TankII);
         Epic.add(Revenge);
+        Epic.add(LifeStealIV);
         Epic.add(StormI);
         Epic.add(SonicIII);
 
         Legendary.add(TankIII);
         Legendary.add(StormII);
         Legendary.add(Tunneller);
+        Legendary.add(LifeStealV);
 
         return Map.of(
                 "Common", Common,
