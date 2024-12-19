@@ -56,6 +56,12 @@ public class EnchantList {
         ItemStack LifeStealV = new ItemStack(Material.ENCHANTED_BOOK);
         LifeStealV.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§6Sword", "§6Lifesteal V", "§6Max level 5" }));
 
+        ItemStack HugeCerebrumI = new ItemStack(Material.ENCHANTED_BOOK);
+        HugeCerebrumI.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§aHelmet", "§aHuge Cerebrum I", "§aMax level 2" }));
+
+        ItemStack HugeCerebrumII = new ItemStack(Material.ENCHANTED_BOOK);
+        HugeCerebrumII.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§9Helmet", "§9Huge Cerebrum II", "§9Max level 2" }));
+
         ItemStack Revenge = new ItemStack(Material.ENCHANTED_BOOK);
         Revenge.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§5Chestplate", "§5Revenge", "§5Max level 1" }));
 
@@ -86,7 +92,6 @@ public class EnchantList {
         ItemStack StormII = new ItemStack(Material.ENCHANTED_BOOK);
         StormII.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§6Trident", "§6Storm II", "§6Max level 2" }));
 
-
         ItemStack Tunneller = new ItemStack(Material.ENCHANTED_BOOK);
         Tunneller.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§6Pickaxe", "§6Tunneller", "§6Max level 1" }));
 
@@ -100,13 +105,15 @@ public class EnchantList {
         Uncommon.add(SmiteIV);
         Uncommon.add(SonicI);
         Uncommon.add(LifeStealII);
+        Uncommon.add(HugeCerebrumI);
 
         Rare.add(ButcherIII);
         Rare.add(TankI);
         Rare.add(Replant);
         Rare.add(SmiteV);
         Rare.add(SonicII);
-        Rare.add(LifeStealIII);
+        Rare.add(LifeStealIII);;
+        Rare.add(HugeCerebrumII);
 
         Epic.add(TankII);
         Epic.add(Revenge);

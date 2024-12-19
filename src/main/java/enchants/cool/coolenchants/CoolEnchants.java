@@ -1,6 +1,7 @@
 package enchants.cool.coolenchants;
 
 import enchants.cool.coolenchants.Enchants.Chestplate.Revenge;
+import enchants.cool.coolenchants.Enchants.Helmet.HugeCerebrum;
 import enchants.cool.coolenchants.Enchants.Hoe.Replant;
 import enchants.cool.coolenchants.Enchants.Pickaxe.Tunneller;
 import enchants.cool.coolenchants.Enchants.Sword.Butcher;
@@ -10,6 +11,7 @@ import enchants.cool.coolenchants.Enchants.Trident.Storm;
 import enchants.cool.coolenchants.Helper.AttackerOnDeath;
 import enchants.cool.coolenchants.UI.InventoryClickListener;
 import enchants.cool.coolenchants.UI.MainUI;
+import net.kyori.adventure.text.Component;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
@@ -34,6 +36,7 @@ public final class CoolEnchants extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new Smite(), this);
         getServer().getPluginManager().registerEvents(new Tunneller(), this);
         getServer().getPluginManager().registerEvents(new Lifesteal(), this);
+        getServer().getPluginManager().registerEvents(new HugeCerebrum(), this);
 
         try {
             getServer().getPluginManager().registerEvents(new Admin(), this);
@@ -45,7 +48,7 @@ public final class CoolEnchants extends JavaPlugin {
         ArmourUpdater.Start();
 
         getLogger().info("Cool Enchants Loaded");
-
+        getServer().broadcast(Component.text("Cool Enchants reloaded"));
     }
 
     @Override
