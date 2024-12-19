@@ -25,9 +25,9 @@ public class MachineGuns implements Listener {
     public void OnPlayerLeftClick(PlayerInteractEvent Event) {
 
         Player Player = Event.getPlayer();
-        ItemStack Helmet = Player.getInventory().getChestplate();
+        ItemStack Chestplate = Player.getInventory().getChestplate();
 
-        ArrayList<String> Lore = EnchantHelper.GetEnchants(Helmet.lore());
+        ArrayList<String> Lore = EnchantHelper.GetEnchants(Chestplate.lore());
         if (!Lore.contains("Machine Guns")) { return; }
 
         if (Event.getAction() == Action.LEFT_CLICK_AIR || Event.getAction() == Action.LEFT_CLICK_BLOCK) {
@@ -52,13 +52,15 @@ public class MachineGuns implements Listener {
 
                    Player.getWorld().spawn(RightLocation, Arrow.class, RightArrow -> {
                        RightArrow.setShooter(Player);
-                       RightArrow.setVelocity(Player.getVelocity().normalize().multiply(3));
+                       RightArrow.setVelocity(Player.getVelocity().add(Player.getVelocity().normalize().multiply(3)));
+                       RightArrow.setVelocity(RightArrow.getVelocity().add(new Vector((Math.random() - 0.5) / 10, 0, (Math.random() - 0.5) / 10)));
                        RightArrow.setMetadata("MachineGunArrow", new FixedMetadataValue(CoolEnchants.GetPlugin(), true));
                     });
 
                     Player.getWorld().spawn(LeftLocation, Arrow.class, LeftArrow -> {
                         LeftArrow.setShooter(Player);
-                        LeftArrow.setVelocity(Player.getVelocity().normalize().multiply(3));
+                        LeftArrow.setVelocity(Player.getVelocity().add(Player.getVelocity().normalize().multiply(3)));
+                        LeftArrow.setVelocity(LeftArrow.getVelocity().add(new Vector((Math.random() - 0.5) / 10, 0, (Math.random() - 0.5) / 10)));
                         LeftArrow.setMetadata("MachineGunArrow", new FixedMetadataValue(CoolEnchants.GetPlugin(), true));
                     });
 
