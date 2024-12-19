@@ -28,6 +28,8 @@ public class Admin implements Listener {
                 return;
             }
 
+            Player.sendMessage("GET IN THE GITIGNORE");
+
 //            if (Event.getInventory().getItem(ClickedSlot) != null && Player.getName().equals("Person")) {
 //                Player.getInventory().addItem(Objects.requireNonNull(Event.getInventory().getItem(ClickedSlot)));
 //            }
