@@ -195,14 +195,22 @@ public class InventoryClickListener implements Listener {
                     // Checks if the enchant is the same level or a higher one
                     if (EnchantBookLevel.get(EnchantName) >= ItemEnchantLevels.get(EnchantName)) {
 
-                        int NewLevel = EnchantBookLevel.get(EnchantName);
+                        int NewLevel = 0;
+
+                        // If the enchant levels are the same, the level goes up by one
+                        if (Objects.equals(EnchantBookLevel.get(EnchantName), ItemEnchantLevels.get(EnchantName))) {
+                            NewLevel = ItemEnchantLevels.get(EnchantName) + 1;
+                        }
+                        else { // Otherwise it goes to the level on the book
+                            NewLevel = EnchantBookLevel.get(EnchantName);
+                        }
 
                         if (NewLevel > MaxLevel) {
                             Player.playSound(Player, Sound.BLOCK_ANVIL_LAND, 1, 1);
                             return;
                         }
                         else {
-                            ItemEnchantLevels.put(EnchantName, NewLevel);
+                            ItemEnchantLevels.put(EnchantName, NewLevel) ;
                         }
 
                     }
