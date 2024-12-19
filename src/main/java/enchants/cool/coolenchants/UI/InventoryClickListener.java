@@ -188,8 +188,6 @@ public class InventoryClickListener implements Listener {
                 Map<String, Integer> EnchantBookLevel = EnchantHelper.GetEnchantLevels(Collections.singletonList(Component.text(Enchant)));
 
                 String EnchantName = (String) EnchantBookLevel.keySet().toArray()[0];
-                Player.sendMessage(String.valueOf(ItemEnchantLevels));
-                Player.sendMessage(String.valueOf(EnchantName));
 
                 // Checks if the item already has the enchant
                 if (ItemEnchantLevels.containsKey(EnchantName)) {
