@@ -1,6 +1,7 @@
 package enchants.cool.coolenchants.Enchants.Elytra;
 
 import enchants.cool.coolenchants.CoolEnchants;
+import enchants.cool.coolenchants.Helper.EnchantHelper;
 import org.bukkit.Location;
 import org.bukkit.Particle;
 import org.bukkit.entity.Arrow;
@@ -11,18 +12,25 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.entity.ProjectileHitEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
+
+import java.util.ArrayList;
 
 public class MachineGuns implements Listener {
 
     @EventHandler
     public void OnPlayerLeftClick(PlayerInteractEvent Event) {
 
-        if (Event.getAction() == Action.LEFT_CLICK_AIR || Event.getAction() == Action.LEFT_CLICK_BLOCK) {
+        Player Player = Event.getPlayer();
+        ItemStack Helmet = Player.getInventory().getChestplate();
 
-            Player Player = Event.getPlayer();
+        ArrayList<String> Lore = EnchantHelper.GetEnchants(Helmet.lore());
+        if (!Lore.contains("Machine Guns")) { return; }
+
+        if (Event.getAction() == Action.LEFT_CLICK_AIR || Event.getAction() == Action.LEFT_CLICK_BLOCK) {
 
             if (!Player.isGliding()) { return; }
 
