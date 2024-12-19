@@ -239,6 +239,10 @@ public class InventoryClickListener implements Listener {
         }
         else if (Event.getView().getTitle().equals("§3§lInfo")) {
             Event.setCancelled(true);
+
+            if (ClickedSlot == 26) {
+                MainUI.MainMenu(Player);
+            }
         }
     }
 

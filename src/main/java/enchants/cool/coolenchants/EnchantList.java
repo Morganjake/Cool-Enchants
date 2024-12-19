@@ -58,11 +58,11 @@ public class EnchantList implements CommandExecutor {
         ItemStack SonicIII = new ItemStack(Material.ENCHANTED_BOOK);
         SonicIII.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§5Boots", "§5Sonic III", "§5Max level 3" }));
 
-        ItemStack TankI = new ItemStack(Material.ENCHANTED_BOOK);
-        TankI.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§9Chestplate", "§9Tank I", "§9Max level 3" }));
-
         ItemStack Replant = new ItemStack(Material.ENCHANTED_BOOK);
         Replant.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§9Hoe", "§9Replant", "§9Max level 1" }));
+
+        ItemStack TankI = new ItemStack(Material.ENCHANTED_BOOK);
+        TankI.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§9Chestplate", "§9Tank I", "§9Max level 3" }));
 
         ItemStack TankII = new ItemStack(Material.ENCHANTED_BOOK);
         TankII.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§5Chestplate", "§5Tank II", "§5Max level 3" }));

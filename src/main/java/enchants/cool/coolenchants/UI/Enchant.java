@@ -1,5 +1,6 @@
 package enchants.cool.coolenchants.UI;
 
+import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -13,30 +14,37 @@ public class Enchant {
         Inventory Inventory = Bukkit.createInventory(Player, 27,  "§3§lEnchant");
 
         ItemStack ItemSurrounding = new ItemStack(Material.GRAY_STAINED_GLASS_PANE);
+        ItemMeta ItemSurroundingMeta = ItemSurrounding.getItemMeta();
+        ItemSurroundingMeta.displayName(Component.text("§7§lItem"));
+        ItemSurrounding.setItemMeta(ItemSurroundingMeta);
+
         ItemStack EnchantSurrounding = new ItemStack(Material.BLUE_STAINED_GLASS_PANE);
+        ItemMeta EnchantSurroundingMeta = EnchantSurrounding.getItemMeta();
+        EnchantSurroundingMeta.displayName(Component.text("§b§lEnchant Book"));
+        EnchantSurrounding.setItemMeta(EnchantSurroundingMeta);
 
-        Inventory.setItem(1, ItemSurrounding);
-        Inventory.setItem(2, ItemSurrounding);
-        Inventory.setItem(3, ItemSurrounding);
-        Inventory.setItem(10, ItemSurrounding);
-        Inventory.setItem(12, ItemSurrounding);
-        Inventory.setItem(19, ItemSurrounding);
-        Inventory.setItem(20, ItemSurrounding);
-        Inventory.setItem(21, ItemSurrounding);
-        Inventory.setItem(22, new ItemStack(Material.ANVIL));
-        Inventory.setItem(5, EnchantSurrounding);
-        Inventory.setItem(6, EnchantSurrounding);
-        Inventory.setItem(7, EnchantSurrounding);
-        Inventory.setItem(14, EnchantSurrounding);
-        Inventory.setItem(16, EnchantSurrounding);
-        Inventory.setItem(23, EnchantSurrounding);
-        Inventory.setItem(24, EnchantSurrounding);
-        Inventory.setItem(25, EnchantSurrounding);
+        Integer[] ItemSurroundingSlots = {1, 2, 3, 10, 12, 19, 20, 21};
+        Integer[] EnchantSurroundingSlots = {5, 6, 7, 14, 16, 23, 24, 25};
 
-        ItemStack LootBoxIcon = new ItemStack(Material.RED_STAINED_GLASS_PANE);
-        ItemMeta LootBoxIconMeta = LootBoxIcon.getItemMeta();
-        LootBoxIcon.setItemMeta(LootBoxIconMeta);
-        Inventory.setItem(26, LootBoxIcon);
+        for (int i = 0; i < ItemSurroundingSlots.length; i++) {
+            Inventory.setItem(ItemSurroundingSlots[i], ItemSurrounding);
+        }
+
+        ItemStack Craft = new ItemStack(Material.ANVIL);
+        ItemMeta CraftMeta = Craft.getItemMeta();
+        CraftMeta.displayName(Component.text("§6§lENCHANT"));
+        Craft.setItemMeta(CraftMeta);
+        Inventory.setItem(22, Craft);
+
+        for (int i = 0; i < EnchantSurroundingSlots.length; i++) {
+            Inventory.setItem(EnchantSurroundingSlots[i], EnchantSurrounding);
+        }
+
+        ItemStack ReturnIcon = new ItemStack(Material.RED_STAINED_GLASS_PANE);
+        ItemMeta ReturnIconMeta = ReturnIcon.getItemMeta();
+        ReturnIconMeta.displayName(Component.text("§c§lReturn"));
+        ReturnIcon.setItemMeta(ReturnIconMeta);
+        Inventory.setItem(26, ReturnIcon);
 
         Player.openInventory(Inventory);
     }

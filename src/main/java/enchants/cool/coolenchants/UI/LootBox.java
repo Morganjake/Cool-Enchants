@@ -24,29 +24,30 @@ public class LootBox {
 
         ItemStack GoldBox = new ItemStack(Material.GOLD_BLOCK);
         ItemMeta GoldBoxMeta = GoldBox.getItemMeta();
-        GoldBoxMeta.displayName(Component.text("§2§lNormal Lootbox"));;
+        GoldBoxMeta.displayName(Component.text("§2§lNormal Lootbox"));
         GoldBoxMeta.lore(Collections.singletonList(Component.text("§3Costs 30 Levels")));
         GoldBox.setItemMeta(GoldBoxMeta);
         Inventory.setItem(12, GoldBox);
 
         ItemStack DiamondBox = new ItemStack(Material.DIAMOND_BLOCK);
         ItemMeta DiamondBoxMeta = DiamondBox.getItemMeta();
-        DiamondBoxMeta.displayName(Component.text("§6§lGood Lootbox"));;
+        DiamondBoxMeta.displayName(Component.text("§6§lGood Lootbox"));
         DiamondBoxMeta.lore(Collections.singletonList(Component.text("§3Costs 35 Levels")));
         DiamondBox.setItemMeta(DiamondBoxMeta);
         Inventory.setItem(14, DiamondBox);
 
         ItemStack NetheriteBox = new ItemStack(Material.NETHERITE_BLOCK);
         ItemMeta NetheriteBoxMeta = NetheriteBox.getItemMeta();
-        NetheriteBoxMeta.displayName(Component.text("§4§lGreat Lootbox"));;
+        NetheriteBoxMeta.displayName(Component.text("§4§lGreat Lootbox"));
         NetheriteBoxMeta.lore(Collections.singletonList(Component.text("§3Costs 40 Levels")));
         NetheriteBox.setItemMeta(NetheriteBoxMeta);
         Inventory.setItem(16, NetheriteBox);
 
-        ItemStack LootBoxIcon = new ItemStack(Material.RED_STAINED_GLASS_PANE);
-        ItemMeta LootBoxIconMeta = LootBoxIcon.getItemMeta();
-        LootBoxIcon.setItemMeta(LootBoxIconMeta);
-        Inventory.setItem(26, LootBoxIcon);
+        ItemStack ReturnIcon = new ItemStack(Material.RED_STAINED_GLASS_PANE);
+        ItemMeta ReturnIconMeta = ReturnIcon.getItemMeta();
+        ReturnIconMeta.displayName(Component.text("§c§lReturn"));
+        ReturnIcon.setItemMeta(ReturnIconMeta);
+        Inventory.setItem(26, ReturnIcon);
 
 
         Player.openInventory(Inventory);
