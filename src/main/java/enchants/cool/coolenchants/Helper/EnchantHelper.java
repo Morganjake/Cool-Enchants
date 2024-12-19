@@ -14,7 +14,7 @@ public class EnchantHelper {
 
     private static Map<String, Integer> GetEnchantAndLevel(String Enchant) {
 
-        String[] Levels = {"I", "II", "III", "IV", "V"};
+        String[] Levels = {" I", " II", " III", " IV", " V"};
         int LevelNum = 0;
         int EnchantLevel = 1;
         boolean HasLevel = false;
@@ -24,6 +24,7 @@ public class EnchantHelper {
             if (Enchant.endsWith(Level)) {
                 EnchantLevel = LevelNum;
                 HasLevel = true;
+                break;
             }
         }
 
