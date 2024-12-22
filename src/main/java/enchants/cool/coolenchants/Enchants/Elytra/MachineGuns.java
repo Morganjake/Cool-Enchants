@@ -3,7 +3,7 @@ package enchants.cool.coolenchants.Enchants.Elytra;
 import enchants.cool.coolenchants.CoolEnchants;
 import enchants.cool.coolenchants.Helper.EnchantHelper;
 import org.bukkit.Location;
-import org.bukkit.Particle;
+import org.bukkit.Material;
 import org.bukkit.entity.Arrow;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
@@ -26,15 +26,17 @@ public class MachineGuns implements Listener {
 
         Player Player = Event.getPlayer();
         ItemStack Chestplate = Player.getInventory().getChestplate();
+        if (Chestplate == null) { return; }
 
         ArrayList<String> Lore = EnchantHelper.GetEnchants(Chestplate.lore());
         if (!Lore.contains("Machine Guns")) { return; }
 
         if (Event.getAction() == Action.LEFT_CLICK_AIR || Event.getAction() == Action.LEFT_CLICK_BLOCK) {
 
+            if (Player.getItemInHand().getType().equals(Material.FIREWORK_ROCKET)) { return; }
             if (!Player.isGliding()) { return; }
 
-            new BukkitRunnable() {
+            BukkitRunnable ShootArrows = new BukkitRunnable() {
 
                 int Count = 0;
 
@@ -50,26 +52,27 @@ public class MachineGuns implements Listener {
                     Location RightLocation = Player.getLocation().add(Right.multiply(0.5));
                     Location LeftLocation = Player.getLocation().add(Left.multiply(0.5));
 
-                   Player.getWorld().spawn(RightLocation, Arrow.class, RightArrow -> {
-                       RightArrow.setShooter(Player);
-                       RightArrow.setVelocity(Player.getVelocity().add(Player.getVelocity().normalize().multiply(3)));
-                       RightArrow.setVelocity(RightArrow.getVelocity().add(new Vector((Math.random() - 0.5) / 10, 0, (Math.random() - 0.5) / 10)));
-                       RightArrow.setMetadata("MachineGunArrow", new FixedMetadataValue(CoolEnchants.GetPlugin(), true));
-                    });
+                    Arrow RightArrow = Player.getWorld().spawn(RightLocation, Arrow.class);
 
-                    Player.getWorld().spawn(LeftLocation, Arrow.class, LeftArrow -> {
-                        LeftArrow.setShooter(Player);
-                        LeftArrow.setVelocity(Player.getVelocity().add(Player.getVelocity().normalize().multiply(3)));
-                        LeftArrow.setVelocity(LeftArrow.getVelocity().add(new Vector((Math.random() - 0.5) / 10, 0, (Math.random() - 0.5) / 10)));
-                        LeftArrow.setMetadata("MachineGunArrow", new FixedMetadataValue(CoolEnchants.GetPlugin(), true));
-                    });
+                   RightArrow.setShooter(Player);
+                   RightArrow.setVelocity(Player.getVelocity().add(Player.getVelocity().normalize().multiply(3)));
+                   RightArrow.setVelocity(RightArrow.getVelocity().add(new Vector((Math.random() - 0.5) / 5, 0, (Math.random() - 0.5) / 5)));
+                   RightArrow.setMetadata("MachineGunArrow", new FixedMetadataValue(CoolEnchants.GetPlugin(), true));
+
+                    Arrow LeftArrow = Player.getWorld().spawn(LeftLocation, Arrow.class);
+                    LeftArrow.setShooter(Player);
+                    LeftArrow.setVelocity(Player.getVelocity().add(Player.getVelocity().normalize().multiply(3)));
+                    LeftArrow.setVelocity(LeftArrow.getVelocity().add(new Vector((Math.random() - 0.5) / 5, 0, (Math.random() - 0.5) / 5)));
+                    LeftArrow.setMetadata("MachineGunArrow", new FixedMetadataValue(CoolEnchants.GetPlugin(), true));
 
                     Count++;
-                    if (Count > 2) {
+                    if (Count >= 3) {
                         this.cancel();
                     }
                 };
-            }.runTaskTimer(CoolEnchants.GetPlugin(), 0, 2L);
+            };
+
+            ShootArrows.runTaskTimer(CoolEnchants.GetPlugin(), 0, 2L);
         }
     }
 
@@ -86,7 +89,7 @@ public class MachineGuns implements Listener {
                         LivingEntity HitEntity = (LivingEntity) Event.getHitEntity();
                         HitEntity.setNoDamageTicks(1);
                     }
-                }.runTaskLater(CoolEnchants.GetPlugin(), 1);
+                }.runTaskLater(CoolEnchants.GetPlugin(), 3);
 
                 Arrow.remove();
             }
