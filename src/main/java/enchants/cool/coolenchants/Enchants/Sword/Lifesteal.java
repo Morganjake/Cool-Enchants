@@ -1,6 +1,7 @@
 package enchants.cool.coolenchants.Enchants.Sword;
 
 import enchants.cool.coolenchants.Helper.EnchantHelper;
+import org.bukkit.attribute.Attribute;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -8,6 +9,7 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Lifesteal implements Listener {
 
@@ -23,6 +25,6 @@ public class Lifesteal implements Listener {
         if (!Lore.contains("Lifesteal")) { return; }
         Integer EnchantLevel = EnchantHelper.GetEnchantLevels(Weapon.lore()).get("Lifesteal");
         Double HealAmount = Event.getDamage() / EnchantLevel * 0.2;
-        Player.setHealth(Player.getHealth() + HealAmount);
+        Player.setHealth(Math.min(Player.getHealth() + HealAmount, Objects.requireNonNull(Player.getAttribute(Attribute.GENERIC_MAX_HEALTH)).getBaseValue()));
     }
 }
