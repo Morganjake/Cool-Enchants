@@ -101,7 +101,7 @@ public class InventoryClickListener implements Listener {
                         ItemName.contains("_HOE") || ItemName.contains("TRIDENT") ||
                         ItemName.contains("SHIELD") || ItemName.contains("ELYTRA") ||
                         ItemName.contains("_HELMET") || ItemName.contains("_CHESTPLATE") ||
-                        ItemName.contains("_LEGGINGS") || ItemName.contains("_BOOTS") ) {
+                        ItemName.contains("_LEGGINGS") || ItemName.contains("_BOOTS") || ItemName.contains("BOW") ) {
 
                     // Checks if the gui has an item held in it
                     if (Event.getInventory().getItem(11) != null) {
@@ -147,9 +147,6 @@ public class InventoryClickListener implements Listener {
                         // Checks if the enchant book is compatible with the item
                         String EnchantableItem = Event.getInventory().getItem(11).toString();
                         String EnchantablePiece = ClickedItem.getLore().get(1).toUpperCase().substring(2);
-
-                        Player.sendMessage(EnchantableItem);
-                        Player.sendMessage(EnchantablePiece);
 
                         if (EnchantableItem.contains(EnchantablePiece)) {
                             Event.getInventory().setItem(15, ClickedItem);
