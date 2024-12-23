@@ -1,5 +1,6 @@
 package enchants.cool.coolenchants;
 
+import enchants.cool.coolenchants.Enchants.Bow.Poison;
 import enchants.cool.coolenchants.Enchants.Bow.Velocity;
 import enchants.cool.coolenchants.Enchants.Chestplate.Revenge;
 import enchants.cool.coolenchants.Enchants.Elytra.MachineGuns;
@@ -41,6 +42,7 @@ public final class CoolEnchants extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new HugeCerebrum(), this);
         getServer().getPluginManager().registerEvents(new MachineGuns(), this);
         getServer().getPluginManager().registerEvents(new Velocity(), this);
+        getServer().getPluginManager().registerEvents(new Poison(), this);
 
         try {
             getServer().getPluginManager().registerEvents(new Admin(), this);
