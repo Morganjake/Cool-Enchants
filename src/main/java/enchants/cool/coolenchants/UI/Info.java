@@ -8,8 +8,12 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.checkerframework.checker.units.qual.Current;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 public class Info {
 
@@ -59,13 +63,43 @@ public class Info {
 
     public static void ShowRarity(Player Player, Integer RarityNum) {
 
-        String RarityColour = new String[] {"§3§l", "§a§l", "§9§l", "§5§l", "§6§l"}[RarityNum];
+        String RarityColour = new String[] {"§7", "§a", "§9", "§5", "§6"}[RarityNum];
         String Rarity = new String[] {"Common", "Uncommon", "Rare", "Epic", "Legendary"}[RarityNum];
 
-        Inventory Inventory = Bukkit.createInventory(Player, 27,  RarityColour + Rarity + " Enchants");
+        Inventory Inventory = Bukkit.createInventory(Player, 27,  RarityColour + "§l" + Rarity + " Enchants");
         ArrayList<ItemStack> Books = EnchantList.Get().get(Rarity);
+        Map<String, String> Descriptions = EnchantList.GetDescriptions();
+
 
         for (int i = 0; i < Books.size(); i++) {
+            ItemMeta Meta = Books.get(i).getItemMeta();
+            List<String> Lore = Books.get(i).getItemMeta().getLore();
+            String Description = Descriptions.get(Lore.get(2).replace(RarityColour, ""));
+
+            // Splits the into multiple lines if the description is too long
+            ArrayList<String> SplitDescription = new ArrayList<String>();
+            String CurrentLine = "";
+
+            for (String Char : Description.split("")) {
+                CurrentLine += Char;
+
+                if (CurrentLine.length() > 50 && Objects.equals(Char, " ")) {
+                    SplitDescription.add(CurrentLine);
+                    CurrentLine = "";
+                }
+            }
+
+            // Add the final words to the description
+            SplitDescription.add(CurrentLine);
+
+            // Adds each line to the lore
+            for (String DescriptionLine : SplitDescription) {
+                Lore.add(RarityColour + DescriptionLine.replace(RarityColour, ""));
+            }
+
+            Meta.setLore(Lore);
+
+            Books.get(i).setItemMeta(Meta);
             Inventory.setItem(i, Books.get(i));
         }
 

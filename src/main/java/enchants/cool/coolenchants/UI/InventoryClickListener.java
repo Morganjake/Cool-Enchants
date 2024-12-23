@@ -11,10 +11,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.inventory.ItemStack;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 public class InventoryClickListener implements Listener {
 
@@ -116,12 +113,8 @@ public class InventoryClickListener implements Listener {
                     // Checks if the gui has an enchant book held in it
                     if (Event.getInventory().getItem(15) != null) {
                         // Checks if the book is compatible with the new item
-                        if ( ClickedItem.toString().contains("_SWORD") || ClickedItem.toString().contains("_PICKAXE") ||
-                                ClickedItem.toString().contains("_AXE") || ClickedItem.toString().contains("_SHOVEL") ||
-                                ClickedItem.toString().contains("_HOE") || ClickedItem.toString().contains("TRIDENT") ||
-                                ClickedItem.toString().contains("SHIELD") || ClickedItem.toString().contains("ELYTRA") ||
-                                ClickedItem.toString().contains("_HELMET") || ClickedItem.toString().contains("_CHESTPLATE") ||
-                                ClickedItem.toString().contains("_LEGGINGS") || ClickedItem.toString().contains("_BOOTS") ) {
+                        String EnchantablePiece = Event.getInventory().getItem(15).getLore().get(1).toUpperCase().substring(2);
+                        if (ClickedItem.toString().contains(EnchantablePiece)) {
                             Event.getInventory().setItem(11, ClickedItem);
                         }
                         else {
@@ -153,15 +146,18 @@ public class InventoryClickListener implements Listener {
                     if (Event.getInventory().getItem(11) != null) {
                         // Checks if the enchant book is compatible with the item
                         String EnchantableItem = Event.getInventory().getItem(11).toString();
-                        if ( EnchantableItem.contains("_SWORD") || EnchantableItem.contains("_PICKAXE") ||
-                                EnchantableItem.contains("_AXE") || EnchantableItem.contains("_SHOVEL") ||
-                                EnchantableItem.contains("_HOE") || EnchantableItem.contains("TRIDENT") ||
-                                EnchantableItem.contains("SHIELD") || EnchantableItem.contains("ELYTRA") ||
-                                EnchantableItem.contains("_HELMET") || EnchantableItem.contains("_CHESTPLATE") ||
-                                EnchantableItem.contains("_LEGGINGS") || EnchantableItem.contains("_BOOTS") ) {
+                        String EnchantablePiece = ClickedItem.getLore().get(1).toUpperCase().substring(2);
+
+                        Player.sendMessage(EnchantableItem);
+                        Player.sendMessage(EnchantablePiece);
+
+                        if (EnchantableItem.contains(EnchantablePiece)) {
                             Event.getInventory().setItem(15, ClickedItem);
                         }
-                        else { return; }
+                        else {
+                            Player.playSound(Player, Sound.BLOCK_ANVIL_LAND, 1, 1);
+                            return;
+                        }
                     }
                     else {
                         Event.getInventory().setItem(15, ClickedItem);
@@ -273,7 +269,7 @@ public class InventoryClickListener implements Listener {
                 MainUI.MainMenu(Player);
             }
         }
-        else if (Event.getView().getTitle().equals("§3§lCommon Enchants") ||
+        else if (Event.getView().getTitle().equals("§7§lCommon Enchants") ||
                 Event.getView().getTitle().equals("§a§lUncommon Enchants") ||
                 Event.getView().getTitle().equals("§9§lRare Enchants") ||
                 Event.getView().getTitle().equals("§5§lEpic Enchants") ||

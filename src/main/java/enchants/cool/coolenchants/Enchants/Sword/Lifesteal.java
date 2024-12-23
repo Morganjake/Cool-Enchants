@@ -23,8 +23,9 @@ public class Lifesteal implements Listener {
 
         ArrayList<String> Lore = EnchantHelper.GetEnchants(Weapon.lore());
         if (!Lore.contains("Lifesteal")) { return; }
-        Integer EnchantLevel = EnchantHelper.GetEnchantLevels(Weapon.lore()).get("Lifesteal");
-        Double HealAmount = Event.getDamage() / EnchantLevel * 0.2;
+        int EnchantLevel = EnchantHelper.GetEnchantLevels(Weapon.lore()).get("Lifesteal");
+
+        double HealAmount = Event.getDamage() / EnchantLevel * 0.2;
         Player.setHealth(Math.min(Player.getHealth() + HealAmount, Objects.requireNonNull(Player.getAttribute(Attribute.GENERIC_MAX_HEALTH)).getBaseValue()));
     }
 }

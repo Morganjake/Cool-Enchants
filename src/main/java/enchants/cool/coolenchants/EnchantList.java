@@ -9,6 +9,8 @@ import java.util.Map;
 
 public class EnchantList {
 
+    private static String Butcher;
+
     public static Map<String, ArrayList<ItemStack>> Get() {
 
         ArrayList<ItemStack> Common = new ArrayList<>();
@@ -136,6 +138,42 @@ public class EnchantList {
                 "Rare", Rare,
                 "Epic", Epic,
                 "Legendary", Legendary
+        );
+    }
+
+    public static Map<String, String> GetDescriptions() {
+        return Map.ofEntries(
+                Map.entry("Butcher I", "Get 1 more food when killing a mob"),
+                Map.entry("Smite I", "Smite your enemy dealing 0.66 more damage"),
+                Map.entry("Smite II", "Smite your enemy dealing 1.33 more damage"),
+                Map.entry("Lifesteal I", "Gain back 2% of damage dealt"),
+
+                Map.entry("Butcher II", "Get 3 more food when killing a mob"),
+                Map.entry("Smite III", "Smite your enemy dealing 2 more damage"),
+                Map.entry("Smite IV", "Smite your enemy dealing 2.66 more damage"),
+                Map.entry("Sonic I", "Move 10% faster"),
+                Map.entry("Lifesteal II", "Gain back 4% of damage dealt"),
+                Map.entry("Huge Cerebrum I", "Gain 50% more xp from all sources"),
+
+                Map.entry("Butcher III", "Get 2 more food when killing a mob"),
+                Map.entry("Tank I", "Increases max health by 1 heart"),
+                Map.entry("Replant", "Replants crops when you break them if you have their seed"),
+                Map.entry("Smite V", "Smite your enemy dealing 3.33 more damage"),
+                Map.entry("Sonic II", "Move 20% faster"),
+                Map.entry("Lifesteal III", "Gain back 6% of damage dealt"),
+                Map.entry("Huge Cerebrum II", "Gain double xp from all sources"),
+
+                Map.entry("Tank II", "Increases max health by 2 hearts"),
+                Map.entry("Revenge", "Release massive amounts of tnt when you die"),
+                Map.entry("Lifesteal IV", "Gain back 8% of damage dealt"),
+                Map.entry("Storm I", "Make a storm of twice as many tridents rain down and smite whatever mob you throw your trident at"),
+                Map.entry("Sonic III", "Move 30% faster"),
+
+                Map.entry("Tank III", "Increases max health by 3 hearts"),
+                Map.entry("Storm II", "Make a storm of tridents rain down and smite whatever mob you throw your trident at"),
+                Map.entry("Tunneller", "Breaks blocks in a 3x3 area"),
+                Map.entry("Lifesteal V", "Gain back 10% of damage dealt"),
+                Map.entry("Machine Guns", "Arm your elytra with two super powered machine guns that you can shoot by left clicking while flying")
         );
     }
 }
