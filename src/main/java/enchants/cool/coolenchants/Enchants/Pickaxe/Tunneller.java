@@ -33,7 +33,8 @@ public class Tunneller implements Listener {
                 Material.BEDROCK,
                 Material.BARRIER,
                 Material.END_PORTAL_FRAME,
-                Material.NETHER_PORTAL
+                Material.NETHER_PORTAL,
+                Material.END_PORTAL
         );
 
         boolean PickaxeHasSilkTouch = Pickaxe.containsEnchantment(Enchantment.SILK_TOUCH);
