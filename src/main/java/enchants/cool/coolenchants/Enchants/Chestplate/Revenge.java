@@ -51,6 +51,7 @@ public class Revenge implements Listener {
 
     @EventHandler
     public void OnTntExplode(EntityExplodeEvent Event) {
+        if (!Event.getEntity().getName().equals("Revenge Tnt")) { return; }
         if (Event.getEntity() instanceof TNTPrimed) { Event.blockList().clear(); }
     }
 
