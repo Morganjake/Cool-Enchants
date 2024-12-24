@@ -7,6 +7,7 @@ import enchants.cool.coolenchants.Enchants.Elytra.MachineGuns;
 import enchants.cool.coolenchants.Enchants.Helmet.HugeCerebrum;
 import enchants.cool.coolenchants.Enchants.Hoe.Replant;
 import enchants.cool.coolenchants.Enchants.Pickaxe.Tunneller;
+import enchants.cool.coolenchants.Enchants.Sword.Bleed;
 import enchants.cool.coolenchants.Enchants.Sword.Butcher;
 import enchants.cool.coolenchants.Enchants.Sword.Lifesteal;
 import enchants.cool.coolenchants.Enchants.Sword.Smite;
@@ -16,8 +17,6 @@ import enchants.cool.coolenchants.UI.InventoryClickListener;
 import enchants.cool.coolenchants.UI.MainUI;
 import net.kyori.adventure.text.Component;
 import org.bukkit.plugin.java.JavaPlugin;
-
-import java.io.File;
 
 public final class CoolEnchants extends JavaPlugin {
 
@@ -43,6 +42,7 @@ public final class CoolEnchants extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new MachineGuns(), this);
         getServer().getPluginManager().registerEvents(new Velocity(), this);
         getServer().getPluginManager().registerEvents(new Poison(), this);
+        getServer().getPluginManager().registerEvents(new Bleed(), this);
 
         try {
             getServer().getPluginManager().registerEvents(new Admin(), this);

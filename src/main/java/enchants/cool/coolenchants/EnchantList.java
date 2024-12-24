@@ -82,6 +82,16 @@ public class EnchantList {
         ItemStack HugeCerebrumII = new ItemStack(Material.ENCHANTED_BOOK);
         HugeCerebrumII.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§9Helmet", "§9Huge Cerebrum II", "§9Max level 2" }));
 
+        ItemStack BleedI = new ItemStack(Material.ENCHANTED_BOOK);
+        BleedI.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§7Sword", "§7Bleed I", "§7Max level 3" }));
+
+        ItemStack BleedII = new ItemStack(Material.ENCHANTED_BOOK);
+        BleedII.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§aSword", "§aBleed II", "§aMax level 3" }));
+
+        ItemStack BleedIII = new ItemStack(Material.ENCHANTED_BOOK);
+        BleedIII.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§9Sword", "§9Bleed III", "§9Max level 3" }));
+
+
         ItemStack Revenge = new ItemStack(Material.ENCHANTED_BOOK);
         Revenge.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§5Chestplate", "§5Revenge", "§5Max level 1" }));
 
@@ -122,7 +132,7 @@ public class EnchantList {
         Common.add(SmiteI);
         Common.add(SmiteII);
         Common.add(LifeStealI);
-
+        Common.add(BleedI);
 
         Uncommon.add(ButcherII);
         Uncommon.add(SmiteIII);
@@ -132,6 +142,7 @@ public class EnchantList {
         Uncommon.add(HugeCerebrumI);
         Uncommon.add(VelocityII);
         Uncommon.add(PoisonI);
+        Uncommon.add(BleedII);
 
         Rare.add(ButcherIII);
         Rare.add(TankI);
@@ -142,6 +153,7 @@ public class EnchantList {
         Rare.add(HugeCerebrumII);
         Rare.add(VelocityIII);
         Rare.add(PoisonII);
+        Rare.add(BleedIII);
 
         Epic.add(TankII);
         Epic.add(Revenge);
@@ -172,6 +184,7 @@ public class EnchantList {
                 Map.entry("Smite II", "Smite your enemy dealing 1.33 more damage"),
                 Map.entry("Lifesteal I", "Gain back 2% of damage dealt"),
                 Map.entry("Velocity I", "Arrows have 33% more velocity"),
+                Map.entry("Bleed I", "Damage the enemy for 1 heart a second later"),
 
                 Map.entry("Butcher II", "Get 3 more food when killing a mob"),
                 Map.entry("Smite III", "Smite your enemy dealing 2 more damage"),
@@ -181,6 +194,7 @@ public class EnchantList {
                 Map.entry("Huge Cerebrum I", "Gain 50% more xp from all sources"),
                 Map.entry("Velocity II", "Arrows have 66% more velocity"),
                 Map.entry("Poison I", "Arrows give poison 2 for 1 second"),
+                Map.entry("Bleed II", "Damage the enemy for 1 heart every second later twice"),
 
                 Map.entry("Butcher III", "Get 2 more food when killing a mob"),
                 Map.entry("Tank I", "Increases max health by 1 heart"),
@@ -191,6 +205,7 @@ public class EnchantList {
                 Map.entry("Huge Cerebrum II", "Gain double xp from all sources"),
                 Map.entry("Velocity III", "Arrows have twice as much velocity"),
                 Map.entry("Poison II", "Arrows give poison 2 for 2 seconds"),
+                Map.entry("Bleed III", "Damage the enemy for 1 heart every second later 3 times"),
 
                 Map.entry("Tank II", "Increases max health by 2 hearts"),
                 Map.entry("Revenge", "Release massive amounts of tnt when you die"),

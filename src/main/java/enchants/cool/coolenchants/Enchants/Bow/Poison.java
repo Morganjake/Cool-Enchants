@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class Poison implements Listener {
 
     @EventHandler
-    public void OnArrowShoot(ProjectileHitEvent Event) {
+    public void OnArrowHit(ProjectileHitEvent Event) {
 
         if (!(Event.getEntity() instanceof Arrow)) { return; }
         Arrow Arrow = (Arrow) Event.getEntity();
