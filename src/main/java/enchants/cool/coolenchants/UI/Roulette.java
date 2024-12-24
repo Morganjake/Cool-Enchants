@@ -43,16 +43,16 @@ public class Roulette {
         Inventory Inventory = Bukkit.createInventory(Player, 27,  "§3§lRoulette");
         Player.openInventory(Inventory);
 
-        final int[] Iterations = {70};
-
         BukkitRunnable RunRoulette = new BukkitRunnable() {
+
+            int Iterations = 70;
 
             @Override
             public void run() {
 
-                Iterations[0]--;
+                Iterations--;
 
-                if (Iterations[0] >= 0) {
+                if (Iterations >= 0) {
                     String Rarity = GetRarity(Odds);
                     ArrayList<ItemStack> EnchantPool = Books.get(Rarity);
                     ItemStack Enchant = EnchantPool.get((int) Math.floor(Math.random() * EnchantPool.size()));
@@ -69,7 +69,7 @@ public class Roulette {
 
                     for (int i = 0; i < Display.size(); i++) {
                         Inventory.setItem(i + 9, Display.get(i));
-                        Player.playSound(Player, Sound.BLOCK_NOTE_BLOCK_BASS, 1, (float) 1.5 - ((float) Iterations[0] / 70));
+                        Player.playSound(Player, Sound.BLOCK_NOTE_BLOCK_BASS, 1, (float) 1.5 - ((float) Iterations / 70));
 
                         ItemStack GlassPane = new ItemStack(Material.GRAY_STAINED_GLASS_PANE);
 
@@ -89,7 +89,7 @@ public class Roulette {
 
                     Player.openInventory(Inventory);
 
-                    if (Iterations[0] == 0) {
+                    if (Iterations == 0) {
                         Inventory = Bukkit.createInventory(Player, 27,  "§3§lRoulette");
                         Inventory.setItem(13, Display.get(4));
                         Player.playSound(Player, Sound.ENTITY_FIREWORK_ROCKET_BLAST, 5, 1);
@@ -100,11 +100,11 @@ public class Roulette {
                         RoulettePrizeMap.put(Player, Display.get(4));
                     }
                 }
-                else if ((Iterations[0] + 1) % 4 == 0){
+                else if ((Iterations + 1) % 4 == 0){
                     ItemStack EvenGlassPane = new ItemStack(Material.YELLOW_STAINED_GLASS_PANE);
                     ItemStack OddGlassPane = new ItemStack(Material.ORANGE_STAINED_GLASS_PANE);
 
-                    if ((Iterations[0] + 1) % 8 == 0) {
+                    if ((Iterations + 1) % 8 == 0) {
                         EvenGlassPane = new ItemStack(Material.ORANGE_STAINED_GLASS_PANE);
                         OddGlassPane = new ItemStack(Material.YELLOW_STAINED_GLASS_PANE);
                     }

@@ -38,9 +38,11 @@ public class Storm implements Listener {
         if (!Lore.contains("Storm")) { return; }
         Integer EnchantLevel = EnchantHelper.GetEnchantLevels(Trident.getItemStack().getItemMeta().lore()).get("Storm");
 
-        final Integer[] Iterations = {0};
+
 
         BukkitRunnable SummonTridents = new BukkitRunnable() {
+
+            int Iterations = 0;
 
             @Override
             public void run() {
@@ -52,9 +54,9 @@ public class Storm implements Listener {
                 Trident.setPickupStatus(AbstractArrow.PickupStatus.CREATIVE_ONLY);
                 Trident.setVelocity(new Vector((Math.random() - 0.5), -2, (Math.random() - 0.5)));
 
-                Iterations[0]++;
+                Iterations++;
 
-                if (Iterations[0] > 50 * EnchantLevel) {
+                if (Iterations > 50 * EnchantLevel) {
                     cancel();
                 }
             }
