@@ -91,9 +91,11 @@ public class EnchantList {
         ItemStack BleedIII = new ItemStack(Material.ENCHANTED_BOOK);
         BleedIII.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§9Sword", "§9Bleed III", "§9Max level 3" }));
 
-
         ItemStack Revenge = new ItemStack(Material.ENCHANTED_BOOK);
         Revenge.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§5Chestplate", "§5Revenge", "§5Max level 1" }));
+
+        ItemStack VoidWalker = new ItemStack(Material.ENCHANTED_BOOK);
+        VoidWalker.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§5Boots", "§5Void Walker", "§5Max level 1" }));
 
         ItemStack SonicI = new ItemStack(Material.ENCHANTED_BOOK);
         SonicI.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§aBoots", "§aSonic I", "§aMax level 3" }));
@@ -161,6 +163,7 @@ public class EnchantList {
         Epic.add(StormI);
         Epic.add(SonicIII);
         Epic.add(PoisonIII);
+        Epic.add(VoidWalker);
 
         Legendary.add(TankIII);
         Legendary.add(StormII);
@@ -213,6 +216,7 @@ public class EnchantList {
                 Map.entry("Storm I", "Make a storm of twice as many tridents rain down and smite whatever mob you throw your trident at"),
                 Map.entry("Sonic III", "Move 30% faster"),
                 Map.entry("Poison III", "Arrows give poison 2 for 3 seconds"),
+                Map.entry("Void Walker", "When you die to the void you teleport back to your spawn without losing any items"),
 
                 Map.entry("Tank III", "Increases max health by 3 hearts"),
                 Map.entry("Storm II", "Make a storm of tridents rain down and smite whatever mob you throw your trident at"),

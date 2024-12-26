@@ -1,5 +1,6 @@
 package enchants.cool.coolenchants;
 
+import enchants.cool.coolenchants.Enchants.Boots.VoidWalker;
 import enchants.cool.coolenchants.Enchants.Bow.Poison;
 import enchants.cool.coolenchants.Enchants.Bow.Velocity;
 import enchants.cool.coolenchants.Enchants.Chestplate.Revenge;
@@ -43,6 +44,7 @@ public final class CoolEnchants extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new Velocity(), this);
         getServer().getPluginManager().registerEvents(new Poison(), this);
         getServer().getPluginManager().registerEvents(new Bleed(), this);
+        getServer().getPluginManager().registerEvents(new VoidWalker(), this);
 
         try {
             getServer().getPluginManager().registerEvents(new Admin(), this);
