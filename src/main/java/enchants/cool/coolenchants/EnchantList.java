@@ -244,7 +244,7 @@ public class EnchantList {
 
                 Map.entry("Tank III", "Increases max health by 3 hearts"),
                 Map.entry("Storm II", "Make a storm of tridents rain down and smite whatever mob you throw your trident at"),
-                Map.entry("Tunneller", "Breaks blocks in a 3x3 area"),
+                Map.entry("Tunneller", "Breaks blocks in a 3x3 area, crouch to mine one block"),
                 Map.entry("Lifesteal V", "Gain back 10% of damage dealt"),
                 Map.entry("Machine Guns", "Arm your elytra with two super powered machine guns that you can shoot by left clicking while flying"),
                 Map.entry("Tamer III", "6% chance to get a spawn egg when killing a mob")

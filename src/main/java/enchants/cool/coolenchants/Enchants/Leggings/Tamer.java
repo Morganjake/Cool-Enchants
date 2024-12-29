@@ -2,7 +2,6 @@ package enchants.cool.coolenchants.Enchants.Leggings;
 
 import enchants.cool.coolenchants.Helper.AttackerOnDeath;
 import enchants.cool.coolenchants.Helper.EnchantHelper;
-import enchants.cool.coolenchants.UI.Roulette;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -11,7 +10,6 @@ import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;
-import java.util.Map;
 
 public class Tamer implements Listener {
 
