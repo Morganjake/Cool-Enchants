@@ -91,6 +91,12 @@ public class EnchantList {
         ItemStack BleedIII = new ItemStack(Material.ENCHANTED_BOOK);
         BleedIII.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§9Sword", "§9Bleed III", "§9Max level 3" }));
 
+        ItemStack RegenerationI = new ItemStack(Material.ENCHANTED_BOOK);
+        RegenerationI.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§9Leggings", "§9Regeneration I", "§9Max level 2" }));
+
+        ItemStack RegenerationII = new ItemStack(Material.ENCHANTED_BOOK);
+        RegenerationII.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§5Leggings", "§5Regeneration II", "§5Max level 2" }));
+
         ItemStack Revenge = new ItemStack(Material.ENCHANTED_BOOK);
         Revenge.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§5Chestplate", "§5Revenge", "§5Max level 1" }));
 
@@ -156,6 +162,7 @@ public class EnchantList {
         Rare.add(VelocityIII);
         Rare.add(PoisonII);
         Rare.add(BleedIII);
+        Rare.add(RegenerationI);
 
         Epic.add(TankII);
         Epic.add(Revenge);
@@ -164,6 +171,7 @@ public class EnchantList {
         Epic.add(SonicIII);
         Epic.add(PoisonIII);
         Epic.add(VoidWalker);
+        Epic.add(RegenerationII);
 
         Legendary.add(TankIII);
         Legendary.add(StormII);
@@ -209,6 +217,7 @@ public class EnchantList {
                 Map.entry("Velocity III", "Arrows have twice as much velocity"),
                 Map.entry("Poison II", "Arrows give poison 2 for 2 seconds"),
                 Map.entry("Bleed III", "Damage the enemy for 1 heart every second later 3 times"),
+                Map.entry("Regeneration I", "Heal 0.25 hearts every 2 seconds"),
 
                 Map.entry("Tank II", "Increases max health by 2 hearts"),
                 Map.entry("Revenge", "Release massive amounts of tnt when you die"),
@@ -217,6 +226,7 @@ public class EnchantList {
                 Map.entry("Sonic III", "Move 30% faster"),
                 Map.entry("Poison III", "Arrows give poison 2 for 3 seconds"),
                 Map.entry("Void Walker", "When you die to the void you teleport back to your spawn without losing any items"),
+                Map.entry("Regeneration II", "Heal half a heart every 2 seconds"),
 
                 Map.entry("Tank III", "Increases max health by 3 hearts"),
                 Map.entry("Storm II", "Make a storm of tridents rain down and smite whatever mob you throw your trident at"),

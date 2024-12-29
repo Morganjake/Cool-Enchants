@@ -7,6 +7,7 @@ import enchants.cool.coolenchants.Enchants.Chestplate.Revenge;
 import enchants.cool.coolenchants.Enchants.Elytra.MachineGuns;
 import enchants.cool.coolenchants.Enchants.Helmet.HugeCerebrum;
 import enchants.cool.coolenchants.Enchants.Hoe.Replant;
+import enchants.cool.coolenchants.Enchants.Leggings.Regeneration;
 import enchants.cool.coolenchants.Enchants.Pickaxe.Tunneller;
 import enchants.cool.coolenchants.Enchants.Sword.Bleed;
 import enchants.cool.coolenchants.Enchants.Sword.Butcher;
@@ -54,6 +55,7 @@ public final class CoolEnchants extends JavaPlugin {
         }
 
         ArmourUpdater.Start();
+        Regeneration.Regen();
 
         getLogger().info("Cool Enchants Loaded");
         getServer().broadcast(Component.text("Cool Enchants reloaded"));
