@@ -17,10 +17,12 @@ public class HugeCerebrum implements Listener {
         Player Player = Event.getPlayer();
 
         ItemStack Helmet = Player.getInventory().getHelmet();
+        if (Helmet == null) { return; }
 
         ArrayList<String> Lore = EnchantHelper.GetEnchants(Helmet.lore());
         if (!Lore.contains("Huge Cerebrum")) { return; }
         Integer EnchantLevel = EnchantHelper.GetEnchantLevels(Helmet.lore()).get("Huge Cerebrum");
+
         Event.setAmount(Event.getAmount() * (1 + EnchantLevel / 2));
     }
 }

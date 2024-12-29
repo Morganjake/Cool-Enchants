@@ -2,8 +2,6 @@ package enchants.cool.coolenchants.Enchants.Sword;
 
 import enchants.cool.coolenchants.Helper.AttackerOnDeath;
 import enchants.cool.coolenchants.Helper.EnchantHelper;
-import org.bukkit.Material;
-import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -11,16 +9,14 @@ import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 public class Butcher implements Listener {
 
     @EventHandler
     public void OnEntityDeath(EntityDeathEvent Event) {
 
-        if (!(Event.getEntity() instanceof Player)) { return; }
         Player Player = (Player) AttackerOnDeath.Attacker.get(Event.getEntity());
+        if (Player != null) { return; }
 
         ItemStack Weapon = Player.getItemInHand();
 
