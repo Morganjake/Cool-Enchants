@@ -124,6 +124,15 @@ public class EnchantList {
         ItemStack TankIII = new ItemStack(Material.ENCHANTED_BOOK);
         TankIII.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§6Chestplate", "§6Tank III", "§6Max level 3" }));
 
+        ItemStack TamerI = new ItemStack(Material.ENCHANTED_BOOK);
+        TamerI.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§5Leggings", "§5Tamer I", "§5Max level 3" }));
+
+        ItemStack TamerII = new ItemStack(Material.ENCHANTED_BOOK);
+        TamerII.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§5Leggings", "§5Tamer II", "§5Max level 3" }));
+
+        ItemStack TamerIII = new ItemStack(Material.ENCHANTED_BOOK);
+        TamerIII.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§6Leggings", "§6Tamer III", "§6Max level 3" }));
+
         ItemStack StormI = new ItemStack(Material.ENCHANTED_BOOK);
         StormI.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§5Trident", "§5Storm I", "§5Max level 2" }));
 
@@ -172,12 +181,15 @@ public class EnchantList {
         Epic.add(PoisonIII);
         Epic.add(VoidWalker);
         Epic.add(RegenerationII);
+        Epic.add(TamerI);
+        Epic.add(TamerII);
 
         Legendary.add(TankIII);
         Legendary.add(StormII);
         Legendary.add(Tunneller);
         Legendary.add(LifeStealV);
         Legendary.add(MachineGuns);
+        Legendary.add(TamerIII);
 
         return Map.of(
                 "Common", Common,
@@ -227,12 +239,15 @@ public class EnchantList {
                 Map.entry("Poison III", "Arrows give poison 2 for 3 seconds"),
                 Map.entry("Void Walker", "When you die to the void you teleport back to your spawn without losing any items"),
                 Map.entry("Regeneration II", "Heal half a heart every 2 seconds"),
+                Map.entry("Tamer I", "2% chance to get a spawn egg when killing a mob"),
+                Map.entry("Tamer II", "4% chance to get a spawn egg when killing a mob"),
 
                 Map.entry("Tank III", "Increases max health by 3 hearts"),
                 Map.entry("Storm II", "Make a storm of tridents rain down and smite whatever mob you throw your trident at"),
                 Map.entry("Tunneller", "Breaks blocks in a 3x3 area"),
                 Map.entry("Lifesteal V", "Gain back 10% of damage dealt"),
-                Map.entry("Machine Guns", "Arm your elytra with two super powered machine guns that you can shoot by left clicking while flying")
+                Map.entry("Machine Guns", "Arm your elytra with two super powered machine guns that you can shoot by left clicking while flying"),
+                Map.entry("Tamer III", "6% chance to get a spawn egg when killing a mob")
         );
     }
 }

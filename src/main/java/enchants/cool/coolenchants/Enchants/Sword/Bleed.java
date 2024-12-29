@@ -30,7 +30,6 @@ public class Bleed implements Listener {
         if (!Lore.contains("Bleed")) { return; }
         Integer EnchantLevel = EnchantHelper.GetEnchantLevels(Weapon.lore()).get("Bleed");
 
-
         new BukkitRunnable() {
 
             int Iterations = EnchantLevel;

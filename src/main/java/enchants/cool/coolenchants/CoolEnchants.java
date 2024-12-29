@@ -8,6 +8,7 @@ import enchants.cool.coolenchants.Enchants.Elytra.MachineGuns;
 import enchants.cool.coolenchants.Enchants.Helmet.HugeCerebrum;
 import enchants.cool.coolenchants.Enchants.Hoe.Replant;
 import enchants.cool.coolenchants.Enchants.Leggings.Regeneration;
+import enchants.cool.coolenchants.Enchants.Leggings.Tamer;
 import enchants.cool.coolenchants.Enchants.Pickaxe.Tunneller;
 import enchants.cool.coolenchants.Enchants.Sword.Bleed;
 import enchants.cool.coolenchants.Enchants.Sword.Butcher;
@@ -46,6 +47,7 @@ public final class CoolEnchants extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new Poison(), this);
         getServer().getPluginManager().registerEvents(new Bleed(), this);
         getServer().getPluginManager().registerEvents(new VoidWalker(), this);
+        getServer().getPluginManager().registerEvents(new Tamer(), this);
 
         try {
             getServer().getPluginManager().registerEvents(new Admin(), this);
