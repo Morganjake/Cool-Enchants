@@ -124,6 +124,15 @@ public class EnchantList {
         ItemStack TankIII = new ItemStack(Material.ENCHANTED_BOOK);
         TankIII.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§6Chestplate", "§6Tank III", "§6Max level 3" }));
 
+        ItemStack ReinforcedWingsI = new ItemStack(Material.ENCHANTED_BOOK);
+        ReinforcedWingsI.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§9Elytra", "§9Reinforced Wings I", "§9Max level 3" }));
+
+        ItemStack ReinforcedWingsII = new ItemStack(Material.ENCHANTED_BOOK);
+        ReinforcedWingsII.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§5Elytra", "§5Reinforced Wings II", "§5Max level 3" }));
+
+        ItemStack ReinforcedWingsIII = new ItemStack(Material.ENCHANTED_BOOK);
+        ReinforcedWingsIII.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§6Elytra", "§6Reinforced Wings III", "§6Max level 3" }));
+
         ItemStack TamerI = new ItemStack(Material.ENCHANTED_BOOK);
         TamerI.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§5Leggings", "§5Tamer I", "§5Max level 3" }));
 
@@ -172,6 +181,7 @@ public class EnchantList {
         Rare.add(PoisonII);
         Rare.add(BleedIII);
         Rare.add(RegenerationI);
+        Rare.add(ReinforcedWingsI);
 
         Epic.add(TankII);
         Epic.add(Revenge);
@@ -183,6 +193,7 @@ public class EnchantList {
         Epic.add(RegenerationII);
         Epic.add(TamerI);
         Epic.add(TamerII);
+        Epic.add(ReinforcedWingsII);
 
         Legendary.add(TankIII);
         Legendary.add(StormII);
@@ -190,6 +201,7 @@ public class EnchantList {
         Legendary.add(LifeStealV);
         Legendary.add(MachineGuns);
         Legendary.add(TamerIII);
+        Legendary.add(ReinforcedWingsIII);
 
         return Map.of(
                 "Common", Common,
@@ -230,6 +242,7 @@ public class EnchantList {
                 Map.entry("Poison II", "Arrows give poison 2 for 2 seconds"),
                 Map.entry("Bleed III", "Damage the enemy for 1 heart every second later 3 times"),
                 Map.entry("Regeneration I", "Heal 0.25 hearts every 2 seconds"),
+                Map.entry("Reinforced Wings I", "You take 10% less damage"),
 
                 Map.entry("Tank II", "Increases max health by 2 hearts"),
                 Map.entry("Revenge", "Release massive amounts of tnt when you die"),
@@ -241,13 +254,15 @@ public class EnchantList {
                 Map.entry("Regeneration II", "Heal half a heart every 2 seconds"),
                 Map.entry("Tamer I", "2% chance to get a spawn egg when killing a mob"),
                 Map.entry("Tamer II", "4% chance to get a spawn egg when killing a mob"),
+                Map.entry("Reinforced Wings II", "You take 20% less damage"),
 
                 Map.entry("Tank III", "Increases max health by 3 hearts"),
                 Map.entry("Storm II", "Make a storm of tridents rain down and smite whatever mob you throw your trident at"),
                 Map.entry("Tunneller", "Breaks blocks in a 3x3 area, crouch to mine one block"),
                 Map.entry("Lifesteal V", "Gain back 10% of damage dealt"),
                 Map.entry("Machine Guns", "Arm your elytra with two super powered machine guns that you can shoot by left clicking while flying"),
-                Map.entry("Tamer III", "6% chance to get a spawn egg when killing a mob")
+                Map.entry("Tamer III", "6% chance to get a spawn egg when killing a mob"),
+                Map.entry("Reinforced Wings III", "You take 30% less damage")
         );
     }
 }
