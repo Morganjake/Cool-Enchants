@@ -242,7 +242,7 @@ public class EnchantList {
                 Map.entry("Poison II", "Arrows give poison 2 for 2 seconds"),
                 Map.entry("Bleed III", "Damage the enemy for 1 heart every second later 3 times"),
                 Map.entry("Regeneration I", "Heal 0.25 hearts every 2 seconds"),
-                Map.entry("Reinforced Wings I", "You take 10% less damage"),
+                Map.entry("Reinforced Wings I", "You take 11% less damage"),
 
                 Map.entry("Tank II", "Increases max health by 2 hearts"),
                 Map.entry("Revenge", "Release massive amounts of tnt when you die"),
@@ -254,7 +254,7 @@ public class EnchantList {
                 Map.entry("Regeneration II", "Heal half a heart every 2 seconds"),
                 Map.entry("Tamer I", "2% chance to get a spawn egg when killing a mob"),
                 Map.entry("Tamer II", "4% chance to get a spawn egg when killing a mob"),
-                Map.entry("Reinforced Wings II", "You take 20% less damage"),
+                Map.entry("Reinforced Wings II", "You take 22% less damage"),
 
                 Map.entry("Tank III", "Increases max health by 3 hearts"),
                 Map.entry("Storm II", "Make a storm of tridents rain down and smite whatever mob you throw your trident at"),
@@ -262,7 +262,7 @@ public class EnchantList {
                 Map.entry("Lifesteal V", "Gain back 10% of damage dealt"),
                 Map.entry("Machine Guns", "Arm your elytra with two super powered machine guns that you can shoot by left clicking while flying"),
                 Map.entry("Tamer III", "6% chance to get a spawn egg when killing a mob"),
-                Map.entry("Reinforced Wings III", "You take 30% less damage")
+                Map.entry("Reinforced Wings III", "You take 33% less damage")
         );
     }
 }

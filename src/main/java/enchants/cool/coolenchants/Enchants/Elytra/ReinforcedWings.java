@@ -23,6 +23,6 @@ public class ReinforcedWings implements Listener {
         if (!Lore.contains("Reinforced Wings")) { return; }
         int EnchantLevel = EnchantHelper.GetEnchantLevels(Elytra.lore()).get("Reinforced Wings");
 
-        Event.setDamage(Event.getDamage() * (1 - 0.1 * EnchantLevel));
+        Event.setDamage(Event.getDamage() * (1 - 0.11 * EnchantLevel));
     }
 }
