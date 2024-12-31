@@ -15,8 +15,8 @@ public class Butcher implements Listener {
     @EventHandler
     public void OnEntityDeath(EntityDeathEvent Event) {
 
+        if (!(AttackerOnDeath.Attacker.get(Event.getEntity()) instanceof Player)) { return; }
         Player Player = (Player) AttackerOnDeath.Attacker.get(Event.getEntity());
-        if (Player == null) { return; }
 
         ItemStack Weapon = Player.getItemInHand();
 

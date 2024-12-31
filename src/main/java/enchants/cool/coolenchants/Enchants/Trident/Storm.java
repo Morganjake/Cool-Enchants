@@ -4,6 +4,7 @@ import enchants.cool.coolenchants.CoolEnchants;
 import enchants.cool.coolenchants.EnchantList;
 import enchants.cool.coolenchants.Helper.AttackerOnDeath;
 import enchants.cool.coolenchants.Helper.EnchantHelper;
+import net.kyori.adventure.text.BlockNBTComponent;
 import org.bukkit.Location;
 import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
@@ -38,7 +39,7 @@ public class Storm implements Listener {
         if (!Lore.contains("Storm")) { return; }
         Integer EnchantLevel = EnchantHelper.GetEnchantLevels(Trident.getItemStack().getItemMeta().lore()).get("Storm");
 
-
+        final Location[] Position = {Event.getEntity().getLocation()};
 
         BukkitRunnable SummonTridents = new BukkitRunnable() {
 
@@ -47,12 +48,21 @@ public class Storm implements Listener {
             @Override
             public void run() {
 
-                if (Event.getEntity().isDead()) { cancel(); }
-                Location Position = Event.getEntity().getLocation().add(new Vector((Math.random() - 0.5), 15, (Math.random() - 0.5)));
-                Trident Trident = Event.getEntity().getWorld().spawn(Position, Trident.class);
-                Trident.setCustomName("Storm Trident");
-                Trident.setPickupStatus(AbstractArrow.PickupStatus.CREATIVE_ONLY);
-                Trident.setVelocity(new Vector((Math.random() - 0.5), -2, (Math.random() - 0.5)));
+                for (int i = 0; i < 3; i++) {
+
+                    if (!Event.getEntity().isDead()) {
+                        Position[0] = Event.getEntity().getLocation();
+                    }
+
+                    Location TridentPosition = Position[0].clone().add((Math.random() - 0.5) * 40, 100, (Math.random() - 0.5) * 40);
+
+                    Trident Trident = Event.getEntity().getWorld().spawn(TridentPosition, Trident.class);
+                    Trident.setCustomName("Storm Trident");
+                    Trident.setPickupStatus(AbstractArrow.PickupStatus.CREATIVE_ONLY);
+
+                    Vector Direction = Position[0].toVector().subtract(TridentPosition.toVector()).normalize();
+                    Trident.setVelocity(Direction.multiply(new Vector(4 + Math.random() * 2 , 5, 4 + Math.random() * 2)));
+                }
 
                 Iterations++;
 
@@ -62,6 +72,6 @@ public class Storm implements Listener {
             }
         };
 
-        SummonTridents.runTaskTimer(CoolEnchants.GetPlugin(), 0, 2L);
+        SummonTridents.runTaskTimer(CoolEnchants.GetPlugin(), 0, 1L);
     }
 }
