@@ -1,5 +1,6 @@
 package enchants.cool.coolenchants;
 
+import enchants.cool.coolenchants.Enchants.Axe.Treecapitator;
 import enchants.cool.coolenchants.Enchants.Boots.VoidWalker;
 import enchants.cool.coolenchants.Enchants.Bow.Poison;
 import enchants.cool.coolenchants.Enchants.Bow.Velocity;
@@ -50,6 +51,7 @@ public final class CoolEnchants extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new VoidWalker(), this);
         getServer().getPluginManager().registerEvents(new Tamer(), this);
         getServer().getPluginManager().registerEvents(new ReinforcedWings(), this);
+        getServer().getPluginManager().registerEvents(new Treecapitator(), this);
 
         try {
             getServer().getPluginManager().registerEvents(new Admin(), this);

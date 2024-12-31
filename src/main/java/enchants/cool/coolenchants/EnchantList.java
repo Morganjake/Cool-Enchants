@@ -151,6 +151,9 @@ public class EnchantList {
         ItemStack Tunneller = new ItemStack(Material.ENCHANTED_BOOK);
         Tunneller.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§6Pickaxe", "§6Tunneller", "§6Max level 1" }));
 
+        ItemStack Treecapitator = new ItemStack(Material.ENCHANTED_BOOK);
+        Treecapitator.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§6Axe", "§6Treecapitator", "§6Max level 1" }));
+
         ItemStack MachineGuns = new ItemStack(Material.ENCHANTED_BOOK);
         MachineGuns.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§6Elytra", "§6Machine Guns", "§6Max level 1" }));
 
@@ -202,6 +205,7 @@ public class EnchantList {
         Legendary.add(MachineGuns);
         Legendary.add(TamerIII);
         Legendary.add(ReinforcedWingsIII);
+        Legendary.add(Treecapitator);
 
         return Map.of(
                 "Common", Common,
@@ -262,7 +266,8 @@ public class EnchantList {
                 Map.entry("Lifesteal V", "Gain back 10% of damage dealt"),
                 Map.entry("Machine Guns", "Arm your elytra with two super powered machine guns that you can shoot by left clicking while flying"),
                 Map.entry("Tamer III", "6% chance to get a spawn egg when killing a mob"),
-                Map.entry("Reinforced Wings III", "You take 33% less damage")
+                Map.entry("Reinforced Wings III", "You take 33% less damage"),
+                Map.entry("Treecapitator", "Cut down the whole tree when you break a log")
         );
     }
 }
