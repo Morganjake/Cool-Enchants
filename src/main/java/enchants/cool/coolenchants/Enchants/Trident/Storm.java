@@ -1,24 +1,17 @@
 package enchants.cool.coolenchants.Enchants.Trident;
 
 import enchants.cool.coolenchants.CoolEnchants;
-import enchants.cool.coolenchants.EnchantList;
-import enchants.cool.coolenchants.Helper.AttackerOnDeath;
 import enchants.cool.coolenchants.Helper.EnchantHelper;
-import net.kyori.adventure.text.BlockNBTComponent;
 import org.bukkit.Location;
 import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.metadata.MetadataValue;
+import org.bukkit.event.entity.ProjectileHitEvent;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Storm implements Listener {
 
@@ -41,14 +34,14 @@ public class Storm implements Listener {
 
         final Location[] Position = {Event.getEntity().getLocation()};
 
-        BukkitRunnable SummonTridents = new BukkitRunnable() {
+        new BukkitRunnable() {
 
             int Iterations = 0;
 
             @Override
             public void run() {
 
-                for (int i = 0; i < 3; i++) {
+                for (int i = 0; i < (2 * EnchantLevel - 1); i++) {
 
                     if (!Event.getEntity().isDead()) {
                         Position[0] = Event.getEntity().getLocation();
@@ -66,12 +59,26 @@ public class Storm implements Listener {
 
                 Iterations++;
 
-                if (Iterations > 50 * EnchantLevel) {
+                if (Iterations >= 100) {
                     cancel();
                 }
             }
-        };
+        }.runTaskTimer(CoolEnchants.GetPlugin(), 0, 1L);
+    }
 
-        SummonTridents.runTaskTimer(CoolEnchants.GetPlugin(), 0, 1L);
+    @EventHandler
+    public void OnProjectileHit(ProjectileHitEvent Event) {
+
+        if (Event.getEntity().getName().equals("Storm Trident")) {
+
+            new BukkitRunnable() {
+
+                public void run() {
+                    Event.getEntity().remove();
+                }
+
+            }.runTaskLater(CoolEnchants.GetPlugin(), 10);
+
+        }
     }
 }

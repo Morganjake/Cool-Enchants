@@ -84,11 +84,13 @@ public class MachineGuns implements Listener {
             if (Arrow.hasMetadata("MachineGunArrow")) {
 
                 new BukkitRunnable() {
+
                     public void run() {
                         if (!(Event.getHitEntity() instanceof LivingEntity)) { return; }
                         LivingEntity HitEntity = (LivingEntity) Event.getHitEntity();
                         HitEntity.setNoDamageTicks(1);
                     }
+
                 }.runTaskLater(CoolEnchants.GetPlugin(), 3);
 
                 Arrow.remove();
