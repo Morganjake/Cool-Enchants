@@ -149,7 +149,7 @@ public class EnchantList {
         StormII.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§6Trident", "§6Storm II", "§6Max level 2" }));
 
         ItemStack Tunneller = new ItemStack(Material.ENCHANTED_BOOK);
-        Tunneller.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§6Pickaxe", "§6Tunneller", "§6Max level 1" }));
+        Tunneller.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§6Tool", "§6Tunneller", "§6Max level 1" }));
 
         ItemStack Treecapitator = new ItemStack(Material.ENCHANTED_BOOK);
         Treecapitator.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§6Axe", "§6Treecapitator", "§6Max level 1" }));
@@ -161,6 +161,7 @@ public class EnchantList {
         Common.add(SmiteI);
         Common.add(SmiteII);
         Common.add(LifeStealI);
+        Common.add(VelocityI);
         Common.add(BleedI);
 
         Uncommon.add(ButcherII);

@@ -11,7 +11,7 @@ import enchants.cool.coolenchants.Enchants.Helmet.HugeCerebrum;
 import enchants.cool.coolenchants.Enchants.Hoe.Replant;
 import enchants.cool.coolenchants.Enchants.Leggings.Regeneration;
 import enchants.cool.coolenchants.Enchants.Leggings.Tamer;
-import enchants.cool.coolenchants.Enchants.Pickaxe.Tunneller;
+import enchants.cool.coolenchants.Enchants.Tool.Tunneller;
 import enchants.cool.coolenchants.Enchants.Sword.Bleed;
 import enchants.cool.coolenchants.Enchants.Sword.Butcher;
 import enchants.cool.coolenchants.Enchants.Sword.Lifesteal;
