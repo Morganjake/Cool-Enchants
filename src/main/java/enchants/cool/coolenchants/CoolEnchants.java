@@ -36,6 +36,7 @@ public final class CoolEnchants extends JavaPlugin {
 
         getServer().getPluginManager().registerEvents(new InventoryClickListener(), this);
         getServer().getPluginManager().registerEvents(new AttackerOnDeath(), this);
+
         getServer().getPluginManager().registerEvents(new Butcher(), this);
         getServer().getPluginManager().registerEvents(new Revenge(), this);
         getServer().getPluginManager().registerEvents(new Replant(), this);
@@ -52,6 +53,7 @@ public final class CoolEnchants extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new Tamer(), this);
         getServer().getPluginManager().registerEvents(new ReinforcedWings(), this);
         getServer().getPluginManager().registerEvents(new Treecapitator(), this);
+        Regeneration.Regen();
 
         try {
             getServer().getPluginManager().registerEvents(new Admin(), this);
@@ -61,7 +63,7 @@ public final class CoolEnchants extends JavaPlugin {
         }
 
         ArmourUpdater.Start();
-        Regeneration.Regen();
+
 
         getLogger().info("Cool Enchants Loaded");
         getServer().broadcast(Component.text("Cool Enchants reloaded"));

@@ -96,7 +96,9 @@ public class InventoryClickListener implements Listener {
             }
 
             ItemStack ClickedItem = Event.getCurrentItem();
-            if (ClickedItem == null) { return; }
+            if (ClickedItem == null) {
+                return;
+            }
 
 
             if (Event.getClickedInventory() == Player.getInventory()) {
@@ -113,45 +115,40 @@ public class InventoryClickListener implements Listener {
                     else if (Event.getInventory().getItem(15) == null) {
                         Event.getInventory().setItem(15, Event.getCurrentItem());
                         Player.getInventory().setItem(ClickedSlot, null);
-                    }
-                    else {
+                    } else {
                         Player.playSound(Player, Sound.BLOCK_ANVIL_LAND, 1, 1);
                         return;
                     }
-                }
-                else {
+                } else {
                     // First Item slot isn't empty
                     if (Event.getInventory().getItem(11) == null) {
                         Event.getInventory().setItem(11, Event.getCurrentItem());
                         Player.getInventory().setItem(ClickedSlot, null);
-                    }
-                    else {
+                    } else {
                         Player.playSound(Player, Sound.BLOCK_ANVIL_LAND, 1, 1);
                         return;
                     }
                 }
-            }
-            else {
+            } else {
 
                 if (ClickedSlot == 11) {  // Give back the first item
                     Map<Integer, ItemStack> Overflow = Player.getInventory().addItem(Objects.requireNonNull(Event.getInventory().getItem(11)));
-                    if (!Overflow.isEmpty()) { Player.getWorld().dropItem(Player.getLocation(), Objects.requireNonNull(Event.getInventory().getItem(11))); }
+                    if (!Overflow.isEmpty()) {
+                        Player.getWorld().dropItem(Player.getLocation(), Objects.requireNonNull(Event.getInventory().getItem(11)));
+                    }
                     Event.getInventory().setItem(11, null);
-                }
-                else if (ClickedSlot == 15) {  // Give back the second item
+                } else if (ClickedSlot == 15) {  // Give back the second item
                     Map<Integer, ItemStack> Overflow = Player.getInventory().addItem(Objects.requireNonNull(Event.getInventory().getItem(15)));
-                    if (!Overflow.isEmpty()) { Player.getWorld().dropItem(Player.getLocation(), Objects.requireNonNull(Event.getInventory().getItem(15))); }
+                    if (!Overflow.isEmpty()) {
+                        Player.getWorld().dropItem(Player.getLocation(), Objects.requireNonNull(Event.getInventory().getItem(15)));
+                    }
                     Event.getInventory().setItem(15, null);
-                }
-
-                else if (ClickedSlot == 22) {
+                } else if (ClickedSlot == 22) {
 
                     if (Event.getInventory().getItem(11) == null || Event.getInventory().getItem(15) == null) {
                         Player.playSound(Player, Sound.BLOCK_ANVIL_LAND, 1, 1);
                         return;
-                    }
-
-                    else if (EnchantHelper.ItemsAreCompatible(Player, Event.getInventory().getItem(11), Event.getInventory().getItem(15))) {
+                    } else if (EnchantHelper.ItemsAreCompatible(Player, Event.getInventory().getItem(11), Event.getInventory().getItem(15))) {
 
                         List<String> Item1Lore = Event.getInventory().getItem(11).getLore();
 
@@ -213,8 +210,7 @@ public class InventoryClickListener implements Listener {
 
                                 if (Objects.equals(ItemEnchants.get(EnchantName), EnchantBookLevel.get(EnchantName))) {
                                     ItemEnchants.put(EnchantName, ItemEnchants.get(EnchantName) + 1);
-                                }
-                                else {
+                                } else {
                                     ItemEnchants.put(EnchantName, EnchantBookLevel.get(EnchantName));
                                 }
 
@@ -231,171 +227,22 @@ public class InventoryClickListener implements Listener {
 
                         // Gives the player the new item
                         Map<Integer, ItemStack> Overflow = Player.getInventory().addItem(Objects.requireNonNull(Event.getInventory().getItem(11)));
-                        if (!Overflow.isEmpty()) { Player.getWorld().dropItem(Player.getLocation(), Objects.requireNonNull(Event.getInventory().getItem(11))); }
+                        if (!Overflow.isEmpty()) {
+                            Player.getWorld().dropItem(Player.getLocation(), Objects.requireNonNull(Event.getInventory().getItem(11)));
+                        }
 
                         Event.getInventory().setItem(11, null);
                         Event.getInventory().setItem(15, null);
 
                         Player.playSound(Player, Sound.BLOCK_ANVIL_USE, 1, 1);
 
-                        return;
-                    }
-                    else {
+                    } else {
                         Player.playSound(Player, Sound.BLOCK_ANVIL_LAND, 1, 1);
-                        return;
                     }
                 }
-            }
-
-            if (Event.getView().getTitle().equals("§3§lEnchant")) { return; }
-
-            if (ClickedItem == null) { return; }
-            String ItemName = ClickedItem.toString();
-            if (Event.getClickedInventory() == Player.getInventory()) {
-
-                if ( ItemName.contains("_SWORD") || ItemName.contains("_PICKAXE") ||
-                        ItemName.contains("_AXE") || ItemName.contains("_SHOVEL") ||
-                        ItemName.contains("_HOE") || ItemName.contains("TRIDENT") ||
-                        ItemName.contains("SHIELD") || ItemName.contains("ELYTRA") ||
-                        ItemName.contains("_HELMET") || ItemName.contains("_CHESTPLATE") ||
-                        ItemName.contains("_LEGGINGS") || ItemName.contains("_BOOTS") || ItemName.contains("BOW") ) {
-
-                    // Checks if the gui has an item held in it
-                    if (Event.getInventory().getItem(11) != null) {
-                        // Give the player the item or throws it out if their inventory is full
-                        Map<Integer, ItemStack> Overflow = Player.getInventory().addItem(Objects.requireNonNull(Event.getInventory().getItem(11)));
-                        if (!Overflow.isEmpty()) { Player.getWorld().dropItem(Player.getLocation(), Objects.requireNonNull(Event.getInventory().getItem(11))); }
-                    }
-
-                    // Checks if the gui has an enchant book held in it
-                    if (Event.getInventory().getItem(15) != null) {
-                        // Checks if the book is compatible with the new item
-                        String EnchantablePiece = Event.getInventory().getItem(15).getLore().get(1).toUpperCase().substring(2);
-                        if (ClickedItem.toString().contains(EnchantablePiece)) {
-                            Event.getInventory().setItem(11, ClickedItem);
-                        }
-                        else {
-                            Event.getInventory().setItem(11, ClickedItem);
-
-                            // Gives the enchant book back
-                            Map<Integer, ItemStack> Overflow = Player.getInventory().addItem(Objects.requireNonNull(Event.getInventory().getItem(15)));
-                            if (!Overflow.isEmpty()) { Player.getWorld().dropItem(Player.getLocation(), Objects.requireNonNull(Event.getInventory().getItem(15))); }
-                            Event.getInventory().setItem(15, null);
-                        }
-                    }
-                    else {
-                        Event.getInventory().setItem(11, ClickedItem);
-                    }
-
-                    Player.getInventory().setItem(ClickedSlot, null);
-                }
-
-                else if (ClickedItem.getLore() != null && Objects.equals(ClickedItem.getLore().get(0), "§3§l--Cool Enchants--")) {
-
-                    // Checks if the gui has an enchant book held in it
-                    if (Event.getInventory().getItem(15) != null) {
-                        // Give the player the enchant book or throws it out if their inventory is full
-                        Map<Integer, ItemStack> Overflow = Player.getInventory().addItem(Objects.requireNonNull(Event.getInventory().getItem(15)));
-                        if (!Overflow.isEmpty()) { Player.getWorld().dropItem(Player.getLocation(), Objects.requireNonNull(Event.getInventory().getItem(15))); }
-                    }
-
-                    // Checks if the gui has an item held in it
-                    if (Event.getInventory().getItem(11) != null) {
-                        // Checks if the enchant book is compatible with the item
-                        String EnchantableItem = Event.getInventory().getItem(11).toString();
-                        String EnchantablePiece = ClickedItem.getLore().get(1).toUpperCase().substring(2);
-
-                        if (EnchantableItem.contains(EnchantablePiece)) {
-                            Event.getInventory().setItem(15, ClickedItem);
-                        }
-                        else {
-                            Player.playSound(Player, Sound.BLOCK_ANVIL_LAND, 1, 1);
-                            return;
-                        }
-                    }
-                    else {
-                        Event.getInventory().setItem(15, ClickedItem);
-                    }
-
-                    Player.getInventory().setItem(ClickedSlot, null);
-                }
-            }
-            else if (ClickedSlot == 22 && Event.getInventory().getItem(11) != null && Event.getInventory().getItem(15) != null) {
-
-                // Adds the enchant to the item's lore
-                String Enchant = ChatColor.stripColor(Event.getInventory().getItem(15).getLore().get(2));
-                int MaxLevel = Integer.valueOf(ChatColor.stripColor(Event.getInventory().getItem(15).getLore().get(3)).split(" ")[2]);
-                ArrayList<String> ItemLore = (ArrayList<String>) Event.getInventory().getItem(11).getLore();
-                if (ItemLore == null) { ItemLore = new ArrayList<String>();}
-
-                // Converts Strings into Components
-                ArrayList<Component> ComponentLore = new ArrayList<>();
-                for (String Line : ItemLore) {
-                    ComponentLore.add(Component.text(Line));
-                }
-
-                Map<String, Integer> ItemEnchantLevels = EnchantHelper.GetEnchantLevels(ComponentLore);
-                Map<String, Integer> EnchantBookLevel = EnchantHelper.GetEnchantLevels(Collections.singletonList(Component.text(Enchant)));
-
-                String EnchantName = (String) EnchantBookLevel.keySet().toArray()[0];
-
-                // Checks if the item already has the enchant
-                if (ItemEnchantLevels.containsKey(EnchantName)) {
-
-                    // Checks if the enchant is the same level or a higher one
-                    if (EnchantBookLevel.get(EnchantName) >= ItemEnchantLevels.get(EnchantName)) {
-
-                        int NewLevel = 0;
-
-                        // If the enchant levels are the same, the level goes up by one
-                        if (Objects.equals(EnchantBookLevel.get(EnchantName), ItemEnchantLevels.get(EnchantName))) {
-                            NewLevel = ItemEnchantLevels.get(EnchantName) + 1;
-                        }
-                        else { // Otherwise it goes to the level on the book
-                            NewLevel = EnchantBookLevel.get(EnchantName);
-                        }
-
-                        if (NewLevel > MaxLevel) {
-                            Player.playSound(Player, Sound.BLOCK_ANVIL_LAND, 1, 1);
-                            return;
-                        }
-                        else {
-                            ItemEnchantLevels.put(EnchantName, NewLevel) ;
-                        }
-
-                    }
-                    else {
-                        Player.playSound(Player, Sound.BLOCK_ANVIL_LAND, 1, 1);
-                        return;
-                    }
-
-                    ArrayList<String> NewLore = new ArrayList<String>();
-                    String[] NumToDisplayNum = {"_", "I", "II", "III", "IV", "V"};
-
-                    for (Map.Entry<String, Integer> Entry : ItemEnchantLevels.entrySet()) {
-                        NewLore.add(Entry.getKey() + " " + NumToDisplayNum[Entry.getValue()]);
-                    }
-
-                    Event.getInventory().getItem(11).setLore(NewLore);
-                }
-                else {
-                    ItemLore.add(Enchant);
-                    Event.getInventory().getItem(11).setLore(ItemLore);
-                }
-
-                Map<Integer, ItemStack> Overflow = Player.getInventory().addItem(Objects.requireNonNull(Event.getInventory().getItem(11)));
-                if (!Overflow.isEmpty()) { Player.getWorld().dropItem(Player.getLocation(), Objects.requireNonNull(Event.getInventory().getItem(11))); }
-
-                Event.getInventory().setItem(11, null);
-                Event.getInventory().setItem(15, null);
-                Player.playSound(Player, Sound.BLOCK_ANVIL_USE, 1, 1);
-
-            }
-
-            else if (ClickedSlot == 26) {
-                MainUI.MainMenu(Player);
             }
         }
+
         else if (Event.getView().getTitle().equals("§3§lInfo")) {
             Event.setCancelled(true);
 
