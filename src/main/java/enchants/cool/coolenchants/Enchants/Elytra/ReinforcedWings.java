@@ -18,6 +18,7 @@ public class ReinforcedWings implements Listener {
         Player Player = (Player) Event.getEntity();
 
         ItemStack Elytra = Player.getInventory().getChestplate();
+        if (Elytra == null) { return; }
 
         ArrayList<String> Lore = EnchantHelper.GetEnchants(Elytra.lore());
         if (!Lore.contains("Reinforced Wings")) { return; }

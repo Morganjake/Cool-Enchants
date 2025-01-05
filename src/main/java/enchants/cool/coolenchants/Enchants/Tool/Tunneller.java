@@ -8,6 +8,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.event.player.PlayerItemDamageEvent;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;
@@ -17,6 +18,9 @@ public class Tunneller implements Listener {
 
     // Used to run the Player.breakBlock() method without re-running the code
     public static ArrayList<Block> BlocksJustBroken = new ArrayList<>();
+
+    // Used to make sure tool durability only goes down one point when breaking lots of blocks
+    public static ArrayList<Player> NoDurabilityTime = new ArrayList<>();
 
     @EventHandler
     public void OnBlockBreak(BlockBreakEvent Event) {
@@ -32,7 +36,6 @@ public class Tunneller implements Listener {
         // If the player uses a shovel the code checks if they broke an unpreferred block
         boolean BreakUnpreferredBlocks = !Tool.getType().name().contains("SHOVEL") || !Event.getBlock().isPreferredTool(Tool);
 
-        Player.sendMessage(String.valueOf(BreakUnpreferredBlocks));
         // Qol that if the player is sneaking it doesn't mine in a 3x3 area
         if (Player.isSneaking()) { return; }
 
@@ -49,6 +52,8 @@ public class Tunneller implements Listener {
                 Material.END_PORTAL
         );
 
+
+
         for (int x = -1; x <= 1; x++) {
             for (int y = -1; y <= 1; y++) {
                 for (int z = -1; z <= 1; z++) {
@@ -61,8 +66,22 @@ public class Tunneller implements Listener {
                         BlocksJustBroken.add(NewBlock);
                         Player.breakBlock(NewBlock);
                     }
+
+                    if (!NoDurabilityTime.contains(Player)) {
+                        NoDurabilityTime.add(Player);
+                    }
                 }
             }
+        }
+
+        NoDurabilityTime.remove(Player);
+    }
+
+    @EventHandler
+    public void OnItemDamage(PlayerItemDamageEvent Event) {
+
+        if (NoDurabilityTime.contains(Event.getPlayer())) {
+            Event.setCancelled(true);
         }
     }
 }
