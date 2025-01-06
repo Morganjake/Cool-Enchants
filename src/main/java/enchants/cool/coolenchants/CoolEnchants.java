@@ -1,6 +1,7 @@
 package enchants.cool.coolenchants;
 
 import enchants.cool.coolenchants.Enchants.Axe.Treecapitator;
+import enchants.cool.coolenchants.Enchants.Boots.LavaWalker;
 import enchants.cool.coolenchants.Enchants.Boots.VoidWalker;
 import enchants.cool.coolenchants.Enchants.Bow.Poison;
 import enchants.cool.coolenchants.Enchants.Bow.Velocity;
@@ -53,6 +54,7 @@ public final class CoolEnchants extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new Tamer(), this);
         getServer().getPluginManager().registerEvents(new ReinforcedWings(), this);
         getServer().getPluginManager().registerEvents(new Treecapitator(), this);
+        getServer().getPluginManager().registerEvents(new LavaWalker(), this);
         Regeneration.Regen();
 
         try {
@@ -63,6 +65,7 @@ public final class CoolEnchants extends JavaPlugin {
         }
 
         ArmourUpdater.Start();
+        LavaWalker.StartLavaUpdater();
 
 
         getLogger().info("Cool Enchants Loaded");

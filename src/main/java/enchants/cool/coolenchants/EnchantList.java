@@ -154,8 +154,11 @@ public class EnchantList {
         ItemStack Tunneller = new ItemStack(Material.ENCHANTED_BOOK);
         Tunneller.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§6Tool", "§6Tunneller", "§6Max level 1" }));
 
-        ItemStack LavaWalker = new ItemStack(Material.ENCHANTED_BOOK);
-        LavaWalker.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§6Boots", "§6Lava Walker", "§6Max level 1" }));
+        ItemStack LavaWalkerI = new ItemStack(Material.ENCHANTED_BOOK);
+        LavaWalkerI.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§5Boots", "§5Lava Walker I", "§5Max level 2" }));
+
+        ItemStack LavaWalkerII = new ItemStack(Material.ENCHANTED_BOOK);
+        LavaWalkerII.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§6Boots", "§6Lava Walker II", "§6Max level 2" }));
 
         ItemStack Treecapitator = new ItemStack(Material.ENCHANTED_BOOK);
         Treecapitator.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§6Axe", "§6Treecapitator", "§6Max level 1" }));
@@ -205,6 +208,7 @@ public class EnchantList {
         Epic.add(TamerI);
         Epic.add(TamerII);
         Epic.add(ReinforcedWingsII);
+        Epic.add(LavaWalkerI);
 
         Legendary.add(TankIII);
         Legendary.add(StormII);
@@ -214,7 +218,7 @@ public class EnchantList {
         Legendary.add(TamerIII);
         Legendary.add(ReinforcedWingsIII);
         Legendary.add(Treecapitator);
-        Legendary.add(LavaWalker);
+        Legendary.add(LavaWalkerII);
 
         return Map.of(
                 "Common", Common,
@@ -269,6 +273,7 @@ public class EnchantList {
                 Map.entry("Tamer I", "2% chance to get a spawn egg when killing a mob"),
                 Map.entry("Tamer II", "4% chance to get a spawn egg when killing a mob"),
                 Map.entry("Reinforced Wings II", "You take 22% less damage"),
+                Map.entry("Lava Walker I", "Allows you to walk on lava in a 2 block radius"),
 
                 Map.entry("Tank III", "Increases max health by 3 hearts"),
                 Map.entry("Storm II", "Make a storm of tridents rain down and smite whatever mob you throw your trident at"),
@@ -278,7 +283,7 @@ public class EnchantList {
                 Map.entry("Tamer III", "6% chance to get a spawn egg when killing a mob"),
                 Map.entry("Reinforced Wings III", "You take 33% less damage"),
                 Map.entry("Treecapitator", "Cut down the whole tree when you break a log"),
-                Map.entry("Lava Walker", "Allows you to walk on lava")
+                Map.entry("Lava Walker II", "Allows you to walk on lava in a 3 block radius")
         );
     }
 }
