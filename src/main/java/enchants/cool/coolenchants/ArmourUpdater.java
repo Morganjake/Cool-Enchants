@@ -2,6 +2,7 @@ package enchants.cool.coolenchants;
 
 import enchants.cool.coolenchants.Enchants.Boots.Sonic;
 import enchants.cool.coolenchants.Enchants.Chestplate.Tank;
+import enchants.cool.coolenchants.Enchants.Helmet.NightOwl;
 import enchants.cool.coolenchants.Helper.EnchantHelper;
 import net.kyori.adventure.text.Component;
 import org.bukkit.entity.Player;
@@ -13,6 +14,18 @@ public class ArmourUpdater {
 
     private static void UpdateHelmet(Player Player, List<Component> PreviousLore, List<Component> Lore) {
 
+        ArrayList<String> PreviousEnchants = EnchantHelper.GetEnchants(PreviousLore);
+        Map<String, Integer> PreviousLevels = EnchantHelper.GetEnchantLevels(PreviousLore);
+
+        ArrayList<String> Enchants = EnchantHelper.GetEnchants(Lore);
+        Map<String, Integer> Levels = EnchantHelper.GetEnchantLevels(Lore);
+
+        if (Enchants.contains("Night Owl")) {
+            NightOwl.Update(Player, true);
+        }
+        if (PreviousEnchants.contains("Night Owl")) {
+            NightOwl.Update(Player, false);
+        }
     }
 
     private static void UpdateChestplate(Player Player, List<Component> PreviousLore, List<Component> Lore) {

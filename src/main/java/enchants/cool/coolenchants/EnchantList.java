@@ -97,6 +97,9 @@ public class EnchantList {
         ItemStack RegenerationII = new ItemStack(Material.ENCHANTED_BOOK);
         RegenerationII.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§5Leggings", "§5Regeneration II", "§5Max level 2" }));
 
+        ItemStack NightOwl = new ItemStack(Material.ENCHANTED_BOOK);
+        NightOwl.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§9Helmet", "§9Night Owl", "§9Max level 1" }));
+
         ItemStack Revenge = new ItemStack(Material.ENCHANTED_BOOK);
         Revenge.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§5Chestplate", "§5Revenge", "§5Max level 1" }));
 
@@ -151,6 +154,9 @@ public class EnchantList {
         ItemStack Tunneller = new ItemStack(Material.ENCHANTED_BOOK);
         Tunneller.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§6Tool", "§6Tunneller", "§6Max level 1" }));
 
+        ItemStack LavaWalker = new ItemStack(Material.ENCHANTED_BOOK);
+        LavaWalker.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§6Boots", "§6Lava Walker", "§6Max level 1" }));
+
         ItemStack Treecapitator = new ItemStack(Material.ENCHANTED_BOOK);
         Treecapitator.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§6Axe", "§6Treecapitator", "§6Max level 1" }));
 
@@ -186,6 +192,7 @@ public class EnchantList {
         Rare.add(BleedIII);
         Rare.add(RegenerationI);
         Rare.add(ReinforcedWingsI);
+        Rare.add(NightOwl);
 
         Epic.add(TankII);
         Epic.add(Revenge);
@@ -207,6 +214,7 @@ public class EnchantList {
         Legendary.add(TamerIII);
         Legendary.add(ReinforcedWingsIII);
         Legendary.add(Treecapitator);
+        Legendary.add(LavaWalker);
 
         return Map.of(
                 "Common", Common,
@@ -248,6 +256,7 @@ public class EnchantList {
                 Map.entry("Bleed III", "Damage the enemy for 1 heart every second later 3 times"),
                 Map.entry("Regeneration I", "Heal 0.25 hearts every 2 seconds"),
                 Map.entry("Reinforced Wings I", "You take 11% less damage"),
+                Map.entry("Night Owl", "Gives the user permanent night vision"),
 
                 Map.entry("Tank II", "Increases max health by 2 hearts"),
                 Map.entry("Revenge", "Release massive amounts of tnt when you die"),
@@ -268,7 +277,8 @@ public class EnchantList {
                 Map.entry("Machine Guns", "Arm your elytra with two super powered machine guns that you can shoot by left clicking while flying"),
                 Map.entry("Tamer III", "6% chance to get a spawn egg when killing a mob"),
                 Map.entry("Reinforced Wings III", "You take 33% less damage"),
-                Map.entry("Treecapitator", "Cut down the whole tree when you break a log")
+                Map.entry("Treecapitator", "Cut down the whole tree when you break a log"),
+                Map.entry("Lava Walker", "Allows you to walk on lava")
         );
     }
 }
