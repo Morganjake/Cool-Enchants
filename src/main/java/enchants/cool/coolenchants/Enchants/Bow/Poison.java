@@ -33,7 +33,7 @@ public class Poison implements Listener {
         if (!Lore.contains("Poison")) { return; }
         Integer EnchantLevel = EnchantHelper.GetEnchantLevels(Weapon.lore()).get("Poison");
 
-        Target.addPotionEffect(new PotionEffect(PotionEffectType.POISON, EnchantLevel * 20, 2, true));
+        Target.addPotionEffect(new PotionEffect(PotionEffectType.POISON, EnchantLevel * 20, 1, true));
 
     }
 }
