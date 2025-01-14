@@ -2,14 +2,14 @@ package enchants.cool.coolenchants;
 
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 public class EnchantList {
-
-    private static String Butcher;
 
     public static Map<String, ArrayList<ItemStack>> Get() {
 
@@ -20,151 +20,254 @@ public class EnchantList {
         ArrayList<ItemStack> Legendary = new ArrayList<>();
 
         ItemStack SmiteI = new ItemStack(Material.ENCHANTED_BOOK);
-        SmiteI.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§7Sword", "§7Smite I", "§7Max level 5" }));
+        ItemMeta SmiteIMeta = SmiteI.getItemMeta();
+        Objects.requireNonNull(SmiteIMeta).setLore(List.of("§3§l--Cool Enchants--", "§7Sword", "§7Smite I", "§7Max level 5"));
+        SmiteI.setItemMeta(SmiteIMeta);
 
         ItemStack SmiteII = new ItemStack(Material.ENCHANTED_BOOK);
-        SmiteII.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§7Sword", "§7Smite II", "§7Max level 5" }));
+        ItemMeta SmiteIIMeta = SmiteII.getItemMeta();
+        Objects.requireNonNull(SmiteIIMeta).setLore(List.of("§3§l--Cool Enchants--", "§7Sword", "§7Smite II", "§7Max level 5"));
+        SmiteII.setItemMeta(SmiteIIMeta);
 
         ItemStack SmiteIII = new ItemStack(Material.ENCHANTED_BOOK);
-        SmiteIII.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§aSword", "§aSmite III", "§aMax level 5" }));
+        ItemMeta SmiteIIIMeta = SmiteIII.getItemMeta();
+        Objects.requireNonNull(SmiteIIIMeta).setLore(List.of("§3§l--Cool Enchants--", "§aSword", "§aSmite III", "§aMax level 5"));
+        SmiteIII.setItemMeta(SmiteIIIMeta);
 
         ItemStack SmiteIV = new ItemStack(Material.ENCHANTED_BOOK);
-        SmiteIV.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§aSword", "§aSmite IV", "§aMax level 5" }));
+        ItemMeta SmiteIVMeta = SmiteIV.getItemMeta();
+        Objects.requireNonNull (SmiteIVMeta).setLore(List.of("§3§l--Cool Enchants--", "§aSword", "§aSmite IV", "§aMax level 5"));
+        SmiteIV.setItemMeta(SmiteIVMeta);
 
         ItemStack SmiteV = new ItemStack(Material.ENCHANTED_BOOK);
-        SmiteV.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§9Sword", "§9Smite V", "§9Max level 5" }));
+        ItemMeta SmiteVMeta = SmiteV.getItemMeta();
+        Objects.requireNonNull(SmiteVMeta).setLore(List.of("§3§l--Cool Enchants--", "§9Sword", "§9Smite V", "§9Max level 5"));
+        SmiteV.setItemMeta(SmiteVMeta);
 
         ItemStack ButcherI = new ItemStack(Material.ENCHANTED_BOOK);
-        ButcherI.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§7Sword", "§7Butcher I", "§7Max level 3" }));
+        ItemMeta ButcherIMeta = ButcherI.getItemMeta();
+        Objects.requireNonNull(ButcherIMeta).setLore(List.of("§3§l--Cool Enchants--", "§7Sword", "§7Butcher I", "§7Max level 3"));
+        ButcherI.setItemMeta(ButcherIMeta);
 
         ItemStack ButcherII = new ItemStack(Material.ENCHANTED_BOOK);
-        ButcherII.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§aSword", "§aButcher II", "§aMax level 3" }));
+        ItemMeta ButcherIIMeta = ButcherII.getItemMeta();
+        Objects.requireNonNull(ButcherIIMeta).setLore(List.of("§3§l--Cool Enchants--", "§aSword", "§aButcher II", "§aMax level 3"));
+        ButcherII.setItemMeta(ButcherIIMeta);
 
         ItemStack ButcherIII = new ItemStack(Material.ENCHANTED_BOOK);
-        ButcherIII.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§9Sword", "§9Butcher III", "§9Max level 3" }));
+        ItemMeta ButcherIIIMeta = ButcherIII.getItemMeta();
+        Objects.requireNonNull(ButcherIIIMeta).setLore(List.of("§3§l--Cool Enchants--", "§9Sword", "§9Butcher III", "§9Max level 3"));
+        ButcherIII.setItemMeta(ButcherIIIMeta);
 
         ItemStack LifeStealI = new ItemStack(Material.ENCHANTED_BOOK);
-        LifeStealI.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§7Sword", "§7Lifesteal I", "§7Max level 5" }));
+        ItemMeta LifeStealIMeta = LifeStealI.getItemMeta();
+        Objects.requireNonNull(LifeStealIMeta).setLore(List.of("§3§l--Cool Enchants--", "§7Sword", "§7Lifesteal I", "§7Max level 5"));
+        LifeStealI.setItemMeta(LifeStealIMeta);
 
         ItemStack LifeStealII = new ItemStack(Material.ENCHANTED_BOOK);
-        LifeStealII.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§aSword", "§aLifesteal II", "§aMax level 5" }));
+        ItemMeta LifeStealIIMeta = LifeStealII.getItemMeta();
+        Objects.requireNonNull(LifeStealIIMeta).setLore(List.of("§3§l--Cool Enchants--", "§aSword", "§aLifesteal II", "§aMax level 5"));
+        LifeStealII.setItemMeta(LifeStealIIMeta);
 
         ItemStack LifeStealIII = new ItemStack(Material.ENCHANTED_BOOK);
-        LifeStealIII.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§9Sword", "§9Lifesteal III", "§9Max level 5" }));
+        ItemMeta LifeStealIIIMeta = LifeStealIII.getItemMeta();
+        Objects.requireNonNull (LifeStealIIIMeta).setLore(List.of("§3§l--Cool Enchants--", "§9Sword", "§9Lifesteal III", "§9Max level 5"));
+        LifeStealIII.setItemMeta(LifeStealIIIMeta);
 
         ItemStack LifeStealIV = new ItemStack(Material.ENCHANTED_BOOK);
-        LifeStealIV.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§5Sword", "§5Lifesteal IV", "§5Max level 5" }));
+        ItemMeta LifeStealIVMeta = LifeStealIV.getItemMeta();
+        Objects.requireNonNull(LifeStealIVMeta).setLore(List.of("§3§l--Cool Enchants--", "§5Sword", "§5Lifesteal IV", "§5Max level 5"));
+        LifeStealIV.setItemMeta(LifeStealIVMeta);
 
         ItemStack LifeStealV = new ItemStack(Material.ENCHANTED_BOOK);
-        LifeStealV.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§6Sword", "§6Lifesteal V", "§6Max level 5" }));
+        ItemMeta LifeStealVMeta = LifeStealV.getItemMeta();
+        Objects.requireNonNull(LifeStealVMeta).setLore(List.of("§3§l--Cool Enchants--", "§6Sword", "§6Lifesteal V", "§6Max level 5"));
+        LifeStealV.setItemMeta(LifeStealVMeta);
 
         ItemStack VelocityI = new ItemStack(Material.ENCHANTED_BOOK);
-        VelocityI.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§7Bow", "§7Velocity I", "§7Max level 3" }));
+        ItemMeta VelocityIMeta = VelocityI.getItemMeta();
+        Objects.requireNonNull(VelocityIMeta).setLore(List.of("§3§l--Cool Enchants--", "§7Bow", "§7Velocity I", "§7Max level 3"));
+        VelocityI.setItemMeta(VelocityIMeta);
 
         ItemStack VelocityII = new ItemStack(Material.ENCHANTED_BOOK);
-        VelocityII.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§aBow", "§aVelocity II", "§aMax level 3" }));
+        ItemMeta VelocityIIMeta = VelocityII.getItemMeta();
+        Objects.requireNonNull(VelocityIIMeta).setLore(List.of("§3§l--Cool Enchants--", "§aBow", "§aVelocity II", "§aMax level 3"));
+        VelocityII.setItemMeta(VelocityIIMeta);
 
         ItemStack VelocityIII = new ItemStack(Material.ENCHANTED_BOOK);
-        VelocityIII.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§9Bow", "§9Velocity III", "§9Max level 3" }));
+        ItemMeta VelocityIIIMeta = VelocityIII.getItemMeta();
+        Objects.requireNonNull(VelocityIIIMeta).setLore(List.of("§3§l--Cool Enchants--", "§9Bow", "§9Velocity III", "§9Max level 3"));
+        VelocityIII.setItemMeta(VelocityIIIMeta);
 
         ItemStack PoisonI = new ItemStack(Material.ENCHANTED_BOOK);
-        PoisonI.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§aBow", "§aPoison I", "§aMax level 3" }));
+        ItemMeta PoisonIMeta = PoisonI.getItemMeta();
+        Objects.requireNonNull(PoisonIMeta).setLore(List.of("§3§l--Cool Enchants--", "§aBow", "§aPoison I", "§aMax level 3"));
+        PoisonI.setItemMeta(PoisonIMeta);
 
         ItemStack PoisonII = new ItemStack(Material.ENCHANTED_BOOK);
-        PoisonII.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§9Bow", "§9Poison II", "§9Max level 3" }));
+        ItemMeta PoisonIIMeta = PoisonII.getItemMeta();
+        Objects.requireNonNull(PoisonIIMeta).setLore(List.of("§3§l--Cool Enchants--", "§9Bow", "§9Poison II", "§9Max level 3"));
+        PoisonII.setItemMeta(PoisonIIMeta);
 
         ItemStack PoisonIII = new ItemStack(Material.ENCHANTED_BOOK);
-        PoisonIII.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§5Bow", "§5Poison III", "§5Max level 3" }));
+        ItemMeta PoisonIIIMeta = PoisonIII.getItemMeta();
+        Objects.requireNonNull(PoisonIIIMeta).setLore(List.of("§3§l--Cool Enchants--", "§5Bow", "§5Poison III", "§5Max level 3"));
+        PoisonIII.setItemMeta(PoisonIIIMeta);
 
         ItemStack HugeCerebrumI = new ItemStack(Material.ENCHANTED_BOOK);
-        HugeCerebrumI.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§aHelmet", "§aHuge Cerebrum I", "§aMax level 2" }));
+        ItemMeta HugeCerebrumIMeta = HugeCerebrumI.getItemMeta();
+        Objects.requireNonNull(HugeCerebrumIMeta).setLore(List.of("§3§l--Cool Enchants--", "§aHelmet", "§aHuge Cerebrum I", "§aMax level 2"));
+        HugeCerebrumI.setItemMeta(HugeCerebrumIMeta);
 
         ItemStack HugeCerebrumII = new ItemStack(Material.ENCHANTED_BOOK);
-        HugeCerebrumII.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§9Helmet", "§9Huge Cerebrum II", "§9Max level 2" }));
+        ItemMeta HugeCerebrumIIMeta = HugeCerebrumII.getItemMeta();
+        Objects.requireNonNull(HugeCerebrumIIMeta).setLore(List.of("§3§l--Cool Enchants--", "§9Helmet", "§9Huge Cerebrum II", "§9Max level 2"));
+        HugeCerebrumII.setItemMeta(HugeCerebrumIIMeta);
 
         ItemStack BleedI = new ItemStack(Material.ENCHANTED_BOOK);
-        BleedI.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§7Sword", "§7Bleed I", "§7Max level 3" }));
+        ItemMeta BleedIMeta = BleedI.getItemMeta();
+        Objects.requireNonNull(BleedIMeta).setLore(List.of("§3§l--Cool Enchants--", "§7Sword", "§7Bleed I", "§7Max level 3"));
+        BleedI.setItemMeta(BleedIMeta);
 
         ItemStack BleedII = new ItemStack(Material.ENCHANTED_BOOK);
-        BleedII.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§aSword", "§aBleed II", "§aMax level 3" }));
+        ItemMeta BleedIIMeta = BleedII.getItemMeta();
+        Objects.requireNonNull(BleedIIMeta).setLore(List.of("§3§l--Cool Enchants--", "§aSword", "§aBleed II", "§aMax level 3"));
+        BleedII.setItemMeta(BleedIIMeta);
 
         ItemStack BleedIII = new ItemStack(Material.ENCHANTED_BOOK);
-        BleedIII.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§9Sword", "§9Bleed III", "§9Max level 3" }));
+        ItemMeta BleedIIIMeta = BleedIII.getItemMeta();
+        Objects.requireNonNull(BleedIIIMeta).setLore(List.of("§3§l--Cool Enchants--", "§9Sword", "§9Bleed III", "§9Max level 3"));
+        BleedIII.setItemMeta(BleedIIIMeta);
 
         ItemStack RegenerationI = new ItemStack(Material.ENCHANTED_BOOK);
-        RegenerationI.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§9Leggings", "§9Regeneration I", "§9Max level 2" }));
+        ItemMeta RegenerationIMeta = RegenerationI.getItemMeta();
+        Objects.requireNonNull(RegenerationIMeta).setLore(List.of("§3§l--Cool Enchants--", "§9Leggings", "§9Regeneration I", "§9Max level 2"));
+        RegenerationI.setItemMeta(RegenerationIMeta);
 
         ItemStack RegenerationII = new ItemStack(Material.ENCHANTED_BOOK);
-        RegenerationII.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§5Leggings", "§5Regeneration II", "§5Max level 2" }));
+        ItemMeta RegenerationIIMeta = RegenerationII.getItemMeta();
+        Objects.requireNonNull(RegenerationIIMeta).setLore(List.of("§3§l--Cool Enchants--", "§5Leggings", "§5Regeneration II", "§5Max level 2"));
+        RegenerationII.setItemMeta(RegenerationIIMeta);
 
         ItemStack NightOwl = new ItemStack(Material.ENCHANTED_BOOK);
-        NightOwl.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§9Helmet", "§9Night Owl", "§9Max level 1" }));
+        ItemMeta NightOwlMeta = NightOwl.getItemMeta();
+        Objects.requireNonNull(NightOwlMeta).setLore(List.of("§3§l--Cool Enchants--", "§9Helmet", "§9Night Owl", "§9Max level 1"));
+        NightOwl.setItemMeta(NightOwlMeta);
 
         ItemStack Revenge = new ItemStack(Material.ENCHANTED_BOOK);
-        Revenge.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§5Chestplate", "§5Revenge", "§5Max level 1" }));
+        ItemMeta RevengeMeta = Revenge.getItemMeta();
+        Objects.requireNonNull(RevengeMeta).setLore(List.of("§3§l--Cool Enchants--", "§5Chestplate", "§5Revenge", "§5Max level 1"));
+        Revenge.setItemMeta(RevengeMeta);
 
         ItemStack VoidWalker = new ItemStack(Material.ENCHANTED_BOOK);
-        VoidWalker.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§5Boots", "§5Void Walker", "§5Max level 1" }));
+        ItemMeta VoidWalkerMeta = VoidWalker.getItemMeta();
+        Objects.requireNonNull(VoidWalkerMeta).setLore(List.of("§3§l--Cool Enchants--", "§5Boots", "§5Void Walker", "§5Max level 1"));
+        VoidWalker.setItemMeta(VoidWalkerMeta);
 
         ItemStack SonicI = new ItemStack(Material.ENCHANTED_BOOK);
-        SonicI.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§aBoots", "§aSonic I", "§aMax level 3" }));
+        ItemMeta SonicIMeta = SonicI.getItemMeta();
+        Objects.requireNonNull(SonicIMeta).setLore(List.of("§3§l--Cool Enchants--", "§aBoots", "§aSonic I", "§aMax level 3"));
+        SonicI.setItemMeta(SonicIMeta);
 
         ItemStack SonicII = new ItemStack(Material.ENCHANTED_BOOK);
-        SonicII.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§9Boots", "§9Sonic II", "§9Max level 3" }));
+        ItemMeta SonicIIMeta = SonicII.getItemMeta();
+        Objects.requireNonNull(SonicIIMeta).setLore(List.of("§3§l--Cool Enchants--", "§9Boots", "§9Sonic II", "§9Max level 3"));
+        SonicII.setItemMeta(SonicIIMeta);
 
         ItemStack SonicIII = new ItemStack(Material.ENCHANTED_BOOK);
-        SonicIII.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§5Boots", "§5Sonic III", "§5Max level 3" }));
+        ItemMeta SonicIIIMeta = SonicIII.getItemMeta();
+        Objects.requireNonNull(SonicIIIMeta).setLore(List.of("§3§l--Cool Enchants--", "§5Boots", "§5Sonic III", "§5Max level 3"));
+        SonicIII.setItemMeta(SonicIIIMeta);
 
         ItemStack Replant = new ItemStack(Material.ENCHANTED_BOOK);
-        Replant.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§9Hoe", "§9Replant", "§9Max level 1" }));
+        ItemMeta ReplantMeta = Replant.getItemMeta();
+        Objects.requireNonNull(ReplantMeta).setLore(List.of("§3§l--Cool Enchants--", "§9Hoe", "§9Replant", "§9Max level 1"));
+        Replant.setItemMeta(ReplantMeta);
 
         ItemStack TankI = new ItemStack(Material.ENCHANTED_BOOK);
-        TankI.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§9Chestplate", "§9Tank I", "§9Max level 3" }));
+        ItemMeta TankIMeta = TankI.getItemMeta();
+        Objects.requireNonNull(TankIMeta).setLore(List.of("§3§l--Cool Enchants--", "§9Chestplate", "§9Tank I", "§9Max level 3"));
+        TankI.setItemMeta(TankIMeta);
 
         ItemStack TankII = new ItemStack(Material.ENCHANTED_BOOK);
-        TankII.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§5Chestplate", "§5Tank II", "§5Max level 3" }));
+        ItemMeta TankIIMeta = TankII.getItemMeta();
+        Objects.requireNonNull(TankIIMeta).setLore(List.of("§3§l--Cool Enchants--", "§5Chestplate", "§5Tank II", "§5Max level 3"));
+        TankII.setItemMeta(TankIIMeta);
 
         ItemStack TankIII = new ItemStack(Material.ENCHANTED_BOOK);
-        TankIII.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§6Chestplate", "§6Tank III", "§6Max level 3" }));
+        ItemMeta TankIIIMeta = TankIII.getItemMeta();
+        Objects.requireNonNull(TankIIIMeta).setLore(List.of("§3§l--Cool Enchants--", "§6Chestplate", "§6Tank III", "§6Max level 3"));
+        TankIII.setItemMeta(TankIIIMeta);
 
         ItemStack ReinforcedWingsI = new ItemStack(Material.ENCHANTED_BOOK);
-        ReinforcedWingsI.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§9Elytra", "§9Reinforced Wings I", "§9Max level 3" }));
+        ItemMeta ReinforcedWingsIMeta = ReinforcedWingsI.getItemMeta();
+        Objects.requireNonNull(ReinforcedWingsIMeta).setLore(List.of("§3§l--Cool Enchants--", "§9Elytra", "§9Reinforced Wings I", "§9Max level 3"));
+        ReinforcedWingsI.setItemMeta(ReinforcedWingsIMeta);
 
         ItemStack ReinforcedWingsII = new ItemStack(Material.ENCHANTED_BOOK);
-        ReinforcedWingsII.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§5Elytra", "§5Reinforced Wings II", "§5Max level 3" }));
+        ItemMeta ReinforcedWingsIIMeta = ReinforcedWingsII.getItemMeta();
+        Objects.requireNonNull(ReinforcedWingsIIMeta).setLore(List.of("§3§l--Cool Enchants--", "§5Elytra", "§5Reinforced Wings II", "§5Max level 3"));
+        ReinforcedWingsII.setItemMeta(ReinforcedWingsIIMeta);
 
         ItemStack ReinforcedWingsIII = new ItemStack(Material.ENCHANTED_BOOK);
-        ReinforcedWingsIII.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§6Elytra", "§6Reinforced Wings III", "§6Max level 3" }));
+        ItemMeta ReinforcedWingsIIIMeta = ReinforcedWingsIII.getItemMeta();
+        Objects.requireNonNull(ReinforcedWingsIIIMeta).setLore(List.of("§3§l--Cool Enchants--", "§6Elytra", "§6Reinforced Wings III", "§6Max level 3"));
+        ReinforcedWingsIII.setItemMeta(ReinforcedWingsIIIMeta);
 
         ItemStack TamerI = new ItemStack(Material.ENCHANTED_BOOK);
-        TamerI.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§5Leggings", "§5Tamer I", "§5Max level 3" }));
+        ItemMeta TamerIMeta = TamerI.getItemMeta();
+        Objects.requireNonNull(TamerIMeta).setLore(List.of("§3§l--Cool Enchants--", "§5Leggings", "§5Tamer I", "§5Max level 3"));
+        TamerI.setItemMeta(TamerIMeta);
 
         ItemStack TamerII = new ItemStack(Material.ENCHANTED_BOOK);
-        TamerII.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§5Leggings", "§5Tamer II", "§5Max level 3" }));
+        ItemMeta TamerIIMeta = TamerII.getItemMeta();
+        Objects.requireNonNull(TamerIIMeta).setLore(List.of("§3§l--Cool Enchants--", "§5Leggings", "§5Tamer II", "§5Max level 3"));
+        TamerII.setItemMeta(TamerIIMeta);
 
         ItemStack TamerIII = new ItemStack(Material.ENCHANTED_BOOK);
-        TamerIII.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§6Leggings", "§6Tamer III", "§6Max level 3" }));
+        ItemMeta TamerIIIMeta = TamerIII.getItemMeta();
+        Objects.requireNonNull(TamerIIIMeta).setLore(List.of("§3§l--Cool Enchants--", "§6Leggings", "§6Tamer III", "§6Max level 3"));
+        TamerIII.setItemMeta(TamerIIIMeta);
 
         ItemStack StormI = new ItemStack(Material.ENCHANTED_BOOK);
-        StormI.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§5Trident", "§5Storm I", "§5Max level 2" }));
+        ItemMeta StormIMeta = StormI.getItemMeta();
+        Objects.requireNonNull(StormIMeta).setLore(List.of("§3§l--Cool Enchants--", "§5Trident", "§5Storm I", "§5Max level 2"));
+        StormI.setItemMeta(StormIMeta);
 
         ItemStack StormII = new ItemStack(Material.ENCHANTED_BOOK);
-        StormII.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§6Trident", "§6Storm II", "§6Max level 2" }));
+        ItemMeta StormIIMeta = StormII.getItemMeta();
+        Objects.requireNonNull(StormIIMeta).setLore(List.of("§3§l--Cool Enchants--", "§6Trident", "§6Storm II", "§6Max level 2"));
+        StormII.setItemMeta(StormIIMeta);
 
         ItemStack Tunneller = new ItemStack(Material.ENCHANTED_BOOK);
-        Tunneller.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§6Tool", "§6Tunneller", "§6Max level 1" }));
+        ItemMeta TunnellerMeta = Tunneller.getItemMeta();
+        Objects.requireNonNull(TunnellerMeta).setLore(List.of("§3§l--Cool Enchants--", "§6Tool", "§6Tunneller", "§6Max level 1"));
+        Tunneller.setItemMeta(TunnellerMeta);
 
         ItemStack LavaWalkerI = new ItemStack(Material.ENCHANTED_BOOK);
-        LavaWalkerI.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§5Boots", "§5Lava Walker I", "§5Max level 2" }));
+        ItemMeta LavaWalkerIMeta = LavaWalkerI.getItemMeta();
+        Objects.requireNonNull(LavaWalkerIMeta).setLore(List.of("§3§l--Cool Enchants--", "§5Boots", "§5Lava Walker I", "§5Max level 2"));
+        LavaWalkerI.setItemMeta(LavaWalkerIMeta);
 
         ItemStack LavaWalkerII = new ItemStack(Material.ENCHANTED_BOOK);
-        LavaWalkerII.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§6Boots", "§6Lava Walker II", "§6Max level 2" }));
+        ItemMeta LavaWalkerIIMeta = LavaWalkerII.getItemMeta();
+        Objects.requireNonNull(LavaWalkerIIMeta).setLore(List.of("§3§l--Cool Enchants--", "§6Boots", "§6Lava Walker II", "§6Max level 2"));
+        LavaWalkerII.setItemMeta(LavaWalkerIIMeta);
 
         ItemStack Treecapitator = new ItemStack(Material.ENCHANTED_BOOK);
-        Treecapitator.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§6Axe", "§6Treecapitator", "§6Max level 1" }));
+        ItemMeta TreecapitatorMeta = Treecapitator.getItemMeta();
+        Objects.requireNonNull(TreecapitatorMeta).setLore(List.of("§3§l--Cool Enchants--", "§6Axe", "§6Treecapitator", "§6Max level 1"));
+        Treecapitator.setItemMeta(TreecapitatorMeta);
 
         ItemStack MachineGuns = new ItemStack(Material.ENCHANTED_BOOK);
-        MachineGuns.setLore(List.of(new String[]{"§3§l--Cool Enchants--", "§6Elytra", "§6Machine Guns", "§6Max level 1" }));
+        ItemMeta MachineGunsMeta = MachineGuns.getItemMeta();
+        Objects.requireNonNull(MachineGunsMeta).setLore(List.of("§3§l--Cool Enchants--", "§6Elytra", "§6Machine Guns", "§6Max level 1"));
+        MachineGuns.setItemMeta(MachineGunsMeta);
+
+        ItemStack Clone = new ItemStack(Material.ENCHANTED_BOOK);
+        ItemMeta CloneMeta = Clone.getItemMeta();
+        Objects.requireNonNull(CloneMeta).setLore(List.of("§3§l--Cool Enchants--", "§6Crossbow", "§6Clone", "§6Max level 1"));
+        Clone.setItemMeta(CloneMeta);
 
         Common.add(ButcherI);
         Common.add(SmiteI);
@@ -219,6 +322,7 @@ public class EnchantList {
         Legendary.add(ReinforcedWingsIII);
         Legendary.add(Treecapitator);
         Legendary.add(LavaWalkerII);
+        Legendary.add(Clone);
 
         return Map.of(
                 "Common", Common,
@@ -283,7 +387,8 @@ public class EnchantList {
                 Map.entry("Tamer III", "6% chance to get a spawn egg when killing a mob"),
                 Map.entry("Reinforced Wings III", "You take 33% less damage"),
                 Map.entry("Treecapitator", "Cut down the whole tree when you break a log"),
-                Map.entry("Lava Walker II", "Allows you to walk on lava in a 3 block radius")
+                Map.entry("Lava Walker II", "Allows you to walk on lava in a 3 block radius"),
+                Map.entry("Clone", "Summon 2 clones of your crossbow")
         );
     }
 }

@@ -4,21 +4,21 @@ import enchants.cool.coolenchants.Enchants.Boots.Sonic;
 import enchants.cool.coolenchants.Enchants.Chestplate.Tank;
 import enchants.cool.coolenchants.Enchants.Helmet.NightOwl;
 import enchants.cool.coolenchants.Helper.EnchantHelper;
-import net.kyori.adventure.text.Component;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.*;
 
 public class ArmourUpdater {
 
-    private static void UpdateHelmet(Player Player, List<Component> PreviousLore, List<Component> Lore) {
+    private static void UpdateHelmet(Player Player, ItemStack PreviousItem, ItemStack Item) {
 
-        ArrayList<String> PreviousEnchants = EnchantHelper.GetEnchants(PreviousLore);
-        Map<String, Integer> PreviousLevels = EnchantHelper.GetEnchantLevels(PreviousLore);
+        ArrayList<String> PreviousEnchants = EnchantHelper.GetEnchants(PreviousItem);
+        Map<String, Integer> PreviousLevels = EnchantHelper.GetEnchantLevels(PreviousItem);
 
-        ArrayList<String> Enchants = EnchantHelper.GetEnchants(Lore);
-        Map<String, Integer> Levels = EnchantHelper.GetEnchantLevels(Lore);
+        ArrayList<String> Enchants = EnchantHelper.GetEnchants(Item);
+        Map<String, Integer> Levels = EnchantHelper.GetEnchantLevels(Item);
 
         if (Enchants.contains("Night Owl")) {
             NightOwl.Update(Player, true);
@@ -28,13 +28,13 @@ public class ArmourUpdater {
         }
     }
 
-    private static void UpdateChestplate(Player Player, List<Component> PreviousLore, List<Component> Lore) {
+    private static void UpdateChestplate(Player Player, ItemStack PreviousItem, ItemStack Item) {
 
-        ArrayList<String> PreviousEnchants = EnchantHelper.GetEnchants(PreviousLore);
-        Map<String, Integer> PreviousLevels = EnchantHelper.GetEnchantLevels(PreviousLore);
+        ArrayList<String> PreviousEnchants = EnchantHelper.GetEnchants(PreviousItem);
+        Map<String, Integer> PreviousLevels = EnchantHelper.GetEnchantLevels(PreviousItem);
 
-        ArrayList<String> Enchants = EnchantHelper.GetEnchants(Lore);
-        Map<String, Integer> Levels = EnchantHelper.GetEnchantLevels(Lore);
+        ArrayList<String> Enchants = EnchantHelper.GetEnchants(Item);
+        Map<String, Integer> Levels = EnchantHelper.GetEnchantLevels(Item);
 
         if (Enchants.contains("Tank")) {
             Tank.Update(Player, Levels.get("Tank"));
@@ -44,16 +44,17 @@ public class ArmourUpdater {
         }
     }
 
-    private static void UpdateLeggings(Player Player, List<Component> PreviousLore, List<Component> Lore) {
+    private static void UpdateLeggings(Player Player, ItemStack PreviousItem, ItemStack Item) {
 
     }
 
-    private static void UpdateBoots(Player Player, List<Component> PreviousLore, List<Component> Lore) {
-        ArrayList<String> PreviousEnchants = EnchantHelper.GetEnchants(PreviousLore);
-        Map<String, Integer> PreviousLevels = EnchantHelper.GetEnchantLevels(PreviousLore);
+    private static void UpdateBoots(Player Player, ItemStack PreviousItem, ItemStack Item) {
 
-        ArrayList<String> Enchants = EnchantHelper.GetEnchants(Lore);
-        Map<String, Integer> Levels = EnchantHelper.GetEnchantLevels(Lore);
+        ArrayList<String> PreviousEnchants = EnchantHelper.GetEnchants(PreviousItem);
+        Map<String, Integer> PreviousLevels = EnchantHelper.GetEnchantLevels(PreviousItem);
+
+        ArrayList<String> Enchants = EnchantHelper.GetEnchants(Item);
+        Map<String, Integer> Levels = EnchantHelper.GetEnchantLevels(Item);
 
         if (Enchants.contains("Sonic")) {
             Sonic.Update(Player, Levels.get("Sonic"));
@@ -66,63 +67,61 @@ public class ArmourUpdater {
     public static void Start() {
         BukkitRunnable ResetCooldown = new BukkitRunnable() {
 
-            public final Map<Player, ArrayList<String>> PreviousArmourMap = new HashMap<>();
-            public final Map<Player, ArrayList<List<Component>>> PreviousRawArmourLoreMap = new HashMap<>();
+            public Map<Player, ArrayList<ItemStack>> PreviousArmourMap = new HashMap<>();
 
             @Override
             public void run() {
-                for (Player Player : CoolEnchants.GetPlugin().getServer().getOnlinePlayers()) {
-                    ArrayList<String> Armour = new ArrayList<>();
-                    ArrayList<List<Component>> RawArmourLore = new ArrayList<>();
+                for (Player Player : CoolEnchants21.GetPlugin().getServer().getOnlinePlayers()) {
+                    ArrayList<ItemStack> Armour = new ArrayList<>();
 
-                    if (Player.getInventory().getHelmet() != null && Player.getInventory().getHelmet().lore() != null) {
-                        Armour.add(Objects.requireNonNull(Player.getInventory().getHelmet().lore()).toString());
-                        RawArmourLore.add(Player.getInventory().getHelmet().lore());
-                    } else {
+                    if (Player.getInventory().getHelmet() != null) {
+                        Armour.add(Player.getInventory().getHelmet().clone());
+                    }
+                    else {
                         Armour.add(null);
-                        RawArmourLore.add(null);
                     }
 
-                    if (Player.getInventory().getChestplate() != null && Player.getInventory().getChestplate().lore() != null) {
-                        Armour.add(Objects.requireNonNull(Player.getInventory().getChestplate().lore()).toString());
-                        RawArmourLore.add(Player.getInventory().getChestplate().lore());
-                    } else {
+                    if (Player.getInventory().getChestplate() != null) {
+                        Armour.add(Player.getInventory().getChestplate().clone());
+                    }
+                    else {
                         Armour.add(null);
-                        RawArmourLore.add(null);
                     }
 
-                    if (Player.getInventory().getLeggings() != null && Player.getInventory().getLeggings().lore() != null) {
-                        Armour.add(Objects.requireNonNull(Player.getInventory().getLeggings().lore()).toString());
-                        RawArmourLore.add(Player.getInventory().getLeggings().lore());
-                    } else {
+                    if (Player.getInventory().getLeggings() != null) {
+                        Armour.add(Player.getInventory().getLeggings().clone());
+                    }
+                    else {
                         Armour.add(null);
-                        RawArmourLore.add(null);
                     }
 
-                    if (Player.getInventory().getBoots() != null && Player.getInventory().getBoots().lore() != null) {
-                        Armour.add(Objects.requireNonNull(Player.getInventory().getBoots().lore()).toString());
-                        RawArmourLore.add(Player.getInventory().getBoots().lore());
-                    } else {
+                    if (Player.getInventory().getBoots() != null) {
+                        Armour.add(Player.getInventory().getBoots().clone());
+                    }
+                    else {
                         Armour.add(null);
-                        RawArmourLore.add(null);
                     }
 
-                    if (PreviousArmourMap.containsKey(Player) && PreviousRawArmourLoreMap.containsKey(Player)) {
+                    if (PreviousArmourMap.containsKey(Player)) {
 
                         for (int i = 0; i < 4; i++) {
                             if (!Objects.equals(PreviousArmourMap.get(Player).get(i), Armour.get(i))) {
                                 switch (i) {
                                     case 0: {
-                                        UpdateHelmet(Player, PreviousRawArmourLoreMap.get(Player).get(i), RawArmourLore.get(i));
+                                        Player.sendMessage("Helmet");
+                                        UpdateHelmet(Player, PreviousArmourMap.get(Player).get(i), Armour.get(i));
                                     }
                                     case 1: {
-                                        UpdateChestplate(Player, PreviousRawArmourLoreMap.get(Player).get(i), RawArmourLore.get(i));
+                                        Player.sendMessage("Chest");
+                                        UpdateChestplate(Player, PreviousArmourMap.get(Player).get(i), Armour.get(i));
                                     }
                                     case 2: {
-                                        UpdateLeggings(Player, PreviousRawArmourLoreMap.get(Player).get(i), RawArmourLore.get(i));
+                                        Player.sendMessage("leg");
+                                        UpdateLeggings(Player, PreviousArmourMap.get(Player).get(i), Armour.get(i));
                                     }
                                     case 3: {
-                                        UpdateBoots(Player, PreviousRawArmourLoreMap.get(Player).get(i), RawArmourLore.get(i));
+                                        Player.sendMessage("foot");
+                                        UpdateBoots(Player, PreviousArmourMap.get(Player).get(i), Armour.get(i));
                                     }
                                 }
                             }
@@ -130,11 +129,10 @@ public class ArmourUpdater {
                     }
 
                     PreviousArmourMap.put(Player, Armour);
-                    PreviousRawArmourLoreMap.put(Player, RawArmourLore);
                 }
             }
         };
 
-        ResetCooldown.runTaskTimer(CoolEnchants.GetPlugin(), 1L, 1L);
+        ResetCooldown.runTaskTimer(CoolEnchants21.GetPlugin(), 1L, 10L);
     }
 }

@@ -19,11 +19,11 @@ public class Smite implements Listener {
         if (!(Event.getDamager() instanceof Player)) { return; }
         Player Player = (Player) Event.getDamager();
 
-        ItemStack Weapon = Player.getItemInHand();
+        ItemStack Weapon = Player.getItemInUse();
 
-        ArrayList<String> Lore = EnchantHelper.GetEnchants(Weapon.lore());
+        ArrayList<String> Lore = EnchantHelper.GetEnchants(Weapon);
         if (!Lore.contains("Smite")) { return; }
-        Integer EnchantLevel = EnchantHelper.GetEnchantLevels(Weapon.lore()).get("Smite");
+        Integer EnchantLevel = EnchantHelper.GetEnchantLevels(Weapon).get("Smite");
 
         Player.getWorld().strikeLightningEffect(Event.getEntity().getLocation());
         Player.playSound(Event.getEntity(), Sound.ENTITY_LIGHTNING_BOLT_THUNDER, SoundCategory.WEATHER, 1, 1);

@@ -1,6 +1,6 @@
 package enchants.cool.coolenchants.Enchants.Hoe;
 
-import enchants.cool.coolenchants.CoolEnchants;
+import enchants.cool.coolenchants.CoolEnchants21;
 import enchants.cool.coolenchants.Helper.EnchantHelper;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -21,7 +21,7 @@ public class Replant implements Listener {
         Player Player = Event.getPlayer();
         Block Block = Event.getBlock();
 
-        ArrayList<String> Lore = EnchantHelper.GetEnchants(Player.getItemInHand().lore());
+        ArrayList<String> Lore = EnchantHelper.GetEnchants(Player.getItemInUse());
         if (!Lore.contains("Replant")) { return; }
 
         Material CropType = Block.getType();
@@ -54,7 +54,7 @@ public class Replant implements Listener {
             else { Player.getInventory().remove(Item); }
         }
 
-        Bukkit.getScheduler().runTaskLater(CoolEnchants.GetPlugin(), () -> {
+        Bukkit.getScheduler().runTaskLater(CoolEnchants21.GetPlugin(), () -> {
             Block.setType(NewCropType);
         }, 1L);
 

@@ -1,6 +1,6 @@
 package enchants.cool.coolenchants.Enchants.Boots;
 
-import enchants.cool.coolenchants.CoolEnchants;
+import enchants.cool.coolenchants.CoolEnchants21;
 import enchants.cool.coolenchants.Helper.EnchantHelper;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -15,11 +15,12 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Objects;
 
 public class LavaWalker implements Listener {
 
     // Used to keep track of the lava that has been obsidianed and their progress to turning back to lava
-    private static HashMap<Block, Integer> ObsidianedLava = new HashMap<>();
+    private static final HashMap<Block, Integer> ObsidianedLava = new HashMap<>();
 
     @EventHandler
     public static void OnMove(PlayerMoveEvent Event) {
@@ -29,14 +30,14 @@ public class LavaWalker implements Listener {
         ItemStack Boots = Player.getInventory().getBoots();
         if (Boots == null) { return; }
 
-        ArrayList<String> Lore = EnchantHelper.GetEnchants(Boots.lore());
+        ArrayList<String> Lore = EnchantHelper.GetEnchants(Boots);
         if (!Lore.contains("Lava Walker")) { return; }
-        Integer EnchantLevel = EnchantHelper.GetEnchantLevels(Boots.lore()).get("Lava Walker");
+        Integer EnchantLevel = EnchantHelper.GetEnchantLevels(Boots).get("Lava Walker");
 
         for (int x = -EnchantLevel; x <= EnchantLevel; x++) {
             for (int z = -EnchantLevel; z <= EnchantLevel; z++) {
                 Location BlockLocation = Player.getLocation().add(x, -1, z);
-                Block Block = BlockLocation.getWorld().getBlockAt(BlockLocation);
+                Block Block = Objects.requireNonNull(BlockLocation.getWorld()).getBlockAt(BlockLocation);
 
                 if (Block.getType() == Material.LAVA && BlockLocation.add(0, 1, 0).getBlock().getType() == Material.AIR) {
                     Block.setType(Material.OBSIDIAN);
@@ -71,7 +72,7 @@ public class LavaWalker implements Listener {
                 }
             }
 
-        }.runTaskTimer(CoolEnchants.GetPlugin(), 0, 1L);
+        }.runTaskTimer(CoolEnchants21.GetPlugin(), 0, 1L);
     }
 
     @EventHandler

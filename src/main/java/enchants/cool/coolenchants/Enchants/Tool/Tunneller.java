@@ -12,6 +12,7 @@ import org.bukkit.event.player.PlayerItemDamageEvent;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Set;
 
 public class Tunneller implements Listener {
@@ -31,7 +32,8 @@ public class Tunneller implements Listener {
         }
 
         Player Player = Event.getPlayer();
-        ItemStack Tool = Player.getItemInHand();
+        ItemStack Tool = Player.getItemInUse();
+        if (Tool == null) { return; }
 
         // If the player uses a shovel the code checks if they broke an unpreferred block
         boolean BreakUnpreferredBlocks = !Tool.getType().name().contains("SHOVEL") || !Event.getBlock().isPreferredTool(Tool);
@@ -39,7 +41,7 @@ public class Tunneller implements Listener {
         // Qol that if the player is sneaking it doesn't mine in a 3x3 area
         if (Player.isSneaking()) { return; }
 
-        ArrayList<String> Lore = EnchantHelper.GetEnchants(Tool.lore());
+        ArrayList<String> Lore = EnchantHelper.GetEnchants(Tool);
         if (!Lore.contains("Tunneller")) { return; }
 
         Location BlockLocation = Event.getBlock().getLocation();
@@ -58,7 +60,7 @@ public class Tunneller implements Listener {
             for (int y = -1; y <= 1; y++) {
                 for (int z = -1; z <= 1; z++) {
                     Location NewBlockLocation = BlockLocation.clone().add(x, y, z);
-                    Block NewBlock = BlockLocation.getWorld().getBlockAt(NewBlockLocation);
+                    Block NewBlock = Objects.requireNonNull(BlockLocation.getWorld()).getBlockAt(NewBlockLocation);
 
                     if (NewBlockLocation.equals(BlockLocation) || IndestructibleBlocks.contains(NewBlock.getType())) { continue; }
 

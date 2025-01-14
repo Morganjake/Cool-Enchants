@@ -1,6 +1,6 @@
 package enchants.cool.coolenchants.Enchants.Elytra;
 
-import enchants.cool.coolenchants.CoolEnchants;
+import enchants.cool.coolenchants.CoolEnchants21;
 import enchants.cool.coolenchants.Helper.EnchantHelper;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -18,6 +18,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class MachineGuns implements Listener {
 
@@ -28,12 +29,12 @@ public class MachineGuns implements Listener {
         ItemStack Chestplate = Player.getInventory().getChestplate();
         if (Chestplate == null) { return; }
 
-        ArrayList<String> Lore = EnchantHelper.GetEnchants(Chestplate.lore());
+        ArrayList<String> Lore = EnchantHelper.GetEnchants(Chestplate);
         if (!Lore.contains("Machine Guns")) { return; }
 
         if (Event.getAction() == Action.LEFT_CLICK_AIR || Event.getAction() == Action.LEFT_CLICK_BLOCK) {
 
-            if (Player.getItemInHand().getType().equals(Material.FIREWORK_ROCKET)) { return; }
+            if (Objects.requireNonNull(Player.getItemInUse()).getType().equals(Material.FIREWORK_ROCKET)) { return; }
             if (!Player.isGliding()) { return; }
 
             BukkitRunnable ShootArrows = new BukkitRunnable() {
@@ -57,13 +58,13 @@ public class MachineGuns implements Listener {
                    RightArrow.setShooter(Player);
                    RightArrow.setVelocity(Player.getVelocity().add(Player.getVelocity().normalize().multiply(3)));
                    RightArrow.setVelocity(RightArrow.getVelocity().add(new Vector((Math.random() - 0.5) / 5, 0, (Math.random() - 0.5) / 5)));
-                   RightArrow.setMetadata("MachineGunArrow", new FixedMetadataValue(CoolEnchants.GetPlugin(), true));
+                   RightArrow.setMetadata("MachineGunArrow", new FixedMetadataValue(CoolEnchants21.GetPlugin(), true));
 
                     Arrow LeftArrow = Player.getWorld().spawn(LeftLocation, Arrow.class);
                     LeftArrow.setShooter(Player);
                     LeftArrow.setVelocity(Player.getVelocity().add(Player.getVelocity().normalize().multiply(3)));
                     LeftArrow.setVelocity(LeftArrow.getVelocity().add(new Vector((Math.random() - 0.5) / 5, 0, (Math.random() - 0.5) / 5)));
-                    LeftArrow.setMetadata("MachineGunArrow", new FixedMetadataValue(CoolEnchants.GetPlugin(), true));
+                    LeftArrow.setMetadata("MachineGunArrow", new FixedMetadataValue(CoolEnchants21.GetPlugin(), true));
 
                     Count++;
                     if (Count >= 3) {
@@ -72,7 +73,7 @@ public class MachineGuns implements Listener {
                 };
             };
 
-            ShootArrows.runTaskTimer(CoolEnchants.GetPlugin(), 0, 2L);
+            ShootArrows.runTaskTimer(CoolEnchants21.GetPlugin(), 0, 2L);
         }
     }
 
@@ -91,7 +92,7 @@ public class MachineGuns implements Listener {
                         HitEntity.setNoDamageTicks(1);
                     }
 
-                }.runTaskLater(CoolEnchants.GetPlugin(), 3);
+                }.runTaskLater(CoolEnchants21.GetPlugin(), 3);
 
                 Arrow.remove();
             }

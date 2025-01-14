@@ -18,11 +18,11 @@ public class Butcher implements Listener {
         if (!(AttackerOnDeath.Attacker.get(Event.getEntity()) instanceof Player)) { return; }
         Player Player = (Player) AttackerOnDeath.Attacker.get(Event.getEntity());
 
-        ItemStack Weapon = Player.getItemInHand();
+        ItemStack Weapon = Player.getItemInUse();
 
-        ArrayList<String> Lore = EnchantHelper.GetEnchants(Weapon.lore());
+        ArrayList<String> Lore = EnchantHelper.GetEnchants(Weapon);
         if (!Lore.contains("Butcher")) { return; }
-        Integer EnchantLevel = EnchantHelper.GetEnchantLevels(Weapon.lore()).get("Butcher");
+        Integer EnchantLevel = EnchantHelper.GetEnchantLevels(Weapon).get("Butcher");
 
         for (ItemStack Drop : Event.getDrops()) {
 
@@ -37,7 +37,7 @@ public class Butcher implements Listener {
                 case COOKED_MUTTON:
                 case RABBIT:
                 case COOKED_RABBIT:
-                    Drop.add(EnchantLevel);
+                    Drop.setAmount(Drop.getAmount() + EnchantLevel);
             }
         }
 

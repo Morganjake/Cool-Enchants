@@ -1,6 +1,6 @@
 package enchants.cool.coolenchants.Enchants.Sword;
 
-import enchants.cool.coolenchants.CoolEnchants;
+import enchants.cool.coolenchants.CoolEnchants21;
 import enchants.cool.coolenchants.Helper.EnchantHelper;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
@@ -23,12 +23,11 @@ public class Bleed implements Listener {
         if (!(Event.getDamager() instanceof Player)) { return; }
         Player Player = (Player) Event.getDamager();
 
+        ItemStack Weapon = Player.getItemInUse();
 
-        ItemStack Weapon = Player.getItemInHand();
-
-        ArrayList<String> Lore = EnchantHelper.GetEnchants(Weapon.lore());
+        ArrayList<String> Lore = EnchantHelper.GetEnchants(Weapon);
         if (!Lore.contains("Bleed")) { return; }
-        Integer EnchantLevel = EnchantHelper.GetEnchantLevels(Weapon.lore()).get("Bleed");
+        Integer EnchantLevel = EnchantHelper.GetEnchantLevels(Weapon).get("Bleed");
 
         new BukkitRunnable() {
 
@@ -44,6 +43,6 @@ public class Bleed implements Listener {
                     cancel();
                 }
             }
-        }.runTaskTimer(CoolEnchants.GetPlugin(), 20L, 20L);
+        }.runTaskTimer(CoolEnchants21.GetPlugin(), 20L, 20L);
     }
 }

@@ -1,7 +1,6 @@
 package enchants.cool.coolenchants.UI;
 
 import enchants.cool.coolenchants.Helper.EnchantHelper;
-import net.kyori.adventure.text.Component;
 import org.bukkit.ChatColor;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
@@ -10,6 +9,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.*;
 
@@ -103,8 +103,10 @@ public class InventoryClickListener implements Listener {
 
             if (Event.getClickedInventory() == Player.getInventory()) {
 
+                List<String> ClickedItemLore = Objects.requireNonNull(ClickedItem.getItemMeta()).getLore();
+
                 // Is an enchant book
-                if (ClickedItem.getLore() != null && Objects.equals(ClickedItem.getLore().get(0), "§3§l--Cool Enchants--")) {
+                if (ClickedItemLore != null && Objects.equals(ClickedItemLore.get(0), "§3§l--Cool Enchants--")) {
 
                     // First Item slot isn't empty
                     if (Event.getInventory().getItem(11) == null) {
@@ -117,7 +119,6 @@ public class InventoryClickListener implements Listener {
                         Player.getInventory().setItem(ClickedSlot, null);
                     } else {
                         Player.playSound(Player, Sound.BLOCK_ANVIL_LAND, 1, 1);
-                        return;
                     }
                 } else {
                     // First Item slot isn't empty
@@ -126,7 +127,6 @@ public class InventoryClickListener implements Listener {
                         Player.getInventory().setItem(ClickedSlot, null);
                     } else {
                         Player.playSound(Player, Sound.BLOCK_ANVIL_LAND, 1, 1);
-                        return;
                     }
                 }
             } else {
@@ -137,20 +137,26 @@ public class InventoryClickListener implements Listener {
                         Player.getWorld().dropItem(Player.getLocation(), Objects.requireNonNull(Event.getInventory().getItem(11)));
                     }
                     Event.getInventory().setItem(11, null);
-                } else if (ClickedSlot == 15) {  // Give back the second item
+                }
+                else if (ClickedSlot == 15) {  // Give back the second item
                     Map<Integer, ItemStack> Overflow = Player.getInventory().addItem(Objects.requireNonNull(Event.getInventory().getItem(15)));
                     if (!Overflow.isEmpty()) {
                         Player.getWorld().dropItem(Player.getLocation(), Objects.requireNonNull(Event.getInventory().getItem(15)));
                     }
                     Event.getInventory().setItem(15, null);
-                } else if (ClickedSlot == 22) {
+                }
+                else if (ClickedSlot == 22) {
 
-                    if (Event.getInventory().getItem(11) == null || Event.getInventory().getItem(15) == null) {
+                    ItemStack Item1 = Event.getInventory().getItem(11);
+                    ItemStack Item2 = Event.getInventory().getItem(15);
+
+
+                    if (Item1 == null || Item2 == null) {
                         Player.playSound(Player, Sound.BLOCK_ANVIL_LAND, 1, 1);
-                        return;
-                    } else if (EnchantHelper.ItemsAreCompatible(Player, Event.getInventory().getItem(11), Event.getInventory().getItem(15))) {
+                    }
+                    else if (EnchantHelper.ItemsAreCompatible(Objects.requireNonNull(Item1), Objects.requireNonNull(Item2))) {
 
-                        List<String> Item1Lore = Event.getInventory().getItem(11).getLore();
+                        List<String> Item1Lore = Objects.requireNonNull(Objects.requireNonNull(Item1).getItemMeta()).getLore();
 
                         // First Item is an enchant book
                         if (Item1Lore != null && Objects.equals(Item1Lore.get(0), "§3§l--Cool Enchants--")) {
@@ -172,8 +178,8 @@ public class InventoryClickListener implements Listener {
                                 }
                             }
 
-                            List<String> Lore = Event.getInventory().getItem(11).getLore();
-                            Lore.set(2, String.valueOf(NewString));
+                            List<String> Lore = Objects.requireNonNull(Objects.requireNonNull(Item1).getItemMeta()).getLore();
+                            Objects.requireNonNull(Lore).set(2, String.valueOf(NewString));
 
                             // Change the rarity colour of the book
                             String CurrentRarityColour = Lore.get(2).substring(0, 2);
@@ -183,27 +189,36 @@ public class InventoryClickListener implements Listener {
                                 Lore.set(i, RarityColour + ChatColor.stripColor(Lore.get(i)));
                             }
 
-                            Event.getInventory().getItem(11).setLore(Lore);
+                            ItemMeta ItemMeta = Objects.requireNonNull(Objects.requireNonNull(Item1).getItemMeta());
+                            ItemMeta.setLore(Lore);
+                            Objects.requireNonNull(Item1).setItemMeta(ItemMeta);
                         }
 
                         // First Item isn't an enchant book
                         else {
-                            String Enchant = ChatColor.stripColor(Event.getInventory().getItem(15).getLore().get(2));
-                            Map<String, Integer> EnchantBookLevel = EnchantHelper.GetEnchantLevels(Collections.singletonList(Component.text(Enchant)));
+                            ItemMeta ItemMeta = Objects.requireNonNull(Objects.requireNonNull(Item2).getItemMeta());
+                            String Enchant = ChatColor.stripColor(Objects.requireNonNull(ItemMeta.getLore()).get(2));
+                            Map<String, Integer> EnchantBookLevel = EnchantHelper.GetEnchantAndLevel(Enchant);
                             String EnchantName = (String) EnchantBookLevel.keySet().toArray()[0];
 
-                            Map<String, Integer> ItemEnchants = EnchantHelper.GetEnchantLevels(Event.getInventory().getItem(11).lore());
+                            Map<String, Integer> ItemEnchants = EnchantHelper.GetEnchantLevels(Item2);
 
                             // Item doesn't contain any enchants
-                            if (Event.getInventory().getItem(11).getLore() == null) {
-                                Event.getInventory().getItem(11).setLore(Collections.singletonList(Enchant));
+                            if (Objects.requireNonNull(Objects.requireNonNull(Item1).getItemMeta()).getLore() == null) {
+
+                                ItemMeta = Objects.requireNonNull(Item1).getItemMeta();
+                                Objects.requireNonNull(ItemMeta).setLore(Collections.singletonList(Enchant));
+                                Objects.requireNonNull(Item1).setItemMeta(ItemMeta);
                             }
                             // Item doesn't contain specific enchants
                             else if (ItemEnchants.get(EnchantName) == null) {
 
-                                List<String> ItemLore = Event.getInventory().getItem(11).getLore();
+                                List<String> ItemLore = Objects.requireNonNull(Objects.requireNonNull(Item1).getItemMeta()).getLore();
+                                ItemMeta = Item1.getItemMeta();
                                 ItemLore.add(Enchant);
-                                Event.getInventory().getItem(11).setLore(ItemLore);
+
+                                ItemMeta.setLore(ItemLore);
+                                Item1.setItemMeta(ItemMeta);
                             }
                             // Item doesn't contain the enchant
                             else {
@@ -214,21 +229,23 @@ public class InventoryClickListener implements Listener {
                                     ItemEnchants.put(EnchantName, EnchantBookLevel.get(EnchantName));
                                 }
 
-                                ArrayList<String> NewLore = new ArrayList<String>();
+                                ArrayList<String> NewLore = new ArrayList<>();
                                 String[] NumToDisplayNum = {"_", "I", "II", "III", "IV", "V"};
 
                                 for (Map.Entry<String, Integer> Entry : ItemEnchants.entrySet()) {
                                     NewLore.add(Entry.getKey() + " " + NumToDisplayNum[Entry.getValue()]);
                                 }
 
-                                Event.getInventory().getItem(11).setLore(NewLore);
+                                ItemMeta = Item1.getItemMeta();
+                                ItemMeta.setLore(NewLore);
+                                Item1.setItemMeta(ItemMeta);
                             }
                         }
 
                         // Gives the player the new item
-                        Map<Integer, ItemStack> Overflow = Player.getInventory().addItem(Objects.requireNonNull(Event.getInventory().getItem(11)));
+                        Map<Integer, ItemStack> Overflow = Player.getInventory().addItem(Objects.requireNonNull(Item1));
                         if (!Overflow.isEmpty()) {
-                            Player.getWorld().dropItem(Player.getLocation(), Objects.requireNonNull(Event.getInventory().getItem(11)));
+                            Player.getWorld().dropItem(Player.getLocation(), Objects.requireNonNull(Item1));
                         }
 
                         Event.getInventory().setItem(11, null);

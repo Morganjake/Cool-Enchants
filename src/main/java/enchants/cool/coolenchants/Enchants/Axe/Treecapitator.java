@@ -1,6 +1,6 @@
 package enchants.cool.coolenchants.Enchants.Axe;
 
-import enchants.cool.coolenchants.CoolEnchants;
+import enchants.cool.coolenchants.CoolEnchants21;
 import enchants.cool.coolenchants.Helper.EnchantHelper;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -14,8 +14,8 @@ import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.BlockVector;
 
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Set;
-import java.util.Vector;
 
 public class Treecapitator implements Listener {
 
@@ -23,14 +23,14 @@ public class Treecapitator implements Listener {
     public void OnBlockBreak(BlockBreakEvent Event) {
 
         Player Player = Event.getPlayer();
-        ItemStack Pickaxe = Player.getItemInHand();
+        ItemStack Pickaxe = Player.getItemInUse();
 
         Material PreviousBlock = Event.getBlock().getType();
 
         // Qol that if the player is sneaking it doesn't mine in a 3x3 area
         if (Player.isSneaking()) { return; }
 
-        ArrayList<String> Lore = EnchantHelper.GetEnchants(Pickaxe.lore());
+        ArrayList<String> Lore = EnchantHelper.GetEnchants(Pickaxe);
         if (!Lore.contains("Treecapitator")) {return; }
 
         Set<Material> LogBlocks = Set.of(
@@ -76,13 +76,13 @@ public class Treecapitator implements Listener {
 
                 for (BlockVector Offset : BlockOffsets) {
                     Location NewBlockLocation = BlockLocation.clone().add(Offset);
-                    Block NewBlock = BlockLocation.getWorld().getBlockAt(NewBlockLocation);
+                    Block NewBlock = Objects.requireNonNull(BlockLocation.getWorld()).getBlockAt(NewBlockLocation);
 
                     if (PreviousBlock == NewBlock.getType()) {
                         Player.breakBlock(NewBlock);
                     }
                 }
             }
-        }.runTaskLater(CoolEnchants.GetPlugin(), 1L);
+        }.runTaskLater(CoolEnchants21.GetPlugin(), 1L);
     }
 }

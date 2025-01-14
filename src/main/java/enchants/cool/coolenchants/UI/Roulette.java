@@ -1,6 +1,6 @@
 package enchants.cool.coolenchants.UI;
 
-import enchants.cool.coolenchants.CoolEnchants;
+import enchants.cool.coolenchants.CoolEnchants21;
 import enchants.cool.coolenchants.EnchantList;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -17,9 +17,9 @@ import java.util.Objects;
 
 public class Roulette {
 
-    public static ArrayList<Player> RouletteDone = new ArrayList<Player>();
-    public static Map<Player, BukkitRunnable> RunRouletteMap = new HashMap<Player, BukkitRunnable>();
-    public static Map<Player, ItemStack> RoulettePrizeMap = new HashMap<Player, ItemStack>();
+    public static ArrayList<Player> RouletteDone = new ArrayList<>();
+    public static Map<Player, BukkitRunnable> RunRouletteMap = new HashMap<>();
+    public static Map<Player, ItemStack> RoulettePrizeMap = new HashMap<>();
 
     private static String GetRarity(int[] Odds) {
         String[] Rarities = {"Common", "Uncommon", "Rare", "Epic", "Legendary"};
@@ -123,7 +123,7 @@ public class Roulette {
             }
         };
 
-        RunRoulette.runTaskTimer(CoolEnchants.GetPlugin(), 0, 2L);
+        RunRoulette.runTaskTimer(CoolEnchants21.GetPlugin(), 0, 2L);
         RunRouletteMap.put(Player, RunRoulette);
     }
 }

@@ -21,9 +21,9 @@ public class Tamer implements Listener {
 
         ItemStack Weapon = Player.getInventory().getLeggings();
 
-        ArrayList<String> Lore = EnchantHelper.GetEnchants(Weapon.lore());
+        ArrayList<String> Lore = EnchantHelper.GetEnchants(Weapon);
         if (!Lore.contains("Tamer")) { return; }
-        Integer EnchantLevel = EnchantHelper.GetEnchantLevels(Weapon.lore()).get("Tamer");
+        Integer EnchantLevel = EnchantHelper.GetEnchantLevels(Weapon).get("Tamer");
 
         if (Math.random() >= EnchantLevel * 0.02) { return; }
 

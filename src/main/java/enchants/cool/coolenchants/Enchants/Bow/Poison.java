@@ -27,11 +27,11 @@ public class Poison implements Listener {
         if (!(Event.getHitEntity() instanceof LivingEntity)) { return; }
         LivingEntity Target = (LivingEntity) Event.getHitEntity();
 
-        ItemStack Weapon = Player.getItemInHand();
+        ItemStack Weapon = Player.getItemOnCursor();
 
-        ArrayList<String> Lore = EnchantHelper.GetEnchants(Weapon.lore());
+        ArrayList<String> Lore = EnchantHelper.GetEnchants(Weapon);
         if (!Lore.contains("Poison")) { return; }
-        Integer EnchantLevel = EnchantHelper.GetEnchantLevels(Weapon.lore()).get("Poison");
+        Integer EnchantLevel = EnchantHelper.GetEnchantLevels(Weapon).get("Poison");
 
         Target.addPotionEffect(new PotionEffect(PotionEffectType.POISON, EnchantLevel * 20, 1, true));
 

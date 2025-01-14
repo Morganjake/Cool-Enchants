@@ -21,11 +21,11 @@ public class Velocity implements Listener {
         if (!(Arrow.getShooter() instanceof Player)) { return; }
         Player Player = (Player) Arrow.getShooter();
 
-        ItemStack Weapon = Player.getItemInHand();
+        ItemStack Weapon = Player.getItemInUse();
 
-        ArrayList<String> Lore = EnchantHelper.GetEnchants(Weapon.lore());
+        ArrayList<String> Lore = EnchantHelper.GetEnchants(Weapon);
         if (!Lore.contains("Velocity")) { return; }
-        Integer EnchantLevel = EnchantHelper.GetEnchantLevels(Weapon.lore()).get("Velocity");
+        Integer EnchantLevel = EnchantHelper.GetEnchantLevels(Weapon).get("Velocity");
         Arrow.setVelocity(Arrow.getVelocity().multiply(1 + EnchantLevel / 3));
     }
 }

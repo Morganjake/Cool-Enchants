@@ -1,24 +1,14 @@
 package enchants.cool.coolenchants.Helper;
 
-import net.kyori.adventure.text.Component;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
-import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.*;
 
 public class EnchantHelper {
 
-    // Gets the enchant text from a TextComponent
-    private static String GetEnchantText(String Line) {
-        String Enchant = String.join("", List.of(Line.split("")).subList(Line.indexOf('"') + 1, Line.length()));
-        Enchant = String.join("", List.of(Enchant.split("")).subList(0, Enchant.indexOf('"')));
-        return Enchant;
-    }
-
-
-    private static Map<String, Integer> GetEnchantAndLevel(String Enchant) {
+    public static Map<String, Integer> GetEnchantAndLevel(String Enchant) {
 
         String[] Levels = {" I", " II", " III", " IV", " V"};
         int LevelNum = 0;
@@ -49,13 +39,12 @@ public class EnchantHelper {
     }
 
 
-    public static ArrayList<String> GetEnchants(List<net.kyori.adventure.text.Component> Lore) {
-        if (Lore != null) {
+    public static ArrayList<String> GetEnchants(ItemStack Item) {
+        if (Item != null && Item.getItemMeta() != null && Item.getItemMeta().getLore() != null) {
 
             ArrayList<String> EnchantNames = new ArrayList<>();
 
-            for (net.kyori.adventure.text.Component component : Lore) {
-                String Enchant = GetEnchantText(component.children().get(0).toString());
+            for (String Enchant: Item.getItemMeta().getLore()) {
                 EnchantNames.add(new ArrayList<>(GetEnchantAndLevel(Enchant).keySet()).get(0));
             }
 
@@ -66,19 +55,12 @@ public class EnchantHelper {
         }
     }
 
-    public static Map<String, Integer> GetEnchantLevels(List<net.kyori.adventure.text.Component> Lore) {
-        if (Lore != null) {
+    public static Map<String, Integer> GetEnchantLevels(ItemStack Item) {
+        if (Item != null && Item.getItemMeta() != null && Item.getItemMeta().getLore() != null) {
 
             Map<String, Integer> Enchants = new HashMap<>(Map.of());
 
-            for (net.kyori.adventure.text.Component component : Lore) {
-                String Enchant;
-                if (component.children().isEmpty()) {
-                    Enchant = GetEnchantText(component.toString());
-                }
-                else {
-                    Enchant = GetEnchantText(component.children().get(0).toString());
-                }
+            for (String Enchant: Item.getItemMeta().getLore()) {
 
                 Map<String, Integer> EnchantAndLevel = GetEnchantAndLevel(Enchant);
                 Enchants.putAll(EnchantAndLevel);
@@ -91,16 +73,16 @@ public class EnchantHelper {
         }
     }
 
-    public static boolean ItemsAreCompatible(Player Player, ItemStack Item1, ItemStack Item2) {
+    public static boolean ItemsAreCompatible(ItemStack Item1, ItemStack Item2) {
 
-        List<String> Item1Lore = Item1.getLore();
-        List<String> Item2Lore = Item2.getLore();
+        List<String> Item1Lore = Objects.requireNonNull(Item1.getItemMeta()).getLore();
+        List<String> Item2Lore = Objects.requireNonNull(Item2.getItemMeta()).getLore();
 
         // First item is an enchant book
         if (Item1Lore != null && Objects.equals(Item1Lore.get(0), "§3§l--Cool Enchants--")) {
 
             // Enchant books are not of the same enchant or level
-            if (!Objects.equals(Item1Lore.get(2), Item2Lore.get(2))) { return false; }
+            if (!Objects.equals(Item1Lore.get(2), Objects.requireNonNull(Item2Lore).get(2))) { return false; }
 
             String[] Lore = Item1Lore.get(2).split(" ");
             int Item1Level = Map.of("I", 1, "II", 2, "III", 3, "IV", 4, "V", 5).get(Lore[Lore.length - 1]);
@@ -117,7 +99,7 @@ public class EnchantHelper {
         else {
 
             Material ItemType = Item1.getType();
-            String BookType = ChatColor.stripColor(Item2Lore.get(1));
+            String BookType = ChatColor.stripColor(Objects.requireNonNull(Item2Lore).get(1));
 
             if (
                     (ItemType == Material.LEATHER_HELMET && (BookType.equals("Helmet") || BookType.equals("Armour"))) ||
@@ -180,11 +162,10 @@ public class EnchantHelper {
                     (ItemType == Material.CROSSBOW && BookType.equals("Crossbow")))
             {
 
-                String Enchant = ChatColor.stripColor(Item2.getLore().get(2));
-                Map<String, Integer> EnchantBookLevel = EnchantHelper.GetEnchantLevels(Collections.singletonList(Component.text(Enchant)));
-                String EnchantName = (String) EnchantBookLevel.keySet().toArray()[0];
+                String Enchant = ChatColor.stripColor(Objects.requireNonNull(Item2.getItemMeta().getLore()).get(2));
+                String EnchantName = (String) GetEnchantAndLevel(Enchant).keySet().toArray()[0];
 
-                Map<String, Integer> ItemEnchants = GetEnchantLevels(Item1.lore());
+                Map<String, Integer> ItemEnchants = GetEnchantLevels(Item1);
 
                 int MaxLevel = Integer.parseInt(Item2Lore.get(3).split(" ")[2]);
 

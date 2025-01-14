@@ -1,7 +1,6 @@
 package enchants.cool.coolenchants.Enchants.Chestplate;
 
 import enchants.cool.coolenchants.Helper.EnchantHelper;
-import org.bukkit.block.Block;
 import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.TNTPrimed;
@@ -12,14 +11,8 @@ import org.bukkit.event.entity.EntityExplodeEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.Vector;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.function.Supplier;
-
-import static org.bukkit.Bukkit.getLogger;
 
 public class Revenge implements Listener {
 
@@ -30,7 +23,7 @@ public class Revenge implements Listener {
         ItemStack Chestplate = Player.getInventory().getChestplate();
         if (Chestplate == null) { return; }
 
-        ArrayList<String> Lore = EnchantHelper.GetEnchants(Chestplate.lore());
+        ArrayList<String> Lore = EnchantHelper.GetEnchants(Chestplate);
         if (!Lore.contains("Revenge")) { return; }
 
 
@@ -57,8 +50,6 @@ public class Revenge implements Listener {
 
     @EventHandler
     public void OnDamage(EntityDamageByEntityEvent Event) {
-        String Name = Event.getDamager().getName();
-
         if (!(Event.getDamager() instanceof TNTPrimed)) { return; }
         if (!Event.getDamager().getName().equals("Revenge Tnt")) { return; }
         if (Event.getEntity() instanceof Item) { Event.setCancelled(true); }

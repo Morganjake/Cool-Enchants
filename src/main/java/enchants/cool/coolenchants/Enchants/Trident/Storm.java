@@ -1,6 +1,6 @@
 package enchants.cool.coolenchants.Enchants.Trident;
 
-import enchants.cool.coolenchants.CoolEnchants;
+import enchants.cool.coolenchants.CoolEnchants21;
 import enchants.cool.coolenchants.Helper.EnchantHelper;
 import org.bukkit.Location;
 import org.bukkit.entity.*;
@@ -28,9 +28,9 @@ public class Storm implements Listener {
         Player Player = (Player) Trident.getShooter();
         if (Player == null) { return; }
 
-        ArrayList<String> Lore = EnchantHelper.GetEnchants(Trident.getItemStack().getItemMeta().lore());
+        ArrayList<String> Lore = EnchantHelper.GetEnchants(Trident.getItem());
         if (!Lore.contains("Storm")) { return; }
-        Integer EnchantLevel = EnchantHelper.GetEnchantLevels(Trident.getItemStack().getItemMeta().lore()).get("Storm");
+        Integer EnchantLevel = EnchantHelper.GetEnchantLevels(Trident.getItem()).get("Storm");
 
         final Location[] Position = {Event.getEntity().getLocation()};
 
@@ -63,7 +63,7 @@ public class Storm implements Listener {
                     cancel();
                 }
             }
-        }.runTaskTimer(CoolEnchants.GetPlugin(), 0, 1L);
+        }.runTaskTimer(CoolEnchants21.GetPlugin(), 0, 1L);
     }
 
     @EventHandler
@@ -77,7 +77,7 @@ public class Storm implements Listener {
                     Event.getEntity().remove();
                 }
 
-            }.runTaskLater(CoolEnchants.GetPlugin(), 10);
+            }.runTaskLater(CoolEnchants21.GetPlugin(), 10);
 
         }
     }
