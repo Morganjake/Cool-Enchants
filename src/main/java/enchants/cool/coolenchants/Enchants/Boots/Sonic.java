@@ -33,6 +33,5 @@ public class Sonic implements Listener {
 
         double PlayerSpeed = Objects.requireNonNull(Player.getAttribute(Attribute.GENERIC_MOVEMENT_SPEED)).getBaseValue();
         Objects.requireNonNull(Player.getAttribute(Attribute.GENERIC_MOVEMENT_SPEED)).setBaseValue(PlayerSpeed + (double) EnchantLevel / 100);
-        Player.sendMessage(String.valueOf(Player.getAttribute(Attribute.GENERIC_MOVEMENT_SPEED).getValue()));
     }
 }
