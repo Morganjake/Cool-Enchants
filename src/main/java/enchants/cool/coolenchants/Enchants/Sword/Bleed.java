@@ -23,8 +23,7 @@ public class Bleed implements Listener {
         if (!(Event.getDamager() instanceof Player)) { return; }
         Player Player = (Player) Event.getDamager();
 
-        ItemStack Weapon = Player.getItemInUse();
-
+        ItemStack Weapon = Player.getInventory().getItemInMainHand();
         ArrayList<String> Lore = EnchantHelper.GetEnchants(Weapon);
         if (!Lore.contains("Bleed")) { return; }
         Integer EnchantLevel = EnchantHelper.GetEnchantLevels(Weapon).get("Bleed");

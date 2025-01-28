@@ -23,7 +23,7 @@ public class Treecapitator implements Listener {
     public void OnBlockBreak(BlockBreakEvent Event) {
 
         Player Player = Event.getPlayer();
-        ItemStack Pickaxe = Player.getItemInUse();
+        ItemStack Pickaxe = Player.getInventory().getItemInMainHand();
 
         Material PreviousBlock = Event.getBlock().getType();
 

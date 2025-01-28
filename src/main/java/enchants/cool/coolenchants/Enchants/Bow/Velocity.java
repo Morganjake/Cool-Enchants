@@ -21,7 +21,7 @@ public class Velocity implements Listener {
         if (!(Arrow.getShooter() instanceof Player)) { return; }
         Player Player = (Player) Arrow.getShooter();
 
-        ItemStack Weapon = Player.getItemInUse();
+        ItemStack Weapon = Player.getInventory().getItemInMainHand();
 
         ArrayList<String> Lore = EnchantHelper.GetEnchants(Weapon);
         if (!Lore.contains("Velocity")) { return; }

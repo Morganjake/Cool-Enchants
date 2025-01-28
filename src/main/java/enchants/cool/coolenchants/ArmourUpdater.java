@@ -108,19 +108,15 @@ public class ArmourUpdater {
                             if (!Objects.equals(PreviousArmourMap.get(Player).get(i), Armour.get(i))) {
                                 switch (i) {
                                     case 0: {
-                                        Player.sendMessage("Helmet");
                                         UpdateHelmet(Player, PreviousArmourMap.get(Player).get(i), Armour.get(i));
                                     }
                                     case 1: {
-                                        Player.sendMessage("Chest");
                                         UpdateChestplate(Player, PreviousArmourMap.get(Player).get(i), Armour.get(i));
                                     }
                                     case 2: {
-                                        Player.sendMessage("leg");
                                         UpdateLeggings(Player, PreviousArmourMap.get(Player).get(i), Armour.get(i));
                                     }
                                     case 3: {
-                                        Player.sendMessage("foot");
                                         UpdateBoots(Player, PreviousArmourMap.get(Player).get(i), Armour.get(i));
                                     }
                                 }

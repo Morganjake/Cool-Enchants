@@ -19,7 +19,7 @@ public class Smite implements Listener {
         if (!(Event.getDamager() instanceof Player)) { return; }
         Player Player = (Player) Event.getDamager();
 
-        ItemStack Weapon = Player.getItemInUse();
+        ItemStack Weapon = Player.getInventory().getItemInMainHand();
 
         ArrayList<String> Lore = EnchantHelper.GetEnchants(Weapon);
         if (!Lore.contains("Smite")) { return; }

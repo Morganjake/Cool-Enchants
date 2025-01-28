@@ -18,7 +18,7 @@ public class Butcher implements Listener {
         if (!(AttackerOnDeath.Attacker.get(Event.getEntity()) instanceof Player)) { return; }
         Player Player = (Player) AttackerOnDeath.Attacker.get(Event.getEntity());
 
-        ItemStack Weapon = Player.getItemInUse();
+        ItemStack Weapon = Player.getInventory().getItemInMainHand();
 
         ArrayList<String> Lore = EnchantHelper.GetEnchants(Weapon);
         if (!Lore.contains("Butcher")) { return; }

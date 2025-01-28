@@ -32,8 +32,7 @@ public class Tunneller implements Listener {
         }
 
         Player Player = Event.getPlayer();
-        ItemStack Tool = Player.getItemInUse();
-        if (Tool == null) { return; }
+        ItemStack Tool = Player.getInventory().getItemInMainHand();
 
         // If the player uses a shovel the code checks if they broke an unpreferred block
         boolean BreakUnpreferredBlocks = !Tool.getType().name().contains("SHOVEL") || !Event.getBlock().isPreferredTool(Tool);

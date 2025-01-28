@@ -21,7 +21,7 @@ public class Replant implements Listener {
         Player Player = Event.getPlayer();
         Block Block = Event.getBlock();
 
-        ArrayList<String> Lore = EnchantHelper.GetEnchants(Player.getItemInUse());
+        ArrayList<String> Lore = EnchantHelper.GetEnchants(Player.getInventory().getItemInMainHand());
         if (!Lore.contains("Replant")) { return; }
 
         Material CropType = Block.getType();
@@ -54,9 +54,7 @@ public class Replant implements Listener {
             else { Player.getInventory().remove(Item); }
         }
 
-        Bukkit.getScheduler().runTaskLater(CoolEnchants21.GetPlugin(), () -> {
-            Block.setType(NewCropType);
-        }, 1L);
+        Bukkit.getScheduler().runTaskLater(CoolEnchants21.GetPlugin(), () -> Block.setType(NewCropType), 1L);
 
     }
 }

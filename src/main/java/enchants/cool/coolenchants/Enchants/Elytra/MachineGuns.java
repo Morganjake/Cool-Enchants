@@ -34,7 +34,7 @@ public class MachineGuns implements Listener {
 
         if (Event.getAction() == Action.LEFT_CLICK_AIR || Event.getAction() == Action.LEFT_CLICK_BLOCK) {
 
-            if (Objects.requireNonNull(Player.getItemInUse()).getType().equals(Material.FIREWORK_ROCKET)) { return; }
+            if (Player.getInventory().getItemInMainHand().getType().equals(Material.FIREWORK_ROCKET)) { return; }
             if (!Player.isGliding()) { return; }
 
             BukkitRunnable ShootArrows = new BukkitRunnable() {
@@ -54,11 +54,11 @@ public class MachineGuns implements Listener {
                     Location LeftLocation = Player.getLocation().add(Left.multiply(0.5));
 
                     Arrow RightArrow = Player.getWorld().spawn(RightLocation, Arrow.class);
-
-                   RightArrow.setShooter(Player);
-                   RightArrow.setVelocity(Player.getVelocity().add(Player.getVelocity().normalize().multiply(3)));
-                   RightArrow.setVelocity(RightArrow.getVelocity().add(new Vector((Math.random() - 0.5) / 5, 0, (Math.random() - 0.5) / 5)));
-                   RightArrow.setMetadata("MachineGunArrow", new FixedMetadataValue(CoolEnchants21.GetPlugin(), true));
+//                    RightArrow.setShooter(Player);
+                    RightArrow.setVelocity(Player.getVelocity().add(Player.getVelocity().normalize()));
+//                    RightArrow.setVelocity(RightArrow.getVelocity().add(new Vector((Math.random() - 0.5) / 5, 0, (Math.random() - 0.5) / 5)));
+//                    RightArrow.setMetadata("MachineGunArrow", new FixedMetadataValue(CoolEnchants21.GetPlugin(), true));
+//                    Player.sendMessage(String.valueOf(RightArrow.getVelocity()));
 
                     Arrow LeftArrow = Player.getWorld().spawn(LeftLocation, Arrow.class);
                     LeftArrow.setShooter(Player);

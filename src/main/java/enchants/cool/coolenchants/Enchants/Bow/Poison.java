@@ -27,7 +27,7 @@ public class Poison implements Listener {
         if (!(Event.getHitEntity() instanceof LivingEntity)) { return; }
         LivingEntity Target = (LivingEntity) Event.getHitEntity();
 
-        ItemStack Weapon = Player.getItemOnCursor();
+        ItemStack Weapon = Player.getInventory().getItemInMainHand();
 
         ArrayList<String> Lore = EnchantHelper.GetEnchants(Weapon);
         if (!Lore.contains("Poison")) { return; }
