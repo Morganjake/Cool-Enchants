@@ -74,7 +74,6 @@ public final class CoolEnchants21 extends JavaPlugin {
         ArmourUpdater.Start();
         LavaWalker.StartLavaUpdater();
 
-
         getLogger().info("Cool Enchants Loaded");
         getServer().broadcast("Cool Enchants Reloaded", "");
     }

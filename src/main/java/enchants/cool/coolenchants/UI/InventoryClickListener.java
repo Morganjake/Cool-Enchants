@@ -100,7 +100,6 @@ public class InventoryClickListener implements Listener {
                 return;
             }
 
-
             if (Event.getClickedInventory() == Player.getInventory()) {
 
                 List<String> ClickedItemLore = Objects.requireNonNull(ClickedItem.getItemMeta()).getLore();
@@ -129,7 +128,8 @@ public class InventoryClickListener implements Listener {
                         Player.playSound(Player, Sound.BLOCK_ANVIL_LAND, 1, 1);
                     }
                 }
-            } else {
+            }
+            else {
 
                 if (ClickedSlot == 11) {  // Give back the first item
                     Map<Integer, ItemStack> Overflow = Player.getInventory().addItem(Objects.requireNonNull(Event.getInventory().getItem(11)));
@@ -149,7 +149,6 @@ public class InventoryClickListener implements Listener {
 
                     ItemStack Item1 = Event.getInventory().getItem(11);
                     ItemStack Item2 = Event.getInventory().getItem(15);
-
 
                     if (Item1 == null || Item2 == null) {
                         Player.playSound(Player, Sound.BLOCK_ANVIL_LAND, 1, 1);
@@ -201,16 +200,15 @@ public class InventoryClickListener implements Listener {
                             Map<String, Integer> EnchantBookLevel = EnchantHelper.GetEnchantAndLevel(Enchant);
                             String EnchantName = (String) EnchantBookLevel.keySet().toArray()[0];
 
-                            Map<String, Integer> ItemEnchants = EnchantHelper.GetEnchantLevels(Item2);
+                            Map<String, Integer> ItemEnchants = EnchantHelper.GetEnchantLevels(Item1);
 
                             // Item doesn't contain any enchants
                             if (Objects.requireNonNull(Objects.requireNonNull(Item1).getItemMeta()).getLore() == null) {
-
                                 ItemMeta = Objects.requireNonNull(Item1).getItemMeta();
                                 Objects.requireNonNull(ItemMeta).setLore(Collections.singletonList(Enchant));
                                 Objects.requireNonNull(Item1).setItemMeta(ItemMeta);
                             }
-                            // Item doesn't contain specific enchants
+                            // Item doesn't contain specific enchant
                             else if (ItemEnchants.get(EnchantName) == null) {
 
                                 List<String> ItemLore = Objects.requireNonNull(Objects.requireNonNull(Item1).getItemMeta()).getLore();
@@ -220,13 +218,18 @@ public class InventoryClickListener implements Listener {
                                 ItemMeta.setLore(ItemLore);
                                 Item1.setItemMeta(ItemMeta);
                             }
-                            // Item doesn't contain the enchant
+                            // Item contains the enchant
                             else {
 
                                 if (Objects.equals(ItemEnchants.get(EnchantName), EnchantBookLevel.get(EnchantName))) {
                                     ItemEnchants.put(EnchantName, ItemEnchants.get(EnchantName) + 1);
-                                } else {
+                                }
+                                else if (ItemEnchants.get(EnchantName) < EnchantBookLevel.get(EnchantName)) {
                                     ItemEnchants.put(EnchantName, EnchantBookLevel.get(EnchantName));
+                                }
+                                else {
+                                    Player.playSound(Player, Sound.BLOCK_ANVIL_LAND, 1, 1);
+                                    return;
                                 }
 
                                 ArrayList<String> NewLore = new ArrayList<>();

@@ -6,8 +6,6 @@ import org.bukkit.inventory.ItemStack;
 
 import java.util.*;
 
-import static org.bukkit.Bukkit.getLogger;
-
 public class EnchantHelper {
 
     public static Map<String, Integer> GetEnchantAndLevel(String Enchant) {
@@ -39,7 +37,6 @@ public class EnchantHelper {
 
         return Map.of(EnchantName, EnchantLevel);
     }
-
 
     public static ArrayList<String> GetEnchants(ItemStack Item) {
         if (Item != null && Item.getItemMeta() != null && Item.getItemMeta().getLore() != null) {
