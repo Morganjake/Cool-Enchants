@@ -386,7 +386,7 @@ public class EnchantList {
                 Map.entry("Machine Guns", "Arm your elytra with two super powered machine guns that you can shoot by left clicking while flying"),
                 Map.entry("Tamer III", "6% chance to get a spawn egg when killing a mob"),
                 Map.entry("Reinforced Wings III", "You take 33% less damage"),
-                Map.entry("Treecapitator", "Cut down the whole tree when you break a log"),
+                Map.entry("Treecapitator", "Cut down the whole tree when you break a log, crouch to chop one log"),
                 Map.entry("Lava Walker II", "Allows you to walk on lava in a 3 block radius"),
                 Map.entry("Clone", "Summon 2 clones of your crossbow")
         );
