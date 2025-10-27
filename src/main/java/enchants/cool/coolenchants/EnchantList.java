@@ -264,11 +264,6 @@ public class EnchantList {
         Objects.requireNonNull(MachineGunsMeta).setLore(List.of("§3§l--Cool Enchants--", "§6Elytra", "§6Machine Guns", "§6Max level 1"));
         MachineGuns.setItemMeta(MachineGunsMeta);
 
-        ItemStack Clone = new ItemStack(Material.ENCHANTED_BOOK);
-        ItemMeta CloneMeta = Clone.getItemMeta();
-        Objects.requireNonNull(CloneMeta).setLore(List.of("§3§l--Cool Enchants--", "§6Crossbow", "§6Clone", "§6Max level 1"));
-        Clone.setItemMeta(CloneMeta);
-
         Common.add(ButcherI);
         Common.add(SmiteI);
         Common.add(SmiteII);
@@ -322,7 +317,6 @@ public class EnchantList {
         Legendary.add(ReinforcedWingsIII);
         Legendary.add(Treecapitator);
         Legendary.add(LavaWalkerII);
-        Legendary.add(Clone);
 
         return Map.of(
                 "Common", Common,
@@ -387,8 +381,7 @@ public class EnchantList {
                 Map.entry("Tamer III", "6% chance to get a spawn egg when killing a mob"),
                 Map.entry("Reinforced Wings III", "You take 33% less damage"),
                 Map.entry("Treecapitator", "Cut down the whole tree when you break a log, crouch to chop one log"),
-                Map.entry("Lava Walker II", "Allows you to walk on lava in a 3 block radius"),
-                Map.entry("Clone", "Summon 2 clones of your crossbow")
+                Map.entry("Lava Walker II", "Allows you to walk on lava in a 3 block radius")
         );
     }
 }

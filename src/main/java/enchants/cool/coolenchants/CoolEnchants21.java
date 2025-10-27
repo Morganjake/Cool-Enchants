@@ -7,7 +7,6 @@ import enchants.cool.coolenchants.Enchants.Boots.VoidWalker;
 import enchants.cool.coolenchants.Enchants.Bow.Poison;
 import enchants.cool.coolenchants.Enchants.Bow.Velocity;
 import enchants.cool.coolenchants.Enchants.Chestplate.Revenge;
-import enchants.cool.coolenchants.Enchants.Crossbow.Clone;
 import enchants.cool.coolenchants.Enchants.Elytra.MachineGuns;
 import enchants.cool.coolenchants.Enchants.Elytra.ReinforcedWings;
 import enchants.cool.coolenchants.Enchants.Helmet.HugeCerebrum;
@@ -60,16 +59,8 @@ public final class CoolEnchants21 extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new ReinforcedWings(), this);
         getServer().getPluginManager().registerEvents(new Treecapitator(), this);
         getServer().getPluginManager().registerEvents(new LavaWalker(), this);
-        getServer().getPluginManager().registerEvents(new Clone(), this);
         getServer().getPluginManager().registerEvents(new Sonic(), this);
         Regeneration.Regen();
-
-        try {
-            getServer().getPluginManager().registerEvents(new Admin(), this);
-            getLogger().warning("Admin file found");
-        } catch (Exception e) {
-            getLogger().info("No Admin file found");
-        }
 
         ArmourUpdater.Start();
         LavaWalker.StartLavaUpdater();
