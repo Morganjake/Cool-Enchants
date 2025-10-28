@@ -10,6 +10,8 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import java.util.Objects;
+
 public class MainUI implements CommandExecutor {
 
     @Override
@@ -33,16 +35,19 @@ public class MainUI implements CommandExecutor {
 
         ItemStack LootBoxIcon = new ItemStack(Material.BLACK_SHULKER_BOX);
         ItemMeta LootBoxIconMeta = LootBoxIcon.getItemMeta();
+        Objects.requireNonNull(LootBoxIconMeta).setDisplayName("§9§lLootboxes");
         LootBoxIcon.setItemMeta(LootBoxIconMeta);
         Inventory.setItem(10, LootBoxIcon);
 
         ItemStack EnchantIcon = new ItemStack(Material.ENCHANTING_TABLE);
         ItemMeta EnchantIconMeta = EnchantIcon.getItemMeta();
+        Objects.requireNonNull(EnchantIconMeta).setDisplayName("§d§lEnchant");
         EnchantIcon.setItemMeta(EnchantIconMeta);
         Inventory.setItem(12, EnchantIcon);
 
         ItemStack InfoIcon = new ItemStack(Material.KNOWLEDGE_BOOK);
         ItemMeta InfoIconMeta = InfoIcon.getItemMeta();
+        Objects.requireNonNull(InfoIconMeta).setDisplayName("§5§lEnchant List");
         InfoIcon.setItemMeta(InfoIconMeta);
         Inventory.setItem(16, InfoIcon);
 
