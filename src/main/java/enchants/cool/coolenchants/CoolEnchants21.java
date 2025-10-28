@@ -22,6 +22,7 @@ import enchants.cool.coolenchants.Enchants.Trident.Storm;
 import enchants.cool.coolenchants.Helper.AttackerOnDeath;
 import enchants.cool.coolenchants.UI.InventoryClickListener;
 import enchants.cool.coolenchants.UI.MainUI;
+import enchants.cool.coolenchants.UI.Sacrifice;
 import org.bukkit.Bukkit;
 import org.bukkit.event.HandlerList;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -40,6 +41,7 @@ public final class CoolEnchants21 extends JavaPlugin {
         Objects.requireNonNull(this.getCommand("coolenchants")).setExecutor(new MainUI());
 
         getServer().getPluginManager().registerEvents(new InventoryClickListener(), this);
+        getServer().getPluginManager().registerEvents(new Sacrifice(), this);
         getServer().getPluginManager().registerEvents(new AttackerOnDeath(), this);
 
         getServer().getPluginManager().registerEvents(new Butcher(), this);

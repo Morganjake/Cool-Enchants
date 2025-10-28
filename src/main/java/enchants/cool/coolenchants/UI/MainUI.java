@@ -35,7 +35,7 @@ public class MainUI implements CommandExecutor {
 
         ItemStack LootBoxIcon = new ItemStack(Material.BLACK_SHULKER_BOX);
         ItemMeta LootBoxIconMeta = LootBoxIcon.getItemMeta();
-        Objects.requireNonNull(LootBoxIconMeta).setDisplayName("§9§lLootboxes");
+        Objects.requireNonNull(LootBoxIconMeta).setDisplayName("§3§lLootboxes");
         LootBoxIcon.setItemMeta(LootBoxIconMeta);
         Inventory.setItem(10, LootBoxIcon);
 
@@ -44,6 +44,12 @@ public class MainUI implements CommandExecutor {
         Objects.requireNonNull(EnchantIconMeta).setDisplayName("§d§lEnchant");
         EnchantIcon.setItemMeta(EnchantIconMeta);
         Inventory.setItem(12, EnchantIcon);
+
+        ItemStack SacrificeIcon = new ItemStack(Material.CAULDRON);
+        ItemMeta SacrificeIconMeta = SacrificeIcon.getItemMeta();
+        Objects.requireNonNull(SacrificeIconMeta).setDisplayName("§9§lSacrifice");
+        SacrificeIcon.setItemMeta(SacrificeIconMeta);
+        Inventory.setItem(14, SacrificeIcon);
 
         ItemStack InfoIcon = new ItemStack(Material.KNOWLEDGE_BOOK);
         ItemMeta InfoIconMeta = InfoIcon.getItemMeta();

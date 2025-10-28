@@ -67,7 +67,7 @@ public class ArmourUpdater {
     public static void Start() {
         BukkitRunnable ResetCooldown = new BukkitRunnable() {
 
-            public Map<Player, ArrayList<ItemStack>> PreviousArmourMap = new HashMap<>();
+            public final Map<Player, ArrayList<ItemStack>> PreviousArmourMap = new HashMap<>();
 
             @Override
             public void run() {

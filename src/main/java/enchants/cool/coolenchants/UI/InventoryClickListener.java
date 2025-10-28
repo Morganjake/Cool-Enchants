@@ -32,6 +32,10 @@ public class InventoryClickListener implements Listener {
                 Enchant.EnchantUI(Player);
             }
 
+            else if (ClickedSlot == 14) {
+                Sacrifice.SacrificeUI(Player);
+            }
+
             else if (ClickedSlot == 16) {
                 Info.InfoUI(Player);
             }
