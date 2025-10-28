@@ -336,7 +336,7 @@ public class EnchantList {
                 Map.entry("Velocity I", "Arrows have 33% more velocity"),
                 Map.entry("Bleed I", "Damage the enemy for 1 heart a second later"),
 
-                Map.entry("Butcher II", "Get 3 more food when killing a mob"),
+                Map.entry("Butcher II", "Get 2 more food when killing a mob"),
                 Map.entry("Smite III", "Smite your enemy dealing 2 more damage"),
                 Map.entry("Smite IV", "Smite your enemy dealing 2.66 more damage"),
                 Map.entry("Sonic I", "Move 10% faster"),
@@ -346,7 +346,7 @@ public class EnchantList {
                 Map.entry("Poison I", "Arrows give poison 2 for 1 second"),
                 Map.entry("Bleed II", "Damage the enemy for 1 heart every second later twice"),
 
-                Map.entry("Butcher III", "Get 2 more food when killing a mob"),
+                Map.entry("Butcher III", "Get 3 more food when killing a mob"),
                 Map.entry("Tank I", "Increases max health by 1 heart"),
                 Map.entry("Replant", "Replants crops when you break them if you have their seed"),
                 Map.entry("Smite V", "Smite your enemy dealing 3.33 more damage"),

@@ -62,6 +62,12 @@ public final class CoolEnchants21 extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new Sonic(), this);
         Regeneration.Regen();
 
+        try {
+            getServer().getPluginManager().registerEvents(new Admin(), this);
+        } catch (Exception e) {
+            String DoNothing = "Do Nothing";
+        }
+
         ArmourUpdater.Start();
         LavaWalker.StartLavaUpdater();
 
