@@ -12,23 +12,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.Objects;
 
-public class MainUI implements CommandExecutor {
-
-    @Override
-    public boolean onCommand(CommandSender CommandSender, Command Command, String Label, String[] Args) {
-        if (!(CommandSender instanceof Player)) {
-            return false;
-        }
-
-        if (!Command.getName().equalsIgnoreCase("coolenchants")) {
-            return false;
-        }
-
-        Player Player = (Player) CommandSender;
-        MainMenu(Player);
-
-        return true;
-    }
+public class MainUI {
 
     public static void MainMenu(Player Player) {
         Inventory Inventory = Bukkit.createInventory(Player, 27,  "§3§lCool Enchants");

@@ -15,6 +15,8 @@ import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Set;
 
+import static enchants.cool.coolenchants.JsonHandler.GetJsonValue;
+
 public class Tunneller implements Listener {
 
     // Used to run the Player.breakBlock() method without re-running the code
@@ -39,6 +41,7 @@ public class Tunneller implements Listener {
 
         // Qol that if the player is sneaking it doesn't mine in a 3x3 area
         if (Player.isSneaking()) { return; }
+        if (!GetJsonValue(Player, "toggletunneller")) { return; }
 
         ArrayList<String> Lore = EnchantHelper.GetEnchants(Tool);
         if (!Lore.contains("Tunneller")) { return; }

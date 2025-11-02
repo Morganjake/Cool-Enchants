@@ -17,6 +17,8 @@ import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Set;
 
+import static enchants.cool.coolenchants.JsonHandler.GetJsonValue;
+
 public class Treecapitator implements Listener {
 
     @EventHandler
@@ -32,6 +34,7 @@ public class Treecapitator implements Listener {
 
         ArrayList<String> Lore = EnchantHelper.GetEnchants(Pickaxe);
         if (!Lore.contains("Treecapitator")) {return; }
+        if (!GetJsonValue(Player, "toggletreecapitator")) { return; }
 
         Set<Material> LogBlocks = Set.of(
                 Material.OAK_LOG,

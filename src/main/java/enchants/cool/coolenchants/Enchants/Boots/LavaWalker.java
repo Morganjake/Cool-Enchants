@@ -32,7 +32,7 @@ public class LavaWalker implements Listener {
 
         ArrayList<String> Lore = EnchantHelper.GetEnchants(Boots);
         if (!Lore.contains("Lava Walker")) { return; }
-        Integer EnchantLevel = EnchantHelper.GetEnchantLevels(Boots).get("Lava Walker");
+        Integer EnchantLevel = EnchantHelper.GetEnchantLevels(Boots).get("Lavaa Walker");
 
         for (int x = -EnchantLevel; x <= EnchantLevel; x++) {
             for (int z = -EnchantLevel; z <= EnchantLevel; z++) {
@@ -42,7 +42,6 @@ public class LavaWalker implements Listener {
                 if (Block.getType() == Material.LAVA && BlockLocation.add(0, 1, 0).getBlock().getType() == Material.AIR) {
                     Block.setType(Material.OBSIDIAN);
                     ObsidianedLava.put(Block, (int) (100 + Math.floor(Math.random() * 40)));
-
                 }
                 else if (ObsidianedLava.containsKey(Block)) {
                     Block.setType(Material.OBSIDIAN);
