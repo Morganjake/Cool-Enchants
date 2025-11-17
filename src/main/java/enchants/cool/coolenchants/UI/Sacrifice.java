@@ -162,7 +162,11 @@ public class Sacrifice implements Listener {
                 }
 
                 ArrayList<ItemStack> Books;
-                if (Power >= 9 && Power < 18) {
+                if (Power < 9) {
+                    Player.playSound(Player, Sound.BLOCK_CHAIN_BREAK, 1, 1);
+                    return;
+                }
+                else if (Power < 18) {
                     Books = EnchantList.Get().get("Common");
                 }
                 else if (Power < 27) {

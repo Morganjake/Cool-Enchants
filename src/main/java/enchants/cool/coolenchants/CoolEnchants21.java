@@ -22,13 +22,11 @@ import enchants.cool.coolenchants.Enchants.Trident.Storm;
 import enchants.cool.coolenchants.Helper.AttackerOnDeath;
 import enchants.cool.coolenchants.Helper.Commands;
 import enchants.cool.coolenchants.UI.InventoryClickListener;
-import enchants.cool.coolenchants.UI.MainUI;
 import enchants.cool.coolenchants.UI.Sacrifice;
 import org.bukkit.Bukkit;
 import org.bukkit.event.HandlerList;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.io.File;
 import java.util.Objects;
 
 public final class CoolEnchants21 extends JavaPlugin {
