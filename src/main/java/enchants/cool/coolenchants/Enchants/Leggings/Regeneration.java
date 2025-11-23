@@ -30,7 +30,7 @@ public class Regeneration {
                     Integer EnchantLevel = EnchantHelper.GetEnchantLevels(Leggings).get("Regeneration");
 
                     double HealAmount = 0.25 * EnchantLevel;
-                    Player.setHealth(Math.min(Player.getHealth() + HealAmount, Objects.requireNonNull(Player.getAttribute(Attribute.GENERIC_MAX_HEALTH)).getBaseValue()));
+                    Player.setHealth(Math.min(Player.getHealth() + HealAmount, Objects.requireNonNull(Player.getAttribute(Attribute.MAX_HEALTH)).getBaseValue()));
 
                 }
             }

@@ -14,8 +14,8 @@ import java.util.Objects;
 public class Sonic implements Listener {
 
     public static void Update(Player Player, int Level) {
-        double PlayerSpeed = Objects.requireNonNull(Player.getAttribute(Attribute.GENERIC_MOVEMENT_SPEED)).getBaseValue();
-        Objects.requireNonNull(Player.getAttribute(Attribute.GENERIC_MOVEMENT_SPEED)).setBaseValue(PlayerSpeed + (double) Level / 100);
+        double PlayerSpeed = Objects.requireNonNull(Player.getAttribute(Attribute.MOVEMENT_SPEED)).getBaseValue();
+        Objects.requireNonNull(Player.getAttribute(Attribute.MOVEMENT_SPEED)).setBaseValue(PlayerSpeed + (double) Level / 100);
     }
 
     @EventHandler
@@ -23,7 +23,7 @@ public class Sonic implements Listener {
 
         Player Player = Event.getPlayer();
 
-        Objects.requireNonNull(Player.getAttribute(Attribute.GENERIC_MOVEMENT_SPEED)).setBaseValue(0.1);
+        Objects.requireNonNull(Player.getAttribute(Attribute.MOVEMENT_SPEED)).setBaseValue(0.1);
 
         ItemStack Boots = Player.getInventory().getBoots();
 
@@ -31,7 +31,7 @@ public class Sonic implements Listener {
         if (!Lore.contains("Sonic")) { return; }
         Integer EnchantLevel = EnchantHelper.GetEnchantLevels(Boots).get("Sonic");
 
-        double PlayerSpeed = Objects.requireNonNull(Player.getAttribute(Attribute.GENERIC_MOVEMENT_SPEED)).getBaseValue();
-        Objects.requireNonNull(Player.getAttribute(Attribute.GENERIC_MOVEMENT_SPEED)).setBaseValue(PlayerSpeed + (double) EnchantLevel / 100);
+        double PlayerSpeed = Objects.requireNonNull(Player.getAttribute(Attribute.MOVEMENT_SPEED)).getBaseValue();
+        Objects.requireNonNull(Player.getAttribute(Attribute.MOVEMENT_SPEED)).setBaseValue(PlayerSpeed + (double) EnchantLevel / 100);
     }
 }
