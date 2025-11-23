@@ -56,7 +56,9 @@ public class Treecapitator implements Listener {
                 Material.STRIPPED_MANGROVE_LOG,
                 Material.STRIPPED_CHERRY_LOG,
                 Material.STRIPPED_CRIMSON_STEM,
-                Material.STRIPPED_WARPED_STEM
+                Material.STRIPPED_WARPED_STEM,
+                Material.MANGROVE_ROOTS,
+                Material.MUDDY_MANGROVE_ROOTS
         );
 
         if (!LogBlocks.contains(PreviousBlock)) { return; }
