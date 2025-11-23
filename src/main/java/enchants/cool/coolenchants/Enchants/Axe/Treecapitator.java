@@ -47,6 +47,7 @@ public class Treecapitator implements Listener {
                 Material.CHERRY_LOG,
                 Material.CRIMSON_STEM,
                 Material.WARPED_STEM,
+                Material.PALE_OAK_LOG,
                 Material.STRIPPED_OAK_LOG,
                 Material.STRIPPED_SPRUCE_LOG,
                 Material.STRIPPED_BIRCH_LOG,
@@ -57,8 +58,7 @@ public class Treecapitator implements Listener {
                 Material.STRIPPED_CHERRY_LOG,
                 Material.STRIPPED_CRIMSON_STEM,
                 Material.STRIPPED_WARPED_STEM,
-                Material.MANGROVE_ROOTS,
-                Material.MUDDY_MANGROVE_ROOTS
+                Material.STRIPPED_PALE_OAK_LOG
         );
 
         if (!LogBlocks.contains(PreviousBlock)) { return; }
@@ -83,7 +83,7 @@ public class Treecapitator implements Listener {
                     Location NewBlockLocation = BlockLocation.clone().add(Offset);
                     Block NewBlock = Objects.requireNonNull(BlockLocation.getWorld()).getBlockAt(NewBlockLocation);
 
-                    if (PreviousBlock == NewBlock.getType()) {
+                    if (LogBlocks.contains(NewBlock.getType())) {
                         Player.breakBlock(NewBlock);
                     }
                 }
