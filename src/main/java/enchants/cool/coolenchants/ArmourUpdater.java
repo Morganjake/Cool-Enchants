@@ -23,7 +23,7 @@ public class ArmourUpdater {
         if (Enchants.contains("Night Owl")) {
             NightOwl.Update(Player, true);
         }
-        if (PreviousEnchants.contains("Night Owl")) {
+        if (PreviousEnchants.contains("Night Owl") && !Enchants.contains("Night Owl")) {
             NightOwl.Update(Player, false);
         }
     }
