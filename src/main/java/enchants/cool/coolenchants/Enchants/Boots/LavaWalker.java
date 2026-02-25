@@ -32,20 +32,22 @@ public class LavaWalker implements Listener {
 
         ArrayList<String> Lore = EnchantHelper.GetEnchants(Boots);
         if (!Lore.contains("Lava Walker")) { return; }
-        Integer EnchantLevel = EnchantHelper.GetEnchantLevels(Boots).get("Lavaa Walker");
+        Integer EnchantLevel = EnchantHelper.GetEnchantLevels(Boots).get("Lava Walker");
 
         for (int x = -EnchantLevel; x <= EnchantLevel; x++) {
             for (int z = -EnchantLevel; z <= EnchantLevel; z++) {
-                Location BlockLocation = Player.getLocation().add(x, -1, z);
-                Block Block = Objects.requireNonNull(BlockLocation.getWorld()).getBlockAt(BlockLocation);
+                for (int y = -2; y <= -1; y++) {
+                    Location BlockLocation = Player.getLocation().add(x, y, z);
+                    Block Block = Objects.requireNonNull(BlockLocation.getWorld()).getBlockAt(BlockLocation);
 
-                if (Block.getType() == Material.LAVA && BlockLocation.add(0, 1, 0).getBlock().getType() == Material.AIR) {
-                    Block.setType(Material.OBSIDIAN);
-                    ObsidianedLava.put(Block, (int) (100 + Math.floor(Math.random() * 40)));
-                }
-                else if (ObsidianedLava.containsKey(Block)) {
-                    Block.setType(Material.OBSIDIAN);
-                    ObsidianedLava.replace(Block, (int) (100 + Math.floor(Math.random() * 40)));
+                    if (Block.getType() == Material.LAVA && BlockLocation.add(0, 1, 0).getBlock().getType() == Material.AIR) {
+                        Block.setType(Material.OBSIDIAN);
+                        ObsidianedLava.put(Block, (int) (100 + Math.floor(Math.random() * 40)));
+                    }
+                    else if (ObsidianedLava.containsKey(Block)) {
+                        Block.setType(Material.OBSIDIAN);
+                        ObsidianedLava.replace(Block, (int) (100 + Math.floor(Math.random() * 40)));
+                    }
                 }
             }
         }
