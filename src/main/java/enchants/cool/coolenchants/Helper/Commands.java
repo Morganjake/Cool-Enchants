@@ -40,6 +40,10 @@ public class Commands implements CommandExecutor, TabCompleter {
                 Toggle(Player, "toggletreecapitator");
                 Player.sendMessage("§3The Treecapitator enchant has been toggled " + (GetJsonValue(Player, "toggletreecapitator") ? "on" : "off"));
             }
+            else if (Objects.equals(Args[0], "togglenightvision")) {
+                Toggle(Player, "togglenightvision");
+                Player.sendMessage("§3The night vision enchant has been toggled " + (GetJsonValue(Player, "togglenightvision") ? "on" : "off"));
+            }
         }
         return true;
     }
@@ -50,6 +54,7 @@ public class Commands implements CommandExecutor, TabCompleter {
 
         suggestions.add("toggletunneller");
         suggestions.add("toggletreecapitator");
+        suggestions.add("togglenightvision");
 
         return suggestions;
     }

@@ -52,6 +52,7 @@ public class JsonHandler extends JavaPlugin {
             JsonObject PlayerEntry = new JsonObject();
             PlayerEntry.addProperty("toggletunneller", true);
             PlayerEntry.addProperty("toggletreecapitator", true);
+            PlayerEntry.addProperty("togglenightvision", true);
             Json.add(Player.getName(), PlayerEntry);
             SaveJson();
         }
@@ -63,6 +64,10 @@ public class JsonHandler extends JavaPlugin {
             PlayerJson.addProperty(Key, !Value);
             SaveJson();
         }
+        else {
+            PlayerJson.addProperty(Key, true);
+            SaveJson();
+        }
     }
 
     public static boolean GetJsonValue(Player Player, String Key) {
@@ -70,11 +75,17 @@ public class JsonHandler extends JavaPlugin {
             JsonObject PlayerEntry = new JsonObject();
             PlayerEntry.addProperty("toggletunneller", true);
             PlayerEntry.addProperty("toggletreecapitator", true);
+            PlayerEntry.addProperty("togglenightvision", true);
             Json.add(Player.getName(), PlayerEntry);
             SaveJson();
         }
 
         JsonObject PlayerJson = Json.getAsJsonObject(Player.getName());
+
+        if (!PlayerJson.has(Key)) {
+            PlayerJson.addProperty(Key, true);
+            SaveJson();
+        }
 
         return PlayerJson.has(Key) && PlayerJson.get(Key).getAsBoolean();
     }
